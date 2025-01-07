@@ -1,0 +1,34 @@
+scripts/
+└── meetingToVoice/
+    ├── breakMeetingTextToSections/
+    │   ├── chunkingMeetingTextToSections/
+    │   │   ├── outputSectionChunks/
+    │   │   └── chunkingMeetingTextToSections.py
+    │   ├── createIssueMetadataFiles/
+    │   │   ├── outputSectionMetadataFiles/
+    │   │   ├── processedTranscriptionTextFiles/
+    │   │   └── createIssueMetadataFiles.py
+    │   └── metadataSecondPass/
+    │       ├── outputReportSummaryFiles/
+    │       ├── processedMetadataFiles/
+    │       └── metadataSecondPass.py
+    ├── createNewsReports/
+    │   ├── createReportBlueprintFiles/
+    │   │   ├── outputChunkMetadataFiles/
+    │   │   ├── processedSectionChunkFiles/
+    │   │   └── createReportBlueprintFiles.py
+    │   ├── createTextNewsReports/
+    │   │   ├── processedChunkMetadataFiles/
+    │   │   └── createTextNewsReports.py
+    │   └── createAudioFiles/
+    │       └── createAudioFiles.py
+    ├── finalOutput/
+    │       ├── reportTextFiles/
+    │       └── audioFiles/
+    ├── TextTranscriptions/
+    │   ├── outputTextTranscriptions/
+    │   └── processedTextTranscriptions/
+    └── transcribeMeetingAudioToText/
+        ├── inputAudioFiles/
+        ├── processedAudioFiles/
+        └── transcribeVideoAudioToText.py

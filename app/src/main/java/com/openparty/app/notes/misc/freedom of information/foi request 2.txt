@@ -1,0 +1,85 @@
+// I think this is a good request but I ended up not using it
+// What I'm asking for here is kind of insane, it requires a huge amount of accountancy and a lot  of legal work
+// I think they'd likely charge me for this, or even just knock it back
+// Worse, if I ask for too much they might just give bad or lackluster answers in order to meet the deadline
+// I decided I needed to be more focussed so I'm not going to ask for the detailed financial  breakdown
+// Instead, my main goal is to get the tree structure in all of it's granularity - map out what all the services are and how much they cost
+// My secondary goal is to find out which services are statutory or discretionary
+// My third goal is to find out the legal requirements from the government dictating these services (and getting a source for each) 
+// The third goal in itself might be overkill, even that requires fairly serious law work 
+// Having said that, figuring out which services are discretionary or statutory requires you to look at all these laws anyway so why not just give them to me
+// I'm  going to simplify this request with these aims: Get the tree structure in full granularity, get the spending on each service, find out what's statutory or discretionary, if it's statutory, give me the laws
+
+Under the Freedom of Information (Scotland) Act 2002, I am writing to request access to records detailing West Lothian Council’s services and financial transactions for the year 2024.
+
+Please supply a list of the all services that the council provided in the year 2024.
+
+Also provide the total amount spent by the council in the year 2024. 
+The cost for all services given above should equal the total amount spent by the council in 2024.
+If this is not the case, explain any discrepancies between the total spend on services and the total amount spent by the council.
+
+For each service, provide the following information:
+- A description of that service - including the reason the service exists, what it does and who it serves
+- Whether the given service is statutory or discretionary
+- The total amount spent on that service
+
+Then break down each service into its primary functions.
+For example, if the service was "Children's Services", then a function might be "Foster Care and Adoption Services".
+If the service was "Adult Social Care", then a function might be "Services for Individuals with Disabilities".
+
+For each function, give the total amount spent. The cost for all functions given above should equal the total amount spent for that service.
+For example, if the service was "Children's Services" it might have the following functions: 
+    - Adoption Services
+    - Early Help and Family Support
+    - Youth Offending Services
+In this case, the cost of each of those function should add up to the total cost spent on Children's Services.
+If the cost for all functions does not add up to the amount spent on the services then explain any discrepencies. 
+
+For each function give the following:
+- A description of that function - including the reason the function exists, what it does and who it serves
+- Whether the function is statutory or discretionary
+- If it is statutory, give the legal requirements for that service given by the government and give a source for that requirement (such as the document and page number it is found in)
+- The requirements from the council for that service
+    - For example requirements the council has mandated for that service
+- A breakdown of where the money for that function was spent
+    - For any area of spend, mention what the purpose of the spend was, what was purchased and who the money went to
+    - If that money is given to a specific institution or company mention who it was given to and why
+    - This only needs to be done for major areas of spend
+
+All information I am requesting above is for the year 2024. 
+
+-----------
+
+I am writing to request the following information.
+
+Please supply me with a list of the all services that the council provided in the year 2024.
+
+For each service, please provide me with the following information:
+- The purpose of that service and what it does
+- Whether that service is statutory or discretionary
+    - If that service contains functions that are both statutory and discretionary, specify which functions are statutory and which are discretionary
+- The legal requirements for that service (i.e. what the scottish government mandates the council must do or what targets the council has agreed to meet)
+    - For each statutory requirement give a source for where it can be found
+- The total amount of spend for that service
+- A breakdown of the major functions of that service. For each function give:
+    - The purpose of that function and what it does
+    - How much money was spent on that function
+    - A breakdown of where that money was spent
+        - For any area of spend, mention who it went to and why (i.e. what was the purpose of it)
+        - If that money is given to a specific institution or company mention who it was given to and why
+        - This only needs to be done for major areas of spend
+
+**
+You probably need to give an example
+Don't give too much guidance though or it'll ruin it
+**
+
+Also please supply me with the total spend for the council for the year 2024
+
+Give a statement explaining the difference between the total spend stated above for all services for the 2024 and the total spend of the council.
+
+If there is a major discrepency between the amount of total spend on services mentioned and the total council spend, give a breakdown of the major areas of spend
+
+All information I am requesting above should relate to the year 2024, not any other time period.
+
+Let me know if this request is likely to incur cost.

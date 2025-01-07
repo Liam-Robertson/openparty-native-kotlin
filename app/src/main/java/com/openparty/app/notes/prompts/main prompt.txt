@@ -1,0 +1,126 @@
+com.openparty.app
+├── core
+│   ├── analytics
+│   ├── firebase
+│   │   └── feature_firebase_storage
+│   ├── network
+│   │   └── TokenInterceptor.kt
+│   ├── shared
+│   │   └── TokenInterceptor.kt
+│   ├── presentation
+│   │   ├── AppSnackbarHost.kt
+│   │   ├── BaseUiState.kt
+│   │   ├── BaseViewModel.kt
+│   │   ├── LoadingScreen.kt
+│   │   ├── UiEvent.kt
+│   │   └── UiEventHandler.kt
+│   ├── storage
+│   │   ├── EncryptedSharedPreferences.kt
+│   │   └── SecureStorage.kt
+│   └── util
+│       └── AppUtils.kt
+├── di
+│   ├── AppModule.kt
+│   └── NetworkModule.kt
+├── features
+│   ├── engagement
+│   │   └── comments
+│   │       ├── feature_add_comment
+│   │       ├── feature_comments_section
+│   │       └── shared
+│   ├── newsfeed
+│   │   ├── council_meetings
+│   │   │   ├── feature_council_meetings_article
+│   │   │   ├── feature_council_meetings_preview
+│   │   │   ├── feature_media_playback
+│   │   │   └── shared
+│   │   ├── discussions
+│   │   │   ├── feature_add_discussion
+│   │   │   ├── feature_add_discussions_article
+│   │   │   ├── feature_add_discussions_preview
+│   │   │   └── shared
+│   │   └── shared
+│   ├── shared
+│   │   ├── feature_permissions
+│   │   └── feature_user
+│   └── startup
+│       ├── account
+│       │   ├── feature_login
+│       │   ├── feature_register
+│       │   └── shared
+│       ├── feature_authentication
+│       ├── feature_screen_name_generation
+│       ├── feature_splash
+│       └── verification
+│           ├── feature_email_verification
+│           ├── feature_location_verification
+│           └── feature_manual_verification
+├── main
+│   ├── di/
+│   ├── MainActivity.kt
+│   └── MainActivityViewModel.kt
+├── navigation
+│   ├── AppNavigation.kt
+│   ├── NavDestinations.kt
+│   └── NavDestinations.kt
+├── scripts
+│   ├── firebaseScripts
+│   ├── meetingToVoice
+│   └── util
+├── ui.theme
+│   ├── Color.kt
+│   ├── Theme.kt
+│   └── Type.kt
+└── OpenPartyApp.kt
+
+-------------
+
+{{MAIN_CODE_BLOCK}}
+
+-------------
+
+Here are some architecture guidelines I want you to follow: 
+
+[IMPORTANT]
+- Does it have logs in key areas?
+  - Not too many log, just logging key events
+  - Logs also should not be in the screen layer
+- Does it give strong user feedback?
+  - Always show errors to the user using a snackbar
+  - i.e. when there is an error, does it show a snackbar to the user saying what the error is? 
+  - It should not show the user the raw error, it should show the user the error in a human readable format, telling them what the error is in simple terms
+  - The raw error should also be printed to the logs for the tech team 
+  - Always use DomainResult instead of Result so that I can return AppError to the user
+  This is how I specifically want errors to be handled in each layer: 
+  - In the FirebaseDataSource layer, I want raw errors to be caught, printed to logs for the tech team, then thrown so they can be caught at the repository layer
+  - In the repository layer, if errors occur they should return DomainResult.Failure with a specific error code e.g. return DomainResult.Failure(AppError.RegisterError())
+  - In the use case, if there is a more specific error code that should be returned, then return that. Otherwise just return the DomainResut.Failure from the repository impl
+    - If an Error code for your specific error doesn't exist, feel free to add one in AppError
+  - The presentation layer will then map the DomainResut.Failure error code to a human readable message which is sent to the snackbar in the UI
+- Does it use centralised, classes for things like Result, UiState, Uievent? 
+  - I want these to be centralised to reduce code duplication 
+  - If they need to be customised for a speccific feature, you can make a new one or extend the base class
+- Does it use use cases for business logic to maintain the single responsibility principle? 
+  - The only business logic that shouldn't be in use cases is logic relating directly to the data layer (which should be in the repository impl class) 
+- For the presentation layer, does it have all navigation logic in the view model class, and then collect navigation events in the screen class?
+  - i.e. navigation logic should be in the view model, not in the screen
+  - The screen should just have launched events that collect navigation events 
+
+-------------
+
+Assume that all code uses firebase, dagger hilt dependency injection, and jetpack compose. 
+
+This is my android kotlin jetpack compose, dagger hilt project. 
+
+don't leave comments in the code 
+
+Only give me files where you have made changes. If you haven't changed a file, don't give it to me
+
+Whenever you give me a code file, give me the entire file, don't abbreviate anything
+
+Always answer in chat, don't give code blocks
+
+IMPORTANT - For any answer you give me, use the most robust and scalable architecture possible. 
+
+-------------
+

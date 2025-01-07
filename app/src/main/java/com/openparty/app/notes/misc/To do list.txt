@@ -1,0 +1,19 @@
+Before launch:
+- Firebase rules
+- Analytics
+- Prod database
+
+To do:
+- Check user registering database objects works correctly
+- Initial loading takes a while. Also doesn't load everything at once
+- Fix firebase database rules read/write
+- Tracking user usage
+- Better error handling
+- Better logging
+
+Later:
+- Link youtube video in text
+- Report bug page
+
+Bugs:
+- You can create an account that already exists (I think?)

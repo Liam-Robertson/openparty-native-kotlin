@@ -1,0 +1,79 @@
+[
+  {
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.mp3",
+    "contentText": "./articleText/West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.txt",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.jpg",
+    "timestamp": "2024-12-04T13:02:58Z",
+    "title": "West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages",
+    "upvoteCount": 30,
+    "downvoteCount": 6,
+    "commentCount": 29
+  },
+  {
+    "councilMeetingId": "NDrQEWylELcD5JoxqoWh",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-24_Antisocial Behaviour Management and Legislative Reforms Required.mp3",
+    "contentText": "./articleText/Antisocial Behaviour Management and Legislative Reforms Required.txt",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-24_Antisocial Behaviour Management and Legislative Reforms Required.jpg",
+    "timestamp": "2024-12-15T17:39:37Z",
+    "title": "Antisocial Behaviour Management and Legislative Reforms Required",
+    "upvoteCount": 2,
+    "downvoteCount": 3,
+    "commentCount": 26
+  },
+  {
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-24_Challenges and Criticisms on Winter Fuel Payments and Pensioner Support.mp3",
+    "contentText": "./articleText/Challenges and Criticisms on Winter Fuel Payments and Pensioner Support.txt",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-24_Challenges and Criticisms on Winter Fuel Payments and Pensioner Support.jpg",
+    "timestamp": "2024-10-23T05:41:26Z",
+    "title": "Challenges and Criticisms on Winter Fuel Payments and Pensioner Support",
+    "upvoteCount": 17,
+    "downvoteCount": 4,
+    "commentCount": 26
+  },
+  {
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-24_Community Asset Transfer Challenges in West Lothian.mp3",
+    "contentText": "./articleText/Community Asset Transfer Challenges in West Lothian.txt",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-24_Community Asset Transfer Challenges in West Lothian.jpg",
+    "timestamp": "2024-03-15T10:37:19Z",
+    "title": "Community Asset Transfer Challenges in West Lothian",
+    "upvoteCount": 19,
+    "downvoteCount": 4,
+    "commentCount": 18
+  },
+  {
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-24_Efforts and Challenges in Expanding GP and Healthcare Facilities.mp3",
+    "contentText": "./articleText/Efforts and Challenges in Expanding GP and Healthcare Facilities.txt",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-24_Efforts and Challenges in Expanding GP and Healthcare Facilities.jpg",
+    "timestamp": "2024-10-05T04:15:08Z",
+    "title": "Efforts and Challenges in Expanding GP and Healthcare Facilities",
+    "upvoteCount": 11,
+    "downvoteCount": 5,
+    "commentCount": 18
+  },
+  {
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-24_Impact of Austerity and Financial Constraints on Local Council Services.mp3",
+    "contentText": "./articleText/Impact of Austerity and Financial Constraints on Local Council Services.txt",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-24_Impact of Austerity and Financial Constraints on Local Council Services.jpg",
+    "timestamp": "2024-05-10T13:07:41Z",
+    "title": "Impact of Austerity and Financial Constraints on Local Council Services",
+    "upvoteCount": 25,
+    "downvoteCount": 6,
+    "commentCount": 7
+  },
+  {
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-24_Plans for Road and Transport Infrastructure Development in West Lothian.mp3",
+    "contentText": "./articleText/Plans for Road and Transport Infrastructure Development in West Lothian.txt",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-24_Plans for Road and Transport Infrastructure Development in West Lothian.jpg",
+    "timestamp": "2024-08-26T23:51:41Z",
+    "title": "Plans for Road and Transport Infrastructure Development in West Lothian",
+    "upvoteCount": 40,
+    "downvoteCount": 7,
+    "commentCount": 10
+  }
+]

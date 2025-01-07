@@ -1,0 +1,1210 @@
+com.openparty.app
+├── core
+│   └── data
+│       └── storage
+│           ├── EncryptedSharedPreferencesSecureStorage.kt
+│           └── SecureStorage.kt
+├── di
+│   ├── AppModule.kt
+│   ├── CommentsModule.kt
+│   ├── EngagementModule.kt
+│   ├── LocationVerificationModule.kt
+│   ├── UserModule.kt
+│   ├── SplashModule.kt
+│   └── AuthenticationModule.kt
+├── features
+│   ├── authentication
+│   │   ├── feature_authentication
+│   │   │   ├── data
+│   │   │   │   └── AuthenticationRepositoryImpl.kt
+│   │   │   ├── domain
+│   │   │   │   └── AuthenticationUseCase.kt
+│   │   │   └── presentation
+│   │   │       ├── AuthenticationScreen.kt
+│   │   │       └── AuthenticationViewModel.kt
+│   │   └── feature_write_protection
+│   │       ├── data
+│   │       │   └── WriteProtectionRepositoryImpl.kt
+│   │       ├── domain
+│   │       │   └── WriteProtectionUseCase.kt
+│   │       └── presentation
+│   │           ├── NotAuthorisedPopup.kt
+│   │           └── WriteProtectionViewModel.kt
+│   ├── engagement
+│   │   ├── feature_comments
+│   │   │   ├── data
+│   │   │   │   ├── CommentsRemoteDataSource.kt
+│   │   │   │   └── CommentsRepositoryImpl.kt
+│   │   │   ├── domain
+│   │   │   │   ├── model
+│   │   │   │   │   ├── CommentData.kt
+│   │   │   │   │   └── CommentNode.kt
+│   │   │   │   └── repository
+│   │   │   │       └── CommentsRepository.kt
+│   │   │   └── presentation
+│   │   │       ├── AddCommentScreen.kt
+│   │   │       ├── AddCommentViewModel.kt
+│   │   │       ├── CommentCard.kt
+│   │   │       ├── CommentsCardList.kt
+│   │   │       ├── CommentsSection.kt
+│   │   │       └── AddCommentFooter.kt
+│   │   └── feature_engagement
+│   │       ├── data
+│   │       │   ├── EngagementRemoteDataSource.kt
+│   │       │   └── EngagementRepositoryImpl.kt
+│   │       ├── domain
+│   │       │   └── repository
+│   │       │       └── EngagementRepository.kt
+│   │       └── presentation
+│   │           ├── CommentEngagementBar.kt
+│   │           └── PostEngagementBar.kt
+│   ├── feature_user
+│   │   ├── data
+│   │   │   └── UserRepositoryImpl.kt
+│   │   ├── domain
+│   │   │   └── repository
+│   │   │       └── UserRepository.kt
+│   │   └── presentation
+│   │       ├── UserScreen.kt
+│   │       ├── EditUserScreen.kt
+│   │       └── UserViewModel.kt
+│   ├── newsfeed
+│   │   ├── feature_caching
+│   │   │   ├── data
+│   │   │   │   └── CachingItemsManager.kt
+│   │   │   ├── domain
+│   │   │   │   ├── model
+│   │   │   │   │   └── VoteState.kt
+│   │   │   │   └── usecase
+│   │   │   │       └── CachingItemsUseCase.kt
+│   │   │   └── presentation
+│   │   │       └── CachingItemsViewModel.kt
+│   │   ├── feature_discussions
+│   │   │   ├── data
+│   │   │   │   ├── CommentsRemoteDataSource.kt
+│   │   │   │   ├── DiscussionsFirestorePagingSource.kt
+│   │   │   │   ├── DiscussionsPagingSourceFactory.kt
+│   │   │   │   ├── DiscussionsRemoteDataSource.kt
+│   │   │   │   ├── DiscussionsRepositoryImpl.kt
+│   │   │   │   └── DiscussionVotesRemoteDataSource.kt
+│   │   │   ├── domain
+│   │   │   │   ├── model
+│   │   │   │   │   ├── DiscussionArticleData.kt
+│   │   │   │   │   └── DiscussionPreviewData.kt
+│   │   │   │   └── repository
+│   │   │   │       └── DiscussionsRepository.kt
+│   │   │   └── presentation
+│   │   │       ├── article
+│   │   │       │   ├── DiscussionArticleScreen.kt
+│   │   │       │   └── DiscussionArticleViewModel.kt
+│   │   │       └── preview
+│   │   │           ├── AddDiscussionButton.kt
+│   │   │           ├── AddDiscussionScreen.kt
+│   │   │           ├── AddDiscussionViewModel.kt
+│   │   │           ├── DiscussionsPreviewCard.kt
+│   │   │           ├── DiscussionsPreviewCardData.kt
+│   │   │           ├── DiscussionsPreviewScreen.kt
+│   │   │           ├── DiscussionsPreviewViewModel.kt
+│   │   │           └── PreviewTextContent.kt
+│   │   └── feature_newsfeed
+│   │       ├── data
+│   │       │   ├── remote
+│   │       │   │   └── NewsfeedApi.kt
+│   │       │   ├── NewsfeedArticlesRemoteDataSource.kt
+│   │       │   ├── NewsfeedCommentsRemoteDataSource.kt
+│   │       │   ├── NewsfeedFirestorePagingSource.kt
+│   │       │   ├── NewsfeedPagingSourceFactory.kt
+│   │       │   ├── NewsfeedRepositoryImpl.kt
+│   │       │   └── NewsfeedVotesRemoteDataSource.kt
+│   │       ├── domain
+│   │       │   ├── model
+│   │       │   │   ├── NewsfeedArticleData.kt
+│   │       │   │   └── NewsfeedPreviewData.kt
+│   │       │   └── repository
+│   │       │       └── NewsfeedRepository.kt
+│   │       ├── media
+│   │       │   ├── MediaPlaybackService.kt
+│   │       │   └── PlayerListener.kt
+│   │       └── presentation
+│   │           ├── article
+│   │           │   ├── NewsfeedArticleScreen.kt
+│   │           │   └── NewsfeedArticleViewModel.kt
+│   │           └── preview
+│   │               ├── NewsfeedPreviewCard.kt
+│   │               ├── NewsfeedPreviewCardData.kt
+│   │               ├── NewsfeedPreviewScreen.kt
+│   │               └── NewsfeedPreviewViewModel.kt
+│   ├── shared
+│   │   └── presentation
+│   │       ├── article
+│   │       │   ├── ArticleText.kt
+│   │       │   └── ArticleTitle.kt
+│   │       ├── post
+│   │       │   └── PostFooter.kt
+│   │       ├── preview
+│   │       │   └── PreviewCardList.kt
+│   │       └── util
+│   │           ├── LoadingScreen.kt
+│   │           └── TimestampFormatter.kt
+│   └── startup
+│       ├── feature_login
+│       │   ├── data
+│       │   │   └── LoginRepositoryImpl.kt
+│       │   ├── domain
+│       │   │   └── repository
+│       │   │       └── LoginRepository.kt
+│       │   └── presentation
+│       │       ├── EmailVerificationScreen.kt
+│       │       ├── EmailVerificationViewModel.kt
+│       │       ├── LoginScreen.kt
+│       │       ├── LoginViewModel.kt
+│       │       ├── RegisterScreen.kt
+│       │       ├── RegisterViewModel.kt
+│       │       ├── ScreenNameGeneratorScreen.kt
+│       │       ├── ScreenNameGeneratorUiState.kt
+│       │       └── ScreenNameGeneratorViewModel.kt
+│       ├── feature_splash
+│       │   ├── data
+│       │   │   └── SplashRepositoryImpl.kt
+│       │   ├── domain
+│       │   │   └── SplashUseCase.kt
+│       │   └── presentation
+│       │       ├── SplashScreen.kt
+│       │       └── SplashViewModel.kt
+│       └── feature_verification
+│           ├── data
+│           │   └── LocationVerificationRepositoryImpl.kt
+│           ├── domain
+│           │   └── LocationVerifier.kt
+│           └── presentation
+│               ├── LocationVerifierScreen.kt
+│               └── LocationVerifierUiState.kt
+├── navigation
+│   ├── AppNavHost.kt
+│   ├── NavDestinations.kt
+│   └── NavigationFooter.kt
+├── scripts
+│   ├── firebaseScripts
+│   ├── meetingToVoice
+│   └── util
+├── ui.theme
+│   ├── Color.kt
+│   ├── Theme.kt
+│   └── Type.kt
+├── OpenPartyApp.kt
+└── MainActivity.kt
+
+
+-------------
+
+{{MAIN_CODE_BLOCK}}
+
+-------------
+
+Firestore Database Schema
+
+Discussions Collection (discussions)
+
+Each document in this collection represents a discussion.
+
+- Document ID (discussionId): Unique identifier for the discussion.
+
+- Fields:
+  - title (String): The title of the discussion.
+  - contentText (String): The text content of the discussion.
+  - timestamp (Timestamp): Creation time of the discussion.
+  - upvoteCount (Number): Total number of upvotes.
+  - downvoteCount (Number): Total number of downvotes.
+  - commentCount (Number): Total number of comments.
+
+Example Document Structure:
+json
+{
+  "title": "Community Discussion on Education",
+  "contentText": "This is the text of the discussion article...",
+  "timestamp": "2023-10-01T15:00:00Z",
+  "upvoteCount": 50,
+  "downvoteCount": 5,
+  "commentCount": 10
+}
+
+
+Discussion Votes Collection (discussion_votes)
+
+This collection stores individual upvote and downvote actions by users on discussions.
+
+- Document ID: Combination of discussionId and userId (e.g., discussionId_userId) or auto-generated.
+
+- Fields:
+  - discussionId (String): Reference to the discussion.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "discussionId": "discussionABC",
+  "userId": "user789",
+  "type": "upvote",
+  "timestamp": "2023-10-02T12:30:00Z"
+}
+
+
+Articles Collection (articles)
+
+Each document in this collection represents a newsfeed article.
+
+- Document ID (articleId): Unique identifier for the article.
+
+- Fields:
+  - title (String): The title of the article.
+  - thumbnailUrl (String): URL of the article's thumbnail image.
+  - contentText (String): The text content of the article.
+  - audioUrl (String): URL of the associated audio file.
+  - timestamp (Timestamp): Creation time of the article.
+  - upvoteCount (Number): Total number of upvotes.
+  - downvoteCount (Number): Total number of downvotes.
+  - commentCount (Number): Total number of comments.
+
+Example Document Structure:
+json
+{
+  "title": "Local Government Addresses Social Housing",
+  "thumbnailUrl": "https://example.com/thumbnail.jpg",
+  "contentText": "Detailed article content goes here...",
+  "audioUrl": "https://example.com/audio.mp3",
+  "timestamp": "2023-10-01T12:00:00Z",
+  "upvoteCount": 150,
+  "downvoteCount": 10,
+  "commentCount": 25
+}
+
+
+Article Votes Collection (article_votes)
+
+This collection stores individual upvote and downvote actions by users on articles.
+
+- Document ID: Combination of articleId and userId (e.g., articleId_userId) or auto-generated.
+
+- Fields:
+  - articleId (String): Reference to the article.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "articleId": "article123",
+  "userId": "user456",
+  "type": "upvote",
+  "timestamp": "2023-10-01T12:30:00Z"
+}
+
+
+Comments Collection (comments)
+
+This collection stores all comments and replies associated with both articles and discussions.
+
+- Document ID (commentId): Unique identifier for the comment or reply.
+
+- Fields:
+  - articleId (String, nullable): Reference to the associated article if it's a comment on an article. Null if it's on a discussion.
+  - discussionId (String, nullable): Reference to the associated discussion if it's a comment on a discussion. Null if it's on an article.
+  - parentCommentId (String, nullable): ID of the parent comment if it's a reply; null if it's a top-level comment.
+  - userId (String): Reference to the user who made the comment.
+  - screenName (String): The screenName of the commenter.
+  - contentText (String): The text content of the comment.
+  - timestamp (Timestamp): Time when the comment was made.
+  - upvoteCount (Number): Total number of upvotes for the comment.
+  - downvoteCount (Number): Total number of downvotes for the comment.
+  - repliesCount (Number): Total number of replies to this comment.
+
+Example Document Structure:
+json
+{
+  "articleId": "article123",
+  "discussionId": null,
+  "parentCommentId": null,
+  "userId": "user789",
+  "screenName": "JaneDoe",
+  "contentText": "This is a top-level comment.",
+  "timestamp": "2023-10-01T13:00:00Z",
+  "upvoteCount": 20,
+  "downvoteCount": 2,
+  "repliesCount": 3
+}
+
+Another Example (for a discussion):
+json
+{
+  "articleId": null,
+  "discussionId": "discussionABC",
+  "parentCommentId": null,
+  "userId": "user789",
+  "screenName": "Whimsical Moonlit Forest",
+  "contentText": "This is a discussion comment.",
+  "timestamp": "2023-10-02T13:00:00Z",
+  "upvoteCount": 10,
+  "downvoteCount": 1,
+  "repliesCount": 2
+}
+
+
+Comment Votes Collection (comment_votes)
+
+This collection stores individual upvote and downvote actions by users on comments.
+
+- Document ID: Combination of commentId and userId (e.g., commentId_userId) or auto-generated.
+
+- Fields:
+  - commentId (String): Reference to the comment.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "commentId": "comment456",
+  "userId": "user789",
+  "type": "downvote",
+  "timestamp": "2023-10-01T13:15:00Z"
+}
+
+
+Users Collection (users)
+
+The users collection stores user information along with their account types and any additional fields relevant to their roles.
+
+- Document ID (userId): Unique identifier for the user.
+
+- Fields:
+  - governmentName (String): The real name of the user.
+  - screenName (String): The name displayed to other users. For representatives, this is the same as their governmentName. For constituents, this is an anonymous system-generated name.
+  - accountType (String): The type of user account. Possible values: "Admin", "Constituent", "Representative".
+  - title (String, nullable): Applicable only for Representative accounts (e.g., "Councillor", "Member of Parliament").
+  - fullyVerified (Boolean): Indicates if the user has been verified by a software developer.
+  - locationVerified (Boolean): Indicates if the user's location has been verified.
+  - location (String, nullable): The verified location of the user, if locationVerified is true.
+  - otherUserInfo (Object):
+    - email (String): The user's email.
+    - profilePictureUrl (String, nullable): The user's profile picture URL.
+    - phoneNumber (String, nullable): The user's phone number, if provided.
+
+Example Document Structures:
+
+Admin Account:
+json
+{
+  "governmentName": "John Admin",
+  "screenName": "John Admin",
+  "accountType": "Admin",
+  "title": null,
+  "fullyVerified": true,
+  "locationVerified": false,
+  "location": null,
+  "otherUserInfo": {
+    "email": "admin@example.com",
+    "profilePictureUrl": "https://example.com/admin_profile.jpg",
+    "phoneNumber": "+15555550123"
+  }
+}
+
+
+Constituent Account:
+json
+{
+  "governmentName": "John Doe",
+  "screenName": "Whimsical Moonlit Forest",
+  "accountType": "Constituent",
+  "title": null,
+  "fullyVerified": false,
+  "locationVerified": true,
+  "location": "West Lothian",
+  "otherUserInfo": {
+    "email": "johndoe@example.com",
+    "profilePictureUrl": "https://example.com/john_profile.jpg",
+    "phoneNumber": "+15555550124"
+  }
+}
+
+
+Representative Account:
+json
+{
+  "governmentName": "Jane Smith",
+  "screenName": "Jane Smith",
+  "accountType": "Representative",
+  "title": "Councillor",
+  "fullyVerified": true,
+  "locationVerified": true,
+  "location": "West Lothian",
+  "otherUserInfo": {
+    "email": "janesmith@example.com",
+    "profilePictureUrl": "https://example.com/jane_profile.jpg",
+    "phoneNumber": "+15555550125"
+  }
+}
+
+-------------
+
+- I want to track analytics using firebase. I'll describe the key metrics to track below
+- I want to have all metrics to be split by consituent and Representative accounts 
+    - i.e. users can have account type "Consistuent" or "Representative". I want each metric to be split by this account type 
+
+Metrics to track:
+- Number of daily active users 
+- Number of new users 
+- User retention
+- Number of times a user opens a discussions preview article 
+- Number of times a user opens a newsfeed preview article 
+- Number of times a user posts a discussion article
+- Number of times a user leaves a comment on a newsfeed article 
+- Number of times a user leaves a comment on a discussions article 
+
+Number of daily active users:
+- Just track the number of daily active users 
+- Also tell me how many times a day they used the app 
+
+Number of times a user opens a discussions preview article 
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user opens an item on the discussions preview screen
+
+Number of times a user opens a newsfeed preview article 
+- I want this to be split by consituent and Representative accounts `
+- Track every time a user opens an item on the newsfeed preview screen
+
+Number of times a user posts a discussion article:
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user adds a discussion through Add Post screen 
+
+Number of times a user leaves a comment on a newsfeed article :
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user leaves a comment on a newsfeed article through the add comment screen
+- This has to track specifically newsfeed article comment, not just comments of any kind
+
+Number of times a user leaves a comment on a discussions article :
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user leaves a comment on a discussions article through the add comment screen
+- This has to track specifically discussions article comment, not just comments of any kind
+
+-------------
+
+IMPORTANT - At the top of your reponse, include this text - "
+Add in:
+functionality to secure api calls with tokens
+token refreshes
+Implement network interceptors with tools like Retrofit, using Firebase's access tokens for authentication headers (`Authorization: Bearer <token>`).
+Protected routes
+Handle errors
+Display Firebase-generated error messages for invalid login attempts or network issues in a user-friendly manner.
+Provide generic error messages to avoid exposing sensitive details (e.g., "Invalid credentials" instead of "User does not exist").
+"
+
+Assume that all code uses firebase, dagger hilt dependency injection, and jetpack compose. 
+
+MainActivity: 
+- Very simple, just contains the AppNavigation(navcontroller)
+
+navigation: 
+- Kept in a navigation folder at base package level 
+- The navigation is handled by the AppNavigation class
+- It's input parameters are the navController and the splash view model
+- From the splash view model, it collects the state flow of AuthState 
+    - AuthState contains the userId, isLoggedIn, isEmailVerified, isLocationVerified, isScreenNameGenerated
+- The navhost has start destination set to splash
+- it then uses a NavDestinations file which holds enums to define these routes: 
+    - SPLASH, LOADING, LOGIN, REGISTER, EMAIL_VERIFICATION, LOCATION_VERIFICATION, SCREEN_NAME_GENERATOR, COUNCIL_MEETING_PREVIEW, COUNCIL_MEETING_ARTICLE, DISCUSSION_PREVIEW, DISCUSSION_ARTICLE, ADD_COMMENT, ADD_DISCUSSION
+
+feature_splash
+- Contains the splash screen which is shown on startup 
+- Only contains a splash screen and a splash view model 
+- Splash Screen:
+    - The splash screen collects the auth state from the splash view model, 
+    - The auth state contains whether the authentication state variables: isLoggedIn, isEmailVerified, isLocationVerified, isScreenNameGenerated
+    - Has a launched effect, then a 2000 delay, then a when statement
+    - The goes through auth states in order from authState and navigates based on auth state in this order: 
+        - isLoggedIn.not() -> login screen
+        - isEmailVerified.not() -> email verification screen
+        - isLocationVerified.not() -> location verification screen
+        - isScreenNameGenerated.not -> screen name generation screen
+        - else ->  discussions preview screen 
+    - At the bottom it has a Box() which says "Welcome to Open Party" 
+- Splash view model: 
+    - Takes in the authRepository in the constructor
+    - Has a stateflow variable authState, that is tied to authRepository.observeAuthState()
+        - The authRepository.observeAuthState() returns an AuthState object which contains userId, isLoggedIn, isEmailVerified,  isLocationVerified, isScreenNameGenerated
+            i.e. all the state parameters needed to determine the user's authentication level 
+        - There is a .stateIn method to convert it from Flow to StateFlow
+
+feature_auth:
+- This feature holds all the logic for authenticating the user such as isLoggedIn, isEmailVerified, isLocationVerified etc
+- AuthRepository:
+    - Contains these methods: signIn, signOut, sendEmailVerification, isEmailVerified, observeAuthState
+- AuthRepositoryImpl:
+    - Takes in FireBaseAuth, SecureStorage and userRepository in the constructor
+    - signIn method
+        - Uses fireBaseAuth to sign in with email and password, 
+        - Gets user object from firebaseAuth
+        - gets token from user object and stores token in SecureStorage
+        - It does this for session management 
+    - signOut method:
+        - signs out using firebaseAuth and clears token using secureStorage
+    - sendEmailVerification method:
+        - uses firebaseAuth to send email verification
+    - isEmailVerified:
+        - uses firebaseAuth to get the current user, then checks currentUser.isEmailVerified
+    - observeAuthState method:
+        - This method is automatically called when the splash screen starts up 
+        - It then registers an AuthStateListener adn starts monitoring changes to the authentication state 
+        - So if the user somehow logged out during firebase, this method would be called 
+        - The observeAuthState method starts by looking for a user that's currently logged in
+        - If it can't find one, it sets the AuthState parameters to null or false and emits an event
+        - If it finds one, it does this: 
+            - Calls userRepository.getUser(user.uuid) to fetch the current user object from firebase
+            - It now has two user objects: the one from FireBaseAuth called firebaseAuthUser, and the one from the database called firebaseDatabaseUser
+            - For the AuthState object it sets these fields:
+                - isLoggedIn from the firebaseAuthUser
+                - isEmailVerified from the firebaseAuthUser
+                - isLocationVerified from the firebaseDatabaseUser
+                - isScreenNameGenerator from the firebaseDatabaseUser
+                - userId from the firebaseAuthUser
+            - It then emits an event with the AuthState
+- The auth feature has these use cases: 
+    - SignInUseCase, SendEmailVerificationUseCase, CheckEmailVerifiedUseCase, CheckLocationVerifiedUseCase 
+- Key features:
+    - Uses firebase authentication to handle token generation and management 
+    - Stores Firebase authentication tokens using EncryptedSharedPreferences for local security (when the user signs in)
+    - Firebase automatically refreshes these tokens when needed
+    - Firebase handles passwords, logins and email verifications 
+    - Uses firebase tokens for secure API calls 
+    - Lets the user have build in session persistence so they can maintain login states across app launches 
+    -  Centralised authentication handling 
+
+feature_user:
+- Contains all logic relating to the user object stored in the database
+- UserRepository:
+    - has these methods: getUser, updateUser
+- UserRepositoryImpl:  
+    - getUser fetches the user from the firebase database using a userId and returns a User object 
+    - updateUser takes in a userId, and a Map<String, Any> called updates. The updates map is used to update the firebase database object
+- In the data folder, the user object reflects the firebase object so has these fields: 
+    - governmentName (String), screenName (String), accountType (String), title (String, nullable), fullyVerified (Boolean), locationVerified (Boolean), location (String, nullable), otherUserInfo (Object)
+        - Where OtherUserInfo has these fields: email (String), profilePictureUrl (String, nullable), phoneNumber (String, nullable)
+        - The account type is an enum, can be any of these - ADMIN, CONSTITUENT, REPRESENTATIVE
+- In the domain folder, the user object has these fields: 
+    - screenName (String), accountType (String), title (String, nullable), fullyVerified (Boolean), locationVerified (Boolean)
+
+  - governmentName (String): The real name of the user.
+  - screenName (String): The name displayed to other users. For representatives, this is the same as their governmentName. For constituents, this is an anonymous system-generated name.
+  - accountType (String): The type of user account. Possible values: "Admin", "Constituent", "Representative".
+  - title (String, nullable): Applicable only for Representative accounts (e.g., "Councillor", "Member of Parliament").
+  - fullyVerified (Boolean): Indicates if the user has been verified by a software developer.
+  - locationVerified (Boolean): Indicates if the user's location has been verified.
+  - location (String, nullable): The verified location of the user, if locationVerified is true.
+  - otherUserInfo (Object):
+    - email (String): The user's email.
+    - profilePictureUrl (String, nullable): The user's profile picture URL.
+    - phoneNumber (String, nullable): The user's phone number, if provided.
+
+
+
+Navigation Footer: 
+- The navigation footer is the footer used to navigate between the three main features: 
+    - The newsfeed feature
+    - The discussions feature
+    - The map feature
+- Each of these is represented by a different icon in the footer
+- When the user is on a specific screen, the footer icon for that screen is white and the icons for the other screens are grey
+- If the user clicks on a specific icon (such as the discussions icon), the user is navigated to the associated page and that icon turns white. All other icons are now grey
+
+Loading and Caching Newsfeed Preview screen and Discussions Preview screen (This is not a composable, just a description of functionality):
+- This is how loading should work when the user opens the app: 
+    - The user opens the app
+    - The user is shown the loading screen
+    - There are two database calls that happen immediately:
+        - A database call to fetch the first four discussion preview items (i.e. the four with the highest thumbs up count)
+        - A database call to fetch the first four newsfeed preview items (i.e. the four with the highest thumbs up count)
+    - Once these are fetched successfully, both of these are cached in memory so that they don't have to called from memory every time the user switches tabs in the navigation footer
+        - However when the user refreshes the page, the database calls should be done again and the cache should be refreshed
+    - When those preview items have fully loaded, the user is navigated to the discussions preview screen 
+    - There is then another two automatic database calls: 
+        - A database call to fetch the next six discussion preview items (i.e. the six with the next highest thumbs up count)
+        - A database call to fetch the next six newsfeed preview items (i.e. the six with the next highest thumbs up count)
+    - Once each of these calls are successful, the preview items are appended to the memory cache 
+        - This is done so that the user has a clean experience. Everything loads quickly for them and they don't have to wait for database calls
+        - However if the user scrolls down past the first ten preview items, a new database call will need to be made to fetch the next ten preview items 
+        - The user is shown an inline loading wheel while this happens 
+        - If the user scrolls down past the next ten the same thing happens again - there is a database call for the next ten preview items and a loading wheel while the database call happens 
+        - This sequences of fetching 10 items and then loading should happen infinitely (i.e. until there are no more items to be fetched from the database) 
+        - However not all of these should be cached. Only the first ten newsfeed preview items, and the first ten discussion preview items should be cached in memory 
+    - The functionality for this is going to be exactly the same for both the newsfeed preview screen and the discussions preview screen so you should write this in a scaleable way so you don't duplicate code
+
+
+Accounts:
+- I also need different types of user accounts. These will be the types of accounts:
+  - Admin, Constituent, Representative
+- An admin account is an account for a software developer - it has full permissions
+- A constituent account is a standard account type
+- A representative account is a higher privileged account than constituent but lower than admin
+- A representative account will have a title associated with it such as "Councillor" or "Member of Parliament"
+  - I need to be able to fetch this account type from the database
+- Representative accounts will have special permissions in future but I haven't written most of them yet
+
+Constituent Accounts:
+- A constituent account is the standard account used by most users
+- It has a field called "Type" that is set to "Constituent"
+- It is an account which is internally authenticated, but it is anonymous to the rest of the user base
+- This means that it will have field called Government name which is the true name of the person behind the account
+- However it will also have a field called screen name which is the user name shown to the rest of the user base
+    - The screen name will be generated by the system. I'll describe how this is done in the login section below
+- This means that the developers of the platform know who everyone is, but the actual users are anonymous to each other - only known through screen names
+- To do this, the constituent account will have a field called "location verified" which is a boolean
+- This field represents a location check. Before the user logs into their account, they need to prove they're in a specific location
+- If they can prove this, the "location verified" field turns to true
+- There is also a field called "Location". When the location is verified, this field is filled in to be the location of the user
+- Being location verified gives you the ability to create an account and read the data from other users in that area - however it does not give you write permissions
+- In order to get write permissions, the user must have the "fullyVerified" field set to true
+- The fullyVerified field can only be set by a software developer manually inside of the database, it cannot be turned on any other way, it defaults to false
+- The point of this is so that software developers have to go to each person in real life and verify that they're real
+- There is no way the fullyVerified field can be changed inside of the codebase, it can only be done by a software developer through the database
+- If the user has the fullyVerified field set to true, they are given write permissions
+- Write permissions means the ability to leave comments on posts or leave replies etc
+
+Representative Accounts:
+- A representative account is the account given to any elected representative such as a local councillor or a member of parliament
+- These are similar to constituent accounts but have key differences
+- One key difference is that the constituent accounts are internally authenticated by the system, but externally anonymous to the user base (i.e. use a screen name)
+- However the constituent accounts are internally authenticated by t2es3he system, but they are also externally transparent
+- This means that for representative accounts, the Screen Name field will be the same as the Government name field (i.e. the screen name is the person's actual name)
+- The representative accounts still have the other same fields as the constituent accounts such as location verified and fullyVerified
+- However representative accounts have another field which constituent accounts don't have - a field called "Title"
+- Title refers to their elected position e.g. Councillor or Member of Parliament
+- It has a field called "Type" that is set to "Representative"
+
+Admin Accounts:
+- Admin accounts are the accounts used by software developers to monitor the system
+- They have all the same fields as a constituent, but the type field is set to "Admin"
+- These accounts will be given full permissions to do anything in the system
+
+Login:
+- The login screen has these elements:
+    - Title
+    - Email form box
+    - Password form box
+    - Submit button
+    - Text to navigate to register page
+- The title is "Login"
+- The email form box has placeholder text "Email"
+- The password form box has placeholder text "Password"
+- The password form box has visibility on/off icon on the right hand side
+- If this icon is clicked it toggles the visibility of the password text
+- The submit button says "Login" on it
+- The text to navigate to register page says "Don't have an account? Register"
+    - If you click this text, it takes you to the register screen
+- If the user successfully logs in but have not verified their location, they are taken to the location verification screen (I'll describe this below)
+- If the user successfully logs in and have verified their location, they are taken to the Newsfeed Preview Screen
+- If the user tries to log in but hasn't verified their email, they should be taken to the email verification screen
+
+Register Screen:
+- The register screen has these elements:
+    - Title
+    - Email form
+    - Password form
+    - Submit button
+    - Text to navigate to login page
+- The register screen is only for creating constituent accounts, you cannot create admin or representative accounts from here
+- The title is "Register"
+- The email form box has placeholder text "Email"
+- The password form box has placeholder text "Password"
+- The password form box has visibility on/off icon on the right hand side
+- If this icon is clicked it toggles the visibility of the password text
+- The submit button says "Register" on it
+- The text to navigate to register page says "Don't have an account? Login"
+    - If you click this text, it takes you to the login screen
+- If the user successfully registers, they are asked to verify their email
+- If the user successfully registers and verifies their email, they are taken to the email verification screen
+- If the user tries to register an account that has already been registered, but the email hasn't been verified - then they should be taken to the email verification screen 
+- When someone registers an account, these should be the default values for each field: 
+    - accountType - "Constituent"
+    - fullyVerified - false
+    - governmentName - null
+    - location - defaults to null, this is filled in by the location verification screen 
+    - locationVerified - null
+    - OtherUserInfo:
+        - email - supplied by user input
+        - phoneNumber - null
+        - profilePictureUrl - "gs://open-party-ad47a.firebasestorage.app/profilePictures/{screenName}.jpg"
+    - ScreenName - on object creation, screenName defaults to null. This is filled in by the screen name generator
+    - title - null
+    - userId - generated by the system 
+
+Email Verification Screen:
+- Has these elements: 
+    - A title 
+    - A resend email button
+    - A back to register screen button
+    - A continue button 
+- The title says "Please verify your email then click continue"
+- Resend email button has text saying "Resend Email"
+    - When this is clicked, an email is resent for firebase verification
+- The back to register screen button has text saying "Back To Register Screen"
+    - If the user clicks this, they are navigated back to the register screen
+- Continue button that says "Continue" on it
+    - If the user clicks this button before the email has been verified an error appears saying "Email not verified yet" 
+- When the user verifies their email, then clicks the continue button they are taken to the location verification screen
+
+Location verification screen:
+- When the user goes to this screen, there is a location verification popup with these elements:
+    - A title that says "verify your location"
+    - Under that, text that says "This app is only for residents of West Lothian. In order to use this app you have to verify that you're in West Lothian"
+    - Under that, a button that says "Ok"
+- If the user clicks "Ok", the system asks for permissions to access their location
+- If the user declines permissions, they are taken back to the location verification popup
+- If the user clicks "Ok" on the popup, the system asks again for location permissions
+- If the user declines permissions, they are taken back to the location verification popup
+- If the user clicks "Ok" on the popup, the system asks again for location permissions
+- If the user declines again, a settings location popup shows up with these elements:
+        - A title that says "Enable location permissions in settings"
+        - Under that, text that says "This app is only for residents of West Lothian. In order to use this app you have to verify that you're in West Lothian"
+        - Under that, a button that says "Settings"
+- If the user clicks the "Settings" button, the user is taken to the settings page where they can turn on locations permissions for the app
+- If the user accepts to give the app their location, the app then uses this to verify that they are in West Lothian
+- West Lothian is an area in Scotland. If the user is outside of this area they should be shown an error message saying "Your location is outside of West Lothian, this app is only for West Lothian residents"
+- If the user is inside of this area then they are taken to the screen name generator screen (I'll describe this below)
+- The user should not be allowed to move forward in the app until their location has been verified. Location verification is mandatory.
+
+Screen Name Generator Screen:
+- When the user enters this screen, it shows a popup with these elements:
+    - A title saying "Choose a name"
+    - Text that shows a username
+    - Next to the text, a refresh icon
+    - Under that, a button that says "Submit"
+- The purpose of this screen is to generate the screen name for the user
+- The generated name is going to be a three word username
+- These three words will be chosen randomly but they will follow this pattern:
+    - "{Adjective} {Noun} {Noun}"
+    - So for example - "Whimsical Moonlit Forest" or "Velvet Shadow Dancer"
+- When the user clicks the refresh button, it generates a new name that is then shown to the user
+    - So for example the user might be shown "Whimsical Moonlit Forest". Then they would hit the refresh button and it would change to "Velvet Shadow Dancer"
+- The user can refresh the name as many times as they like
+- Once they have found a name they like, they can click the "Submit" button to accept the name
+- The names are randomly generated by the system, but they have to be unique
+    - This means that, whenever a new name is refreshed, it has to first check in the database that this hasn't been taken
+- If the users generates their name successfully, they are taken to the Newsfeed Preview Screen (described below)
+
+Newsfeed Preview Screen:
+- The newsfeed preview screen shows previews of all the latest issues from local council meetings
+- The elements on the newsfeed preview screen are these: 
+    - preview card list(described below)
+        - The inputs to the preview card listare these:
+            - A list of Newsfeed Preview cards (described below)
+            - The input type set to "Newsfeed"
+    - Navigation footer (described below)
+- When a user clicks on a newsfeed preview card, it takes the user to the newsfeed article screen (for the associated article)
+
+Preview Card List:
+- This is a shared composable by the newsfeed preview screen, the comments section and discussions preview screen so should be kept in a shared location 
+- It takes in these elements as inputs: 
+    - A list of cards
+    - A text parameter - either "Discussions", "Comments" or "Newsfeed" 
+- If the list of cards is empty, it shows placeholder text:
+    - If the input parameter is "Discussions", the placeholder text is "No discussions yet..."
+    - If the input parameter is "Newsfeed", the placeholder text is "No newsfeed articles yet..."
+    - If the input parameter is "Comments", the placeholder text is "No comments yet..."
+- The preview card listshould have infinite scroll:
+    - i.e. if the number of preview cards goes over the edge of the screen, the user should be able to scroll down to see the rest of them 
+- Each preview card has a thumbs up and thumbs down feature (associated with the number of likes and dislikes on the associated article)
+    - The list of preview cards should be rank ordered by number of thumbs up 
+    - i.e. the card with the most thumbs up should be shown first, the one with the least thumbs up should be shown last.  
+
+Newsfeed Preview Card:
+- The newsfeed preview card shows a preview of an issue from a local UK council meeting
+- It has these elements:
+    - title - Preview header composable (describled below)
+    - image thumbnail - preview thumbnail composable (described below)
+    - footer - post engagement bar composable (described below) 
+- The title should be the title of the associated newsfeed article
+- The thumbnail is an image representing that issue, the link to which is stored in the database object
+- This should be full screen width and be 250 dp in height 
+
+Preview Header composable: 
+- This composable shows the title for the preview card
+- It's a shared composable between newsfeed preview and discussions preview so should be in a shared folder
+- This composable just contains a title which is a line of text
+- The reason this is being made into its own composable is to make sure that the title for the newsfeed preview cards and discussions preview cards are the same size i.e. to standardise the preview screens
+- The title should be large 
+
+Preview Thumbnail:
+- The thumbnail should be full width and be 70% of the height of the container (crop the thumbnail to achieve this if needed) 
+- This is not a shared composable, it's unique to the newsfeed feature
+
+Discussions Preview screen: 
+- The discussions preview screen shows previews of all the discussions that users are having 
+- The elements on the discussions preview screen are these: 
+    - preview card list(described above)
+        - The inputs to the preview card listare these:
+            - A list of Discussions Preview cards (described below)
+            - The input type set to "Discussions"
+    - add discussions button composable (described below)
+    - Navigation footer (described below)
+- when a user clicks on a discussions preview card, it takes the user to the discussions article screen
+- When the user clicks the add discussions button composable, it takes them to the add post screen 
+
+Discussions Preview Card:
+- The discussions preview card shows a preview of a discussion that a user has submitted
+- It has these elements:
+    - title - Preview header composable (described below)
+    - text content - preview text content composable (described below) 
+    - footer - post engagement bar composable (described below) 
+- The title should be the title of the associated discussion article
+- The Text content of the discussion is there to show the user a preview of the discussion
+
+Preview Text Content composable:
+- This is unique to the discussions preview screen so should be in the discussions feature
+- It shows a preview of the text content from a discussion
+- It has these features:
+    - It shows text from the user discussion 
+    - If the text is less than four lines, it shows all of the text 
+    - If the text is more than four lines, it truncates the text with an ellipsis
+
+add discussions button composable: 
+- This composable is unique to the discussions feature, it should not be in a shared package
+-  It is a button that has these features: 
+    - It's large
+    - It's horizontally centred
+    - At the bottom of the screen (but above the footer) 
+    - It has a plus icon inside of it 
+    - When clicked it navigates the user to a new screen 
+    - This button should be write protected i.e. it can only be used by fullyVerified users 
+        - If the user has the fullyVerified field in their user object set to true in the database, then they can use the add discussion button
+        - If the fullyVerified field is set to false, then there is a not authorised popup (described below) and the user is not navigated to the next page 
+
+Post Engagement Bar:
+- This is a shared composable used by both the Discussion Preview Screen, Discussions Article Screen, Newsfeed Preview screen and Newsfeed Article screen
+- The logic for the post engagement bar is centralised in the feature - feature_engagement 
+- Each article (either a newsfeed or a discussion article) has both a preview card in the preview screen, or an article in the article screen
+    - i.e. a newsfeed article has both a newsfeed preview card in the preview screen and a newsfeed article in the newsfeed article screen
+    - i.e. a discussions article has both a discussions preview card in the preview screen and a discussions article in the discussions article screen
+- Each article has a Post Engagement Bar linked to it
+    - However there should only be one post engagement bar for each article which means you should use a pattern like a singleton or something similar 
+- For example - for Newsfeed Article 1: If a user went to the preview screen and saw the preview card for Newsfeed Article 1, then clicked on the Article to go to the newsfeed article for Article 1, then they would see a post engagement bar on both the preview screen and the article screen. This post engagement bar is the same for both screen
+    - i.e. the post engagement bar on the preview screen for article 1 is linked to the post engagement bar on the article screen for article 1 
+- This means that if a user makes a change to the post engagement bar on the preview screen, that change will be reflected in the article screen
+    - For example, if a user made a thumbs up on the article screen for discussion article 2, then that same thumbs up would appear on the preview screen for discussion article 2 
+- The post engagement bar has these elements: 
+        - A thumbs up icon
+    - Next to that a number representing the number of thumbs up that preview card has
+    - A thumbs down icon
+        - There should be no number next to this, I don't want the number of thumbs down to be shown to the user 
+    - A commments icon
+    - A number representing the number of comments that the preview card has 
+- The footer should always be a fixed height
+    - This height should be responsive across screen sizes
+- The number of upvotes and downvotes should be found by going to the associated object in the database and finding the upvoteCount or downvoteCount field
+- This footer is write protected, meaning only users who have fullyVerified field set to true can use it fully 
+- If the user has fullyVerified field set to false, this should happen:
+    - The user should not be able to add thumbs up or thumbs down 
+    - If the user tries to add thumbs up or thumbs down, the not authorised popup should show 
+- It's also important that when the user clicks a button the User interface updates immediately 
+    - To do this, there needs to be a caching mechanism so that the upvotes and downvotes can be immediately registered and saved
+    - If you tried to save the upvotes and downvotes in the database alone, it would cause lag in the User interface 
+    - So to do this, you need to have a caching mechanism for upvotes and downvotes
+- However it's also very important that the database is kept in sync
+- For this reason, there should be a foreground caching process that stores and manages the upvotes and downvotes but there should also be a background process that keeps the remote database up to date with the cache
+- The post engagement bar should be associated with a specific article, should always be the same for that article 
+    - For example, if you were on the discussions preview screen and put a thumbs up on a specific preview item, then when you clicked to go to the discussions article the thumbs up icon should still be highlighted
+    - This is because the post engagement bar for the preview item is linked to that article so it should always be the same for that article 
+- All of the logic described above for the post engagement bar should be centralised in the feature_engagement
+- It needs to be centralised so that the logic is standardised 
+- For example, both the newsfeed preview/article screens and discussions preview/article screens use this identical logic 
+    - For that reason I would want it to all be standardised inside feature_engagement, so that it could then just be called into either newsfeed or discussions 
+- This way, if I change the logic inside feature_engagemeent, it should update both the newsfeed screens and the discussions screens simultaneously - making them more standardised and less brittled
+
+Not Authorised popup: 
+- This is a shared element used in multiple places so it should be in a shared package
+    - It's used when a user tries to add a post or add a comment but their account is not fullyVerified
+- It has these elements:
+    - A title saying "Not Authorised"
+    - Text body
+    - A button that says "Ok"
+    - If the user clicks the button, the popup disappears   
+- The text body is different depending on if the popup is triggered by a user trying to add a discussion or add a comment
+    - If it's triggered by a user trying to add a discussion, this is the text: "This feature can only be used by fullyVerified users. Verify your account to add posts"
+    - If it's triggered by a user trying to add a comment, this is the text: "This feature can only be used by fullyVerified users. Verify your account to add comments"
+
+Write protected (this is not a composable, just a description of functionality): 
+- I'm trying to create a system where there are different read/write permissions 
+- If the user has not verified location, then then can't enter the app
+- If they have verified location, but not fullyVerified the account (i.e. the fullyVerified field on the user object is false) then they can read data but not write it 
+    - This means they can view all newsfeed articles, view all discussions, view all comments, but they can't write anything
+    - So they can't write comments, they can't write replies, they can't post a discussion, they can't post a commment on an article, they can't thumbs up or thumbs down 
+    - Whenever an unverified user tries to take any of these actions, they should get the "Not Authorised popup" (described above) and not be allowed to write anything
+- If a user has verified location and been fully verified, then they have full permissions to read and write anything 
+    - i.e. if the user has fullyVerified field equal to true they can add comments, replies, thumbs up/down etc
+- Here is a list of things that are write protected: 
+    Preview screen:
+    - Upvotes, downvotes
+    - If it's the discussion preview screen - the add discussion button is write protected
+    Article Screen:
+    - add comment footer
+    - On every comment - thumbs up, thumbs down, reply icon
+
+Newsfeed Article Screen:
+- This is the screen that shows the individual newsfeed article the user has clicked on
+- Each newsfeed article represents an issue that the local government is currently addressing
+    - For example it might be a newsfeed article on fraud auditing or social housing
+- It has these elements: 
+    - A title - Article Title composable (described below) 
+    - A play button - Play Newsfeed Audio composable (described below)
+    - Text content - Article Text composable (described below)
+    - footer - Post Engagement Bar composable (described below)
+    - Comments section composable - (described below) 
+    - add comment footer composable - (described below) 
+
+Article Title composable: 
+- This is a shared composable between newsfeed article and discussion articles so should be in a shared package
+-  This composable just contains a line of text
+    - The reason it's kept as a reusable composable (rather than just using a normal title) is to standardise titles between discussion articles and newsfeed articles 
+- The text should be a large header since it's a title 
+
+Play Newsfeed Audio composable: 
+- This is used to play the audio associated with the newsfeed article
+- This is unique to the newsfeed article so should be kept in the newsfeed feature 
+- This audio is found by querying the database for the audio file associated with the article
+- The composable has only this element:
+    - A large play icon 
+- When the user clicks the play icon, two things happen: 
+    - The audio for the newsfeed article begins playing
+    - The icon turns to a large pause icon 
+- If the user then clicks the pause icon, the audio stops playing and the icon turns back into the play icon
+- The audio file that plays should use Playback Controls in Notifications
+    - i.e. whenever the audio file starts playing, it should show the audio file in a banner notification and allow the user to play or stop it there
+
+Article Text Composable:
+- This is a shared composable used by both the discussions and newsfeed article screens, so should be kept in a shared package  
+- It's used to show the primary text content associated with an article 
+- This composable should have these features: 
+    - It should contain text
+    - By default, it should show the first X lines of text where "X" is an input parameter to the composable
+    - If the content text has a number of lines which is less than "X", then all of the text should be shown and it should not be truncated in any way (and it should not show the "See More..." or "See Less..." text)
+    - However, if the content text has a number of lines which is greater than  "X", then this should happen: 
+        - The text should be truncated after "X" number of lines, using an ellipsis
+        - At the bottom of the composable, after the truncation it should show text that says "See More..." 
+            - This text should be a primary colour
+        - If the user clicks "See More..." then the container should expand to show all the lines of text and under the text content, there should be text that says "See Less..."
+            - "See Less..." should be a primary colour
+            - If the user clicks "See Less..." the container should contract again to truncate the text to X number of lines of text with an ellipsis and "See Less..." should be replaced with the "See More..." text again 
+
+Discussions Article Screen: 
+- This is the screen that shows the a discussion that the users are having
+- Each discussions article represents a topic in the local community that the users are discussing 
+- For example it might be a discussion that one user started on education and other users are commenting on 
+- It has these elements: 
+    - A title - Article Title composable (described above) 
+    - Text content - Article Text composable (described above)
+    - footer - Post Engagement Bar composable (described above)
+    - Comments section (described below) 
+    - add comment footer (described below) 
+
+Comments section: 
+- This comments section will be used in both the discussion feature and the newsfeed feature so it needs to be in a place where it can be accessed by both (i.e. not in feature_newsfeed or feature_discussions)
+- The comments section is a list of cards, each card representing a comment
+- It has these elements:
+    - Comments Card List composable (described above) 
+        - The comments card list takes in a list of Comment Card composables (described below)
+- Each comment card has replies associated with it 
+- Each reply will be beneath the original comment but slightly indented
+- For example if had comment1, reply1, reply2, reply3 
+    - Where comment1 is the original comment, reply1 is a reply to the original comment, reply2 is a reply to the original comment, reply 4 is a reply to reply2 
+    - Then comment1 wouldn't be indented, reply1 would be one tab indented under comment1, reply2 would be one tabl indented under comment1, reply4 would be two tabs indented under reply 2
+    
+Comments Card List:
+- This composable is unique to comments so should be kept in the comments feature
+- It takes in these elements as inputs: 
+    - A list of cards
+- If the list of cards is empty, it shows placeholder text:
+    - The placeholder text is "No comments yet..."
+- The comments card list should have infinite scroll:
+    - i.e. if the number of preview cards goes over the edge of the screen, the user should be able to scroll down to see the rest of them 
+
+Comment Card Composable: 
+- These cards show the comments users have left in the comment section 
+- Each card has these elements: 
+    - In the top left - the name of the user who posted the comment (greyed out) 
+    - Next to the username is how long ago the comment was left (e.g. 10h, 3 months etc) 
+    - Under that is the text content of the comment itself 
+    - If the user has the accountType field set to "Representative", there is also text under the comment in the bottom left (greyed out)
+        - This text should show the Title field of the user
+        - for example if the title field is set to "Councillor", then under the comment in the bottom left it should say "Councillor" 
+    - Also the user has the accountType field set to "Representative", the background of the card should be a very dark grey 
+    - Under that is a comment engagement bar composable (described below) 
+
+Comment Engagement bar: 
+- The comment engagement bar allows the user to interact with a comment such as thumbs up/down, replies etc
+- The logic for this should be centralised in feature_engagement 
+- It should be in a composable that is stored in feature_engagement
+    - That way if the newsfeed or discussions screens ever wanted to use the comment engagement bar, they could just use that composable 
+    - but all the logic itself would be centralised in feature_engagement, none of it would be in the discussions or newsfeed features (or as little logic as possible would be in discussions/newsfeed features) 
+- The Comment Engagement bar has these elements: 
+        - A reply icon (greyed out) 
+        - A thumbs up icon (greyed out)
+        - A number representing the number of thumbs up for that comment (greyed out) 
+        - A thumbs down icon (greyed out) 
+- There should be some space between all these elements, except space between the number and the icon they're associated with (i.e. no space between thumbs up icon and number of upvotes)
+- When the user clicks the thumbs up button, the thumbs up button should go from outline to filled (i.e. solid) and an upvote should be registered for that comment in the database
+- When the user clicks the thumbs up button for the second time, the thumbs up button should go back to outline and the upvote should be removed from that comment in the database
+- When the user clicks the thumbs down button, the thumbs down button should go from outline to filled (i.e. solid) and an downvote should be registered for that comment in the database- If the user clicks the reply icon, it takes them to the add comment screen which I'll describe below 
+- When the user clicks the thumbs down button for the second time, the thumbs down button should go back to outline and the downvote should be removed from that comment in the database
+- Each user should only be able to give one upvote or downvote per comment 
+- When the user clicks the reply icon, they should be taken to the add comments screen
+- The comments section is write protected meaning it can only be accessed by fullyVerified users
+    - This means that if a user has the "fullyVerified" field in their user object set to false, they can't add comments or replies 
+    - If a user with fullyVerified equal to false clicks the add comment footer or the reply icon on a comment, or thumbs up or down, they should get a not authorised popup (described above) 
+    - They should not be allowed to write text or get navigated to the add comments screen
+- There also needs to be a caching mechanism that tracks the number of upvotes and downvotes 
+- When the user clicks a thumbs up or thumbs down, it's important that the User interface is able to be updated quickly to create a good user experience 
+    - This is only possible by creating a caching mechanism for upvotes and downvotes, if you did this using database calls it would create lag 
+- This means that there needs to be a caching system to store upvotes and downvotes
+- However it's also very importan that the remote database is kept up to date with the correct number of upvotes and downvotes 
+    - This means that whenever the user clicks a thumbs up or thumbs down icon, the caching system immediately saves and manages it. However there should also be a background process that keeps the remote database up to date and in sync with the correct number of upvotes and downvotes
+
+add comment footer: 
+- This add comment footer will be used in both the discussion feature and the newsfeed feature so it needs to be in a place where it can be accessed by both (i.e. not in feature_newsfeed or feature_discussions)
+- The add comment footer is pinned to the bottom of the screen
+    - i.e. it should be visible, even if the user scrolls down
+- It is a black container which is 5% of the height of the screen and full screen width
+- Inside the black container is a grey container which is 95% of the screen width (horizontally centred) and 80% of the height of its parent container
+- Inside the grey container is text saying "Add your reply..." which is written in lighter grey
+- If this container is clicked, it navigates the user to the Add Comment Screen, I'll describe this screen below 
+- The footer is write protected meaning it can only be accessed by fullyVerified users
+    - This means that if a user has the "fullyVerified" field in their user object set to false, they can't add comments or replies 
+    - If a user with fullyVerified equal to false clicks the add comment footer or the reply icon on a comment, or thumbs up or down, they should get a not authorised popup (described above) 
+    - They should not be allowed to write text or get navigated to the add comments screen
+
+Add Discussion screen: 
+- This screen allows the user to add a discussion to the database (so it will show up in the discussion preview screen, and have a discussion article associated with it)
+- It has these elements: 
+    - Add Post Header composable (described below)
+    - Title input - Text Input composable (described below) 
+    - body text input - Text Input composable (described below) 
+- The back button goes back to the discussions preview screen 
+- The Post button goes to the discussions preview screen
+- The post button also submits the text in the text input composables into the database as a discussions object 
+    - i.e. the title input becomes the title of the object, and the body text input becomes the text content of the discussions object
+- If the user clicks the post button, the discussions preview screen should have updated to reflect the change that the user just made 
+    - Send the user to a loading screen for a while if you need to wait for the database to update before you refresh the page 
+- This screen is write protected meaning it can only be used by fullyVerified users
+    - A user with fullyVerified set to false should never make it to this screen 
+
+Add Comment screen:
+- This screen allows the user to reply to a specific comment
+- It has these elements: 
+    - Add Post Header composable (described below)
+    - Text content
+    - body text input - Text Input composable (described below) 
+- The text content will be the title of the article that the user is commenting on (e.g. the title of the newsfeed article) 
+- The back button goes back to the article screen you just came from (if it came from the discussions article page, then go back there. If you came from the newsfeed article screen, go back there)
+- The Post button goes back to the article screen you just came from (if it came from the discussions article page, then go back there. If you came from the newsfeed article screen, go back there)
+- The post button also submits the text in the text input composables into the database as a comment object 
+- If the user clicks the post button, the article screen should have updated to reflect the change that the user just made 
+    - Send the user to a loading screen for a while if you need to wait for the database to update before you refresh the page 
+- This screen is write protected meaning it can only be used by fullyVerified users
+    - A user with fullyVerified set to false should never make it to this screen 
+
+Reply screen:
+- This screen allows the user to reply to a specific comment
+- It has these elements: 
+    - Add Post Header composable (described below)
+    - Comment Card (described above)
+    - body text input - Text Input composable (described below) 
+- The back button goes back to the article screen you just came from (if it came from the discussions article page, then go back there. If you came from the newsfeed article screen, go back there)
+- The Post button goes back to the article screen you just came from (if it came from the discussions article page, then go back there. If you came from the newsfeed article screen, go back there)
+- The post button also submits the text in the text input composables into the database as a comment object 
+- If the user clicks the post button, the article screen should have updated to reflect the change that the user just made 
+    - Send the user to a loading screen for a while if you need to wait for the database to update before you refresh the page 
+- This screen is write protected meaning it can only be used by fullyVerified users
+    - A user with fullyVerified set to false should never make it to this screen 
+
+Add Post Header composable: 
+- This header is used when the user is adding something new to the database
+- It has these elements: 
+    - A back button (with an "X" icon) 
+    - A title
+    - A "Post" button (which is the word "Post" in a primary colour)
+- The Title comes from the input parameter
+- The back button navigates the user to a previous screen (this comes from an input parameter)
+- The post button navigates the user to the next screen (this comes from an input parameter)
+- The post button also submits the text content in the form boxes 
+
+Text Input composable:
+- This is simply a composable that allows the user to enter text into a text input box
+- When it is clicked, it should open the android inbuilt keyboard
+- When the user types with the keyboard, it should fill in this box 
+- When the user clicks the "Post" button in the Add Post Header composable, it submits the text content to the database
+
+-------------
+
+This is my android kotlin jetpack compose, dagger hilt project. 
+
+I've given you the description for how my code should work and a lot of my code
+
+
+Give me a brief explanation at the top of the response about what you did. 
+
+Whenever you give me code, give me the entire file, don't abbreviate 
+
+Only give me files where you have made changes. If you haven't changed a file, don't give it to me
+
+don't leave comments in the code 
+
+IMPORTANT - For any answer you give me, use the most robust and scaleable architecture possible. 
+
+IMPORTANT - Whenever you add, delete or modify the name of a method, find all the places where that method is called and make sure that file it's called from is updated properly
+
+IMPORTANT - Whenever you call a method from a file, make sure that method exists in the underlying file and is instantiated somewhere. Don't called a method that isn't instantiated. 
+
+IMPORTANT - When you make a code change, do not change any existing functionality that has not been specifically requested. Make sure that all the changes you make keep the existing functionality intact and comply with the functionality descriptions above 
+
+-------------
+
+This is currently how my caching feature works: 
+Loading and Caching Newsfeed Preview screen and Discussions Preview screen (This is not a composable, just a description of functionality):
+- This is how loading should work when the user opens the app: 
+    - The user opens the app
+    - The user is shown the loading screen
+    - There are two database calls that happen immediately:
+        - A database call to fetch the first four discussion preview items (i.e. the four with the highest thumbs up count)
+        - A database call to fetch the first four newsfeed preview items (i.e. the four with the highest thumbs up count)
+    - Once these are fetched successfully, both of these are cached in memory so that they don't have to called from memory every time the user switches tabs in the navigation footer
+        - However when the user refreshes the page, the database calls should be done again and the cache should be refreshed
+    - When those preview items have fully loaded, the user is navigated to the discussions preview screen 
+    - There is then another two automatic database calls: 
+        - A database call to fetch the next six discussion preview items (i.e. the six with the next highest thumbs up count)
+        - A database call to fetch the next six newsfeed preview items (i.e. the six with the next highest thumbs up count)
+    - Once each of these calls are successful, the preview items are appended to the memory cache 
+        - This is done so that the user has a clean experience. Everything loads quickly for them and they don't have to wait for database calls
+        - However if the user scrolls down past the first ten preview items, a new database call will need to be made to fetch the next ten preview items 
+        - The user is shown an inline loading wheel while this happens 
+        - If the user scrolls down past the next ten the same thing happens again - there is a database call for the next ten preview items and a loading wheel while the database call happens 
+        - This sequences of fetching 10 items and then loading should happen infinitely (i.e. until there are no more items to be fetched from the database) 
+        - However not all of these should be cached. Only the first ten newsfeed preview items, and the first ten discussion preview items should be cached in memory 
+    - The functionality for this is going to be exactly the same for both the newsfeed preview screen and the discussions preview screen so you should write this in a scaleable way so you don't duplicate code
+
+I don't think this solution is actually very good, i'm going to move away from it towards a more robust solution. 
+
+For the newsfeed preview screen and discussion preview screen loading, delete the above logic. So delete all the database calls and delete the caching for the preview screens 
+
+Also delete the current logic for infinite scrolling. 
+
+Instead replace it with simple database calls. When the user goes onto the newsfeed preview screen, fetch items from the database. When teh user goes to the discussions preview screen, fetch items from the database
+
+Also add pagination using Jetpack Paging 3 for the newsfeed preview screen and discussions preview screen (if it's not already implemented) 
+
+Since the pagination logic will be identical for both the newsfeed preview screen and discussions preview screen, try to write it in a way which minimises code duplication 
+
+use the best architecture for this, use your best judgement
+
+Make sure to keep all the caching logic for the thumbs up and thumbs down (for the engagement feature) the same - this functionality is still needed 

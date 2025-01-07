@@ -1,0 +1,918 @@
+com.openparty.app
+├── core
+│   ├── data
+│   │   └── storage
+│   │       ├── EncryptedSharedPreferencesSecureStorage.kt
+│   │       └── SecureStorage.kt
+│   ├── domain
+│   │   ├── error
+│   │   │   ├── AppError.kt
+│   │   │   └── AppErrorMapper.kt
+│   │   └── DomainResult.kt
+│   ├── network
+│   │   └── TokenInterceptor.kt
+│   ├── presentation
+│   │   ├── AppSnackbarHost.kt
+│   │   ├── BaseUiState.kt
+│   │   ├── BaseViewModel.kt
+│   │   ├── LoadingScreen.kt
+│   │   ├── UiEvent.kt
+│   │   └── UiEventHandler.kt
+│   └── util
+│       └── AppUtils.kt
+├── di
+│   ├── AppModule.kt
+│   └── NetworkModule.kt
+├── features
+│   ├── newsfeed
+│   │   └── discussions
+│   │       ├── feature_discussions_preview
+│   │       ├── feature_discussions_article
+│   │       └── shared
+│   ├── shared
+│   │   └── feature_user
+│   └── startup
+│       ├── account
+│       │   ├── feature_login
+│       │   ├── feature_register
+│       │   └── shared
+│       ├── feature_authentication
+│       ├── feature_screen_name_generation
+│       ├── feature_splash
+│       ├── shared
+│       └── verification
+│           ├── feature_email_verification
+│           ├── feature_location_verification
+│           └── feature_manual_verification
+├── navigation
+│   ├── AppNavigation.kt
+│   └── NavDestinations.kt
+├── scripts
+│   ├── firebaseScripts
+│   ├── meetingToVoice
+│   └── util
+├── ui.theme
+│   ├── Color.kt
+│   ├── Theme.kt
+│   └── Type.kt
+├── OpenPartyApp.kt
+└── MainActivity.kt
+
+-------------
+
+package com.openparty.app.core.data.storage
+
+import android.content.Context
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKeys
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+
+class EncryptedSharedPreferencesSecureStorage @Inject constructor(
+    @ApplicationContext context: Context
+) : SecureStorage {
+
+    private val sharedPreferences = EncryptedSharedPreferences.create(
+        "secure_prefs",
+        MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
+        context,
+        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+    )
+
+    override fun saveToken(token: String) {
+        sharedPreferences.edit().putString("auth_token", token).apply()
+    }
+
+    override fun getToken(): String? = sharedPreferences.getString("auth_token", null)
+
+    override fun clearToken() {
+        sharedPreferences.edit().remove("auth_token").apply()
+    }
+}
+
+
+----
+
+package com.openparty.app.core.data.storage
+
+interface SecureStorage {
+    fun saveToken(token: String)
+    fun getToken(): String?
+    fun clearToken()
+}
+
+
+----
+
+package com.openparty.app.core.domain
+
+import com.openparty.app.core.domain.error.AppError
+
+sealed class DomainResult<out T> {
+    data class Success<out T>(val data: T) : DomainResult<T>()
+    data class Failure(val error: AppError) : DomainResult<Nothing>()
+}
+
+
+----
+
+package com.openparty.app.core.domain.error
+
+sealed class AppError : Exception() {
+    object Firebase : AppError()
+    object Authentication : AppError()
+    object User : AppError()
+    object Discussion : AppError()
+
+    // Navigation
+    object DetermineAuthStates : AppError()
+
+    // Authentication Errors
+    object SignIn : AppError()
+    object Register : AppError()
+    object EmailVerification : AppError()
+    object RefreshToken : AppError()
+    object Logout : AppError()
+
+    // Discussion Errors
+    object FetchDiscussions : AppError()
+}
+
+
+----
+
+package com.openparty.app.core.domain.error
+
+import kotlin.reflect.KClass
+
+object AppErrorMapper {
+
+    fun getUserFriendlyMessage(
+        error: AppError,
+        customOverrides: Map<KClass<out AppError>, String>? = null
+    ): String {
+        val overrideMessage = customOverrides?.get(error::class)
+        if (overrideMessage != null) {
+            return overrideMessage
+        }
+        return when (error) {
+            is AppError.SignIn                      -> "We couldn't sign you in. Please check your credentials."
+            is AppError.Register                    -> "Registration failed. Please try again in a while."
+            is AppError.EmailVerification           -> "Verification email couldn't be sent. Please try again in a while."
+            is AppError.RefreshToken                -> "There was an issue sending your request. Please try again in a while."
+            is AppError.Logout                      -> "Logout failed. Please try again in a while."
+            is AppError.FetchDiscussions            -> "Unable to fetch discussions."
+            else                                    -> "Unknown error"
+        }
+    }
+}
+
+
+----
+
+package com.openparty.app.core.network
+
+import com.openparty.app.core.data.storage.SecureStorage
+import com.openparty.app.core.domain.DomainResult
+import com.openparty.app.features.startup.feature_authentication.domain.usecase.RefreshAccessTokenUseCase
+import kotlinx.coroutines.runBlocking
+import okhttp3.Interceptor
+import okhttp3.Response
+import javax.inject.Inject
+import timber.log.Timber
+
+class TokenInterceptor @Inject constructor(
+    private val secureStorage: SecureStorage,
+    private val refreshAccessTokenUseCase: RefreshAccessTokenUseCase
+) : Interceptor {
+
+    override fun intercept(chain: Interceptor.Chain): Response {
+        var token = secureStorage.getToken()
+
+        val originalRequest = chain.request()
+        val requestBuilder = originalRequest.newBuilder()
+
+        if (!token.isNullOrBlank()) {
+            requestBuilder.header("Authorization", "Bearer $token")
+        }
+
+        val response = chain.proceed(requestBuilder.build())
+
+        if (response.code == 401) {
+            response.close()
+            val refreshResult = runBlocking { refreshAccessTokenUseCase() }
+
+            when (refreshResult) {
+                is DomainResult.Success -> {
+                    token = refreshResult.data
+                    if (!token.isNullOrBlank()) {
+                        secureStorage.saveToken(token)
+                        val newRequest = originalRequest.newBuilder()
+                            .header("Authorization", "Bearer $token")
+                            .build()
+                        Timber.d("TokenInterceptor: Retry with new token")
+                        return chain.proceed(newRequest)
+                    }
+                }
+                is DomainResult.Failure -> {
+                    Timber.e(refreshResult.error, "TokenInterceptor: Failed to refresh access token")
+                    // Optionally, you can handle specific AppError cases here
+                    // For now, return the original 401 response
+                }
+            }
+        }
+
+        return response
+    }
+}
+
+
+----
+
+package com.openparty.app.core.presentation
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+@Composable
+fun AppSnackbarHost(
+    snackbarHostState: SnackbarHostState
+) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(16.dp)
+        )
+    }
+}
+
+
+----
+
+package com.openparty.app.core.presentation
+
+sealed class BaseUiState {
+    object Idle : BaseUiState()
+    object Loading : BaseUiState()
+    data class Error(val message: String?) : BaseUiState()
+    object Success : BaseUiState()
+}
+
+
+----
+
+package com.openparty.app.core.presentation
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.openparty.app.core.domain.DomainResult
+import com.openparty.app.core.domain.error.AppErrorMapper
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.launch
+
+open class BaseViewModel<T> : ViewModel() {
+
+    private val _uiEvent = MutableSharedFlow<T>()
+    val uiEvent: SharedFlow<T> = _uiEvent
+
+    protected fun emitUiEvent(event: T) {
+        viewModelScope.launch {
+            _uiEvent.emit(event)
+        }
+    }
+
+    protected fun <R> handleResult(
+        result: DomainResult<R>,
+        onSuccess: suspend (R) -> Unit,
+        onError: ((String) -> T)? = null
+    ) {
+        viewModelScope.launch {
+            when (result) {
+                is DomainResult.Success -> onSuccess(result.data)
+                is DomainResult.Failure -> {
+                    val errorMessage = AppErrorMapper.getUserFriendlyMessage(result.error)
+                    onError?.invoke(errorMessage)?.let { _uiEvent.emit(it) }
+                }
+            }
+        }
+    }
+}
+
+
+----
+
+package com.openparty.app.core.presentation
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+
+@Composable
+fun LoadingScreen() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        CircularProgressIndicator()
+    }
+}
+
+
+----
+
+package com.openparty.app.core.presentation
+
+import com.openparty.app.navigation.NavDestinations
+
+sealed class UiEvent {
+    data class ShowSnackbar(val message: String) : UiEvent()
+    data class Navigate(val destination: NavDestinations) : UiEvent()
+}
+
+
+
+
+----
+
+package com.openparty.app.core.presentation
+
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.navigation.NavHostController
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+
+@Composable
+fun UiEventHandler(
+    uiEvent: SharedFlow<UiEvent>?,
+    navController: NavHostController,
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }
+) {
+    val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(uiEvent) {
+        uiEvent?.collectLatest { event ->
+            when (event) {
+                is UiEvent.Navigate -> {
+                    navController.navigate(event.destination.route) {
+                        popUpTo(event.destination.route) { inclusive = true }
+                    }
+                }
+                is UiEvent.ShowSnackbar -> {
+                    coroutineScope.launch {
+                        snackbarHostState.showSnackbar(event.message)
+                    }
+                }
+            }
+        }
+    }
+
+    AppSnackbarHost(snackbarHostState = snackbarHostState)
+}
+
+
+----
+
+package com.openparty.app.core.util
+
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
+
+object AppUtils {
+    fun openAppSettings(context: Context) {
+        val intent = Intent(
+            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.fromParts("package", context.packageName, null)
+        )
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
+    }
+}
+
+
+----
+
+package com.openparty.app.navigation
+
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.openparty.app.features.newsfeed.feature_discussions.presentation.DiscussionsPreviewScreen
+import com.openparty.app.features.startup.verification.feature_email_verification.presentation.EmailVerificationScreen
+import com.openparty.app.features.startup.verification.feature_location_verification.presentation.LocationVerificationScreen
+import com.openparty.app.features.startup.account.feature_login.presentation.LoginScreen
+import com.openparty.app.features.startup.verification.feature_manual_verification.presentation.ManualVerificationScreen
+import com.openparty.app.features.startup.account.feature_register.presentation.RegisterScreen
+import com.openparty.app.features.startup.feature_screen_name_generation.presentation.ScreenNameGenerationScreen
+import com.openparty.app.features.startup.feature_splash.presentation.SplashScreen
+
+@Composable
+fun AppNavigation(
+    navController: NavHostController,
+) {
+    NavHost(
+        navController = navController,
+        startDestination = NavDestinations.Splash.route,
+    ) {
+        composable(NavDestinations.Splash.route) { SplashScreen(navController = navController) }
+        composable(NavDestinations.Login.route) { LoginScreen(navController = navController) }
+        composable(NavDestinations.Register.route) { RegisterScreen(navController = navController) }
+        composable(NavDestinations.EmailVerification.route) { EmailVerificationScreen(navController = navController) }
+        composable(NavDestinations.LocationVerification.route) { LocationVerificationScreen(navController = navController) }
+        composable(NavDestinations.ScreenNameGeneration.route) { ScreenNameGenerationScreen(navController = navController) }
+        composable(NavDestinations.ManualVerification.route) { ManualVerificationScreen() }
+        composable(NavDestinations.DiscussionsPreview.route) { DiscussionsPreviewScreen() }
+    }
+}
+
+
+----
+
+package com.openparty.app.navigation
+
+sealed class NavDestinations(val route: String) {
+    object Splash : NavDestinations("splash")
+    object Login : NavDestinations("login")
+    object Register : NavDestinations("register")
+    object EmailVerification : NavDestinations("email_verification")
+    object LocationVerification : NavDestinations("location_verification")
+    object ScreenNameGeneration : NavDestinations("screen_name_generation")
+    object ManualVerification : NavDestinations("manual_verification")
+    object CouncilMeetingsPreview : NavDestinations("council_meetings_preview")
+    object DiscussionsPreview : NavDestinations("discussions_preview")
+    object Loading : NavDestinations("loading")
+
+}
+
+
+----
+
+package com.openparty.app.features.startup.feature_splash.presentation
+
+import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import com.openparty.app.core.presentation.UiEventHandler
+
+@Composable
+fun SplashScreen(
+    navController: NavHostController,
+    viewModel: SplashViewModel = hiltViewModel()
+) {
+    UiEventHandler(uiEvent = viewModel.uiEvent, navController = navController)
+}
+
+
+----
+
+package com.openparty.app.features.startup.feature_splash.presentation
+
+import androidx.lifecycle.viewModelScope
+import com.openparty.app.core.presentation.UiEvent
+import com.openparty.app.features.startup.feature_authentication.domain.usecase.DetermineAuthStatesUseCase
+import com.openparty.app.features.startup.feature_authentication.presentation.AuthFlowNavigationMapper
+import com.openparty.app.features.startup.shared.presentation.AuthenticationViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlinx.coroutines.launch
+
+@HiltViewModel
+class SplashViewModel @Inject constructor(
+    determineAuthStatesUseCase: DetermineAuthStatesUseCase,
+    authFlowNavigationMapper: AuthFlowNavigationMapper
+) : AuthenticationViewModel<UiEvent>(determineAuthStatesUseCase, authFlowNavigationMapper) {
+
+    init {
+        viewModelScope.launch {
+            navigateToNextAuthScreen(onError = { errorMessage ->
+                UiEvent.ShowSnackbar(errorMessage)
+            })
+        }
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.data.datasource
+
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QueryDocumentSnapshot
+
+interface DiscussionsDataSource {
+    fun getDiscussionsQuery(startAfter: QueryDocumentSnapshot?, loadSize: Int): Query
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.data.datasource
+
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import javax.inject.Inject
+
+class FirebaseDiscussionsDataSource @Inject constructor(
+    private val firestore: FirebaseFirestore
+) : DiscussionsDataSource {
+
+    override fun getDiscussionsQuery(
+        startAfter: QueryDocumentSnapshot?,
+        loadSize: Int
+    ): Query {
+        val baseQuery = firestore.collection("discussions")
+            .orderBy("upvoteCount", Query.Direction.DESCENDING)
+            .limit(loadSize.toLong())
+
+        return startAfter?.let { baseQuery.startAfter(it) } ?: baseQuery
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.data.datasource
+
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.openparty.app.features.newsfeed.feature_discussions.domain.model.Discussion
+import kotlinx.coroutines.tasks.await
+import javax.inject.Inject
+
+class FirestorePagingSource @Inject constructor(
+    private val pagingSource: (QueryDocumentSnapshot?, Int) -> Query
+) : PagingSource<QueryDocumentSnapshot, Discussion>() {
+
+    override suspend fun load(params: LoadParams<QueryDocumentSnapshot>): LoadResult<QueryDocumentSnapshot, Discussion> {
+        return try {
+            val query = params.key?.let { pagingSource(it, params.loadSize) } ?: pagingSource(null, params.loadSize)
+            val snapshot = query.get().await()
+            val queryDocumentSnapshots = snapshot.documents.filterIsInstance<QueryDocumentSnapshot>()
+            val discussions = queryDocumentSnapshots.map { it.toObject(Discussion::class.java)!! }
+            val nextKey = queryDocumentSnapshots.lastOrNull()
+
+            LoadResult.Page(
+                data = discussions,
+                prevKey = null,
+                nextKey = nextKey
+            )
+        } catch (e: Exception) {
+            LoadResult.Error(e)
+        }
+    }
+
+
+    override fun getRefreshKey(state: PagingState<QueryDocumentSnapshot, Discussion>): QueryDocumentSnapshot? {
+        return null
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.data.repository
+
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.openparty.app.features.newsfeed.feature_discussions.data.datasource.DiscussionsDataSource
+import com.openparty.app.features.newsfeed.feature_discussions.data.datasource.FirestorePagingSource
+import com.openparty.app.features.newsfeed.feature_discussions.domain.model.Discussion
+import com.openparty.app.features.newsfeed.feature_discussions.domain.repository.DiscussionRepository
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class DiscussionRepositoryImpl @Inject constructor(
+    private val dataSource: DiscussionsDataSource
+) : DiscussionRepository {
+    override fun getDiscussionsPager(): Flow<PagingData<Discussion>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 10,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = {
+                FirestorePagingSource { startAfter, loadSize ->
+                    dataSource.getDiscussionsQuery(startAfter, loadSize)
+                }
+            }
+        ).flow
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.di
+
+import com.google.firebase.firestore.FirebaseFirestore
+import com.openparty.app.features.newsfeed.feature_discussions.data.datasource.DiscussionsDataSource
+import com.openparty.app.features.newsfeed.feature_discussions.data.datasource.FirebaseDiscussionsDataSource
+import com.openparty.app.features.newsfeed.feature_discussions.data.repository.DiscussionRepositoryImpl
+import com.openparty.app.features.newsfeed.feature_discussions.domain.repository.DiscussionRepository
+import dagger.Binds
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class DiscussionsModule {
+
+    @Binds
+    @Singleton
+    abstract fun bindDiscussionRepository(
+        implementation: DiscussionRepositoryImpl
+    ): DiscussionRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindDiscussionsDataSource(
+        implementation: FirebaseDiscussionsDataSource
+    ): DiscussionsDataSource
+
+    companion object {
+        @Provides
+        @Singleton
+        fun provideFirestore(): FirebaseFirestore = FirebaseFirestore.getInstance()
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.domain.model
+
+data class Discussion(
+    val id: String,
+    val title: String,
+    val content: String,
+    val timestamp: Long?,
+    val upvoteCount: Int,
+    val downvoteCount: Int,
+    val commentCount: Int
+)
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.domain.repository
+
+import androidx.paging.PagingData
+import com.openparty.app.features.newsfeed.feature_discussions.domain.model.Discussion
+import kotlinx.coroutines.flow.Flow
+
+interface DiscussionRepository {
+    fun getDiscussionsPager(): Flow<PagingData<Discussion>>
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.domain.usecase
+
+import androidx.paging.PagingData
+import com.openparty.app.core.domain.DomainResult
+import com.openparty.app.core.domain.error.AppError
+import com.openparty.app.features.newsfeed.feature_discussions.domain.model.Discussion
+import com.openparty.app.features.newsfeed.feature_discussions.domain.repository.DiscussionRepository
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
+class GetDiscussionsUseCase @Inject constructor(
+    private val repository: DiscussionRepository
+) {
+    suspend operator fun invoke(): DomainResult<Flow<PagingData<Discussion>>> {
+        return try {
+            DomainResult.Success(repository.getDiscussions())
+        } catch (e: Exception) {
+            DomainResult.Failure(AppError.FetchDiscussions)
+        }
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.presentation
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import com.openparty.app.features.newsfeed.feature_discussions.domain.model.Discussion
+
+@Composable
+fun DiscussionCard(discussion: Discussion, onClick: () -> Unit) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clickable { onClick() }
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = discussion.title,
+                style = MaterialTheme.typography.titleLarge,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = discussion.content,
+                style = MaterialTheme.typography.bodyMedium,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.presentation
+
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.openparty.app.core.presentation.UiEventHandler
+
+@Composable
+fun DiscussionsScreen(
+    navController: NavHostController,
+    viewModel: DiscussionsViewModel = viewModel()
+) {
+    val lazyDiscussions = viewModel.discussions.collectAsLazyPagingItems()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val uiEvent = viewModel.uiEvent
+
+    LaunchedEffect(Unit) {
+        viewModel.loadDiscussions()
+    }
+
+    UiEventHandler(uiEvent = uiEvent, navController = navController, snackbarHostState = snackbarHostState)
+
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        items(
+            count = lazyDiscussions.itemCount,
+            key = { index -> lazyDiscussions[index]?.id ?: index },
+            contentType = { index -> lazyDiscussions[index] }
+        ) { index ->
+            val discussion = lazyDiscussions[index]
+            if (discussion != null) {
+                DiscussionCard(discussion = discussion, onClick = {})
+            }
+        }
+    }
+}
+
+
+----
+
+package com.openparty.app.features.newsfeed.feature_discussions.presentation
+
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.openparty.app.core.domain.DomainResult
+import com.openparty.app.core.presentation.BaseViewModel
+import com.openparty.app.core.presentation.UiEvent
+import com.openparty.app.features.newsfeed.feature_discussions.domain.model.Discussion
+import com.openparty.app.features.newsfeed.feature_discussions.domain.usecase.GetDiscussionsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class DiscussionsViewModel @Inject constructor(
+    private val getDiscussionsUseCase: GetDiscussionsUseCase
+) : BaseViewModel<UiEvent>() {
+
+    private val _uiState = MutableStateFlow<DiscussionsUiState>(DiscussionsUiState.Loading)
+    val uiState: StateFlow<DiscussionsUiState> = _uiState
+
+    private var _discussions: Flow<PagingData<Discussion>> = flow { }
+    val discussions: Flow<PagingData<Discussion>>
+        get() = _discussions
+
+    fun loadDiscussions() {
+        viewModelScope.launch {
+            val result = getDiscussionsUseCase()
+            when (result) {
+                is DomainResult.Success -> {
+                    _discussions = result.data.cachedIn(viewModelScope)
+                }
+                is DomainResult.Failure -> {
+                    _uiState.value = DiscussionsUiState.Error("Could not fetch discussions")
+                }
+            }
+        }
+    }
+}
+
+sealed class DiscussionsUiState {
+    object Loading : DiscussionsUiState()
+    data class Error(val message: String) : DiscussionsUiState()
+}
+
+
+-------------
+
+Here are some architecture guidelines I want you to follow: 
+
+[IMPORTANT]
+- Does it have logs in key areas?
+  - Not too many log, just logging key events
+  - Logs also should not be in the screen layer
+- Does it give strong user feedback?
+  - Always show errors to the user using a snackbar
+  - i.e. when there is an error, does it show a snackbar to the user saying what the error is? 
+  - It should not show the user the raw error, it should show the user the error in a human readable format, telling them what the error is in simple terms
+  - The raw error should also be printed to the logs for the tech team 
+  - Always use DomainResult instead of Result so that I can return AppError to the user
+  This is how I specifically want errors to be handled in each layer: 
+  - In the FirebaseDataSource layer, I want raw errors to be caught, printed to logs for the tech team, then thrown so they can be caught at the repository layer
+  - In the repository layer, if errors occur they should return DomainResult.Failure with a specific error code e.g. return DomainResult.Failure(AppError.RegisterError())
+  - In the use case, if there is a more specific error code that should be returned, then return that. Otherwise just return the DomainResut.Failure from the repository impl
+    - If an Error code for your specific error doesn't exist, feel free to add one in AppError
+  - The presentation layer will then map the DomainResut.Failure error code to a human readable message which is sent to the snackbar in the UI
+- Does it use centralised, classes for things like Result, UiState, Uievent? 
+  - I want these to be centralised to reduce code duplication 
+  - If they need to be customised for a speccific feature, you can make a new one or extend the base class
+- Does it use use cases for business logic to maintain the single responsibility principle? 
+  - The only business logic that shouldn't be in use cases is logic relating directly to the data layer (which should be in the repository impl class) 
+- For the presentation layer, does it have all navigation logic in the view model class, and then collect navigation events in the screen class?
+  - i.e. navigation logic should be in the view model, not in the screen
+  - The screen should just have launched events that collect navigation events 
+
+-------------
+
+Assume that all code uses firebase, dagger hilt dependency injection, and jetpack compose. 
+
+This is my android kotlin jetpack compose, dagger hilt project. 
+
+don't leave comments in the code 
+
+Only give me files where you have made changes. If you haven't changed a file, don't give it to me
+
+Whenever you give me a code file, give me the entire file, don't abbreviate anything
+
+Always answer in chat, don't give code blocks
+
+IMPORTANT - For any answer you give me, use the most robust and scalable architecture possible. 
+
+-------------
+
+I'm building an app that has two features - feature_discussions and feature_council_meetings 
+
+feature_discussions and feature_council_meetings are both newsfeeds i.e. they will both show a list of cards on a screen that the user can scroll through 
+
+They both use firebase and pager 3 for pagination 
+
+The code for feature_discussions is shown above. How would i write the code for feature_council_meetings to be as clean, robust and scalable as possible, taking into account that feature_discussions and feature_council_meetings share a lot of logic 
+
+the discussions and council meetings will have different firebase data objects, and the cards on the newsfeed will look a bit different, but other than that they're the same 

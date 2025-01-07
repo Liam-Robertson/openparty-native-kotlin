@@ -1,0 +1,137 @@
+[
+  {
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "governmentName": "Benjamin Garcia",
+    "screenName": "Gentle Wanderer Echo",
+    "accountType": "Admin",
+    "title": null,
+    "manuallyVerified": true,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "benjamingarcia@gmail.com",
+      "profilePictureUrl": "https://example.com/BenjaminGarcia.jpg",
+      "phoneNumber": "+15555555079"
+    }
+  },
+  {
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "governmentName": "Emma Smith",
+    "screenName": "Emma Smith",
+    "accountType": "Representative",
+    "title": "Councillor",
+    "manuallyVerified": true,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "emmasmith@gmail.com",
+      "profilePictureUrl": "https://example.com/EmmaSmith.jpg",
+      "phoneNumber": "+15555557679"
+    }
+  },
+  {
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "governmentName": "James Smith",
+    "screenName": "James Smith",
+    "accountType": "Representative",
+    "title": "Councillor",
+    "manuallyVerified": true,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "jamessmith@gmail.com",
+      "profilePictureUrl": "https://example.com/JamesSmith.jpg",
+      "phoneNumber": "+15555551561"
+    }
+  },
+  {
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "governmentName": "Emily Miller",
+    "screenName": "Emily Miller",
+    "accountType": "Representative",
+    "title": "Councillor",
+    "manuallyVerified": true,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "emilymiller@gmail.com",
+      "profilePictureUrl": "https://example.com/EmilyMiller.jpg",
+      "phoneNumber": "+15555551412"
+    }
+  },
+  {
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "governmentName": "Benjamin Anderson",
+    "screenName": "Benjamin Anderson",
+    "accountType": "Representative",
+    "title": "Member of Parliament",
+    "manuallyVerified": true,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "benjaminanderson@gmail.com",
+      "profilePictureUrl": "https://example.com/BenjaminAnderson.jpg",
+      "phoneNumber": "+15555556299"
+    }
+  },
+  {
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "governmentName": "Liam Anderson",
+    "screenName": "Brilliant Forest River",
+    "accountType": "Constituent",
+    "title": null,
+    "manuallyVerified": false,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "liamanderson@gmail.com",
+      "profilePictureUrl": "https://example.com/LiamAnderson.jpg",
+      "phoneNumber": "+15555551070"
+    }
+  },
+  {
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "governmentName": "Michael Smith",
+    "screenName": "Luminous Forest Guardian",
+    "accountType": "Constituent",
+    "title": null,
+    "manuallyVerified": false,
+    "locationVerified": false,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "michaelsmith@gmail.com",
+      "profilePictureUrl": "https://example.com/MichaelSmith.jpg",
+      "phoneNumber": "+15555556006"
+    }
+  },
+  {
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "governmentName": "James Davis",
+    "screenName": "Twinkling Star Wanderer",
+    "accountType": "Constituent",
+    "title": null,
+    "manuallyVerified": true,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "jamesdavis@gmail.com",
+      "profilePictureUrl": "https://example.com/JamesDavis.jpg",
+      "phoneNumber": "+15555553879"
+    }
+  },
+  {
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "governmentName": "Tom Smith",
+    "screenName": "Golden River Chaser",
+    "accountType": "Constituent",
+    "title": null,
+    "manuallyVerified": true,
+    "locationVerified": true,
+    "location": "West Lothian",
+    "otherUserInfo": {
+      "email": "tomsmith@gmail.com",
+      "profilePictureUrl": "https://example.com/TomSmith.jpg",
+      "phoneNumber": "+15555558847"
+    }
+  }
+]

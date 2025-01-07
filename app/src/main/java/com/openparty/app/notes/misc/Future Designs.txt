@@ -1,0 +1,31 @@
+- Toggle anonymity for councillors:
+    - Not sure if this is needed or not, but sometimes councillors may want to say something important, but know they will get backlash from the council
+    - In this case it's useful to have an anonymity feature
+
+- Scorecard for councillors
+    - If a councillor answers a question and responds to an issue they get karma or upvotes or something
+
+- Video newsfeed
+    - Right now the newsfeed items are text/audio
+    - At some point these need to be come video
+
+- Mouth swapping video:
+    - Right now you can't do AI avatars because it's too expensive
+    - However I would bet something you can do is to take real footage and swap the mouth
+    - They already do this for foreign lanuage films to translate them to english
+    - I'd bet you could take real footage and change the mouth to fit a new conversation
+
+Caching newsfeed items:
+    - API Endpoint: Set up an API endpoint (e.g., /newsfeed) that returns a list of news items with title, thumbnail_url, and article_id. This minimizes data transfer, as the full article content doesn’t need to be sent for each item.
+      Lazy Loading and Image Caching: Use libraries like Glide or Picasso to handle lazy loading and caching of images. These libraries can load images from URLs efficiently and store them temporarily in cache, making scrolling smoother and reducing network calls.
+
+Dialog:
+    - One issue I need to address is how to make the process of getting information less boring
+    - I think one way to do that, would be, instead of presenting the information as an article, instead present it as a dialog
+    - That way each person could take one side of the argument and argue their way to a conclusion
+    - I think this is why things like The Rest Is Politics is interesting, and listening to a summary of policy isn't
+    - I think one of the things that's necessary for policy to be interesting, is to have a point of view
+    - If you don't have a point of view it becomes somewhat dull
+    - Having two AIs each represent a point of view then argue out the details might be more interesting
+    - Also the only way to have a point of view and to remain balanced is to have two opposite points of view and have them debate
+    - It reminds me of a socratic dialogue

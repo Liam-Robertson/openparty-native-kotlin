@@ -1,0 +1,48 @@
+Newsfeed Article Screen:
+- This is the screen that shows the individual newsfeed article the user has clicked on
+- Each newsfeed article represents an issue that the local government is currently addressing
+- For example it might be a newsfeed article on fraud auditing or social housing
+- Each newsfeed article will have a title, a play button and text content associated with it
+    - The play button is to play the audio file associated with the article
+- If the text content goes over the screen (or the footer), the user should be able to scroll down to view the full text
+- Under the newsfeed article text content, there should be a container with these elements: 
+    - A thumbs up icon
+    - A number which represents the number of thumbs up that are associated with that newsfeed article
+    - A thumbs down icon
+    - A comments icon
+    - A number representing the number of comments that newsfeed article has 
+- Underneath that container there should be a comments section, I'll describe how the comments section should work below
+- There should also be a footer that is pinned to the bottom of the screen which is a reply footer, i'll describe this in a section below
+
+Comments section: 
+- The comments section is a list of cards, each card representing a comment
+- If there are no comments, leave placeholder text saying "No comments yet..." 
+- Each card has these elements: 
+    - In the top right - the name of the user who posted the comment (greyed out) 
+    - Next to the username is how long ago the comment was left (e.g. 10h, 3 months etc) 
+    - Under that is the text content of the comment itself 
+    - Under that is a footer (the footer is on the right side of the screen horizontally) that contains these elements: 
+        - A reply icon (greyed out) 
+        - A thumbs up icon (greyed out)
+        - A number representing the number of thumbs up for that comment (greyed out) 
+        - A thumbs down icon (greyed out) 
+- If the user clicks the reply icon, it takes them to the reply screen which I'll describe below 
+- Each comment card has replies associated with it 
+- Each reply will be beneath the original comment but slightly indented
+- For example if had comment1, reply1, reply2, reply3 
+    - Where comment1 is the original comment, reply1 is a reply to the original comment, reply2 is a reply to the original comment, reply 4 is a reply to reply2 
+    - Then comment1 wouldn't be indented, reply1 would be one tab indented under comment1, reply2 would be one tabl indented under comment1, reply4 would be two tabs indented under reply 2
+
+Reply screen: 
+- Will fill this out later
+
+Reply footer: 
+- The reply footer is pinned to the bottom of the screen
+    - i.e. it should be visible, even if the user scrolls down
+- It is a black container which is 10% of the height of the screen and full screen width
+- Inside the black container is a grey container which is 95% of the screen width (horizontally centred) and 80% of the height of its parent container
+- Inside the grey container is text saying "Add your reply..." which is written in lighter grey
+- If this container is clicked, it navigates the user to the Add Comment Screen, I'll describe this screen below 
+
+Add Comment screen:
+- Will fill this out later

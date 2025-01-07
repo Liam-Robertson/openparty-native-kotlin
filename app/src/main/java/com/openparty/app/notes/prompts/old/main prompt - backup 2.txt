@@ -1,0 +1,576 @@
+com.openparty.app
+├── core
+│   └── data
+│       └── storage
+│           ├── EncryptedSharedPreferencesSecureStorage.kt
+│           └── SecureStorage.kt
+├── di
+│   ├── AppModule.kt
+│   ├── CommentsModule.kt
+│   ├── EngagementModule.kt
+│   ├── LocationVerificationModule.kt
+│   └── UserModule.kt
+├── features
+│   ├── engagement
+│   │   ├── feature_comments_section
+│   │   │   ├── data
+│   │   │   │   └── ...kt
+│   │   │   ├── domain
+│   │   │   │   ├── model
+│   │   │   │   │   └── ....kt
+│   │   │   │   └── repository
+│   │   │   │       └── ....kt
+│   │   │   └── presentation
+│   │   │       └── .....kt
+│   │   └── feature_newsfeed_engagement
+│   │       ├── data
+│   │       │   └── ....kt
+│   │       ├── domain
+│   │       │   └── repository
+│   │       │       └── ....kt
+│   │       └── presentation
+│   │           └── ....kt
+│   ├── newsfeed
+│   │   ├── feature_caching
+│   │   │   ├── data
+│   │   │   │   └── ....kt
+│   │   │   ├── domain
+│   │   │   │   ├── model
+│   │   │   │   │   └── ....kt
+│   │   │   │   └── usecase
+│   │   │   │       └── ....kt
+│   │   │   └── presentation
+│   │   │       └── ....kt
+│   │   ├── feature_council_meetings
+│   │   │   ├── data
+│   │   │   │   └── ....kt
+│   │   │   ├── domain
+│   │   │   │   ├── model
+│   │   │   │   │   └── ....kt
+│   │   │   │   └── repository
+│   │   │   │       └── ....kt
+│   │   │   ├── media
+│   │   │   │   └── ....kt
+│   │   │   └── presentation
+│   │   │       ├── article
+│   │   │       │   └── ....kt
+│   │   │       └── preview
+│   │   │           └── ....kt
+│   │   └── feature_discussions
+│   │       ├── data
+│   │       │   └── ....kt
+│   │       ├── domain
+│   │       │   ├── model
+│   │       │   │   └── ....kt
+│   │       │   └── repository
+│   │       │       └── ....kt
+│   │       └── presentation
+│   │           ├── article
+│   │           │   └── ....kt
+│   │           └── preview
+│   │               └── ....kt
+│   ├── shared
+│   │   ├── feature_user
+│   │   │   ├── data
+│   │   │   │   └── ....kt
+│   │   │   ├── domain
+│   │   │   │   └── repository
+│   │   │   │       └── ....kt
+│   │   │   └── presentation
+│   │   │       └── ....kt
+│   │   ├── feature_write_protection
+│   │   │   ├── data
+│   │   │   │   └── ....kt
+│   │   │   ├── domain
+│   │   │   │   └── .....kt
+│   │   │   └── presentation
+│   │   │       └── ....kt
+│   │   └── util
+│   │       ├── LoadingScreen
+│   │       ├── TimestampFormatter
+│   │       └── UiState
+│   └── startup
+│       ├── feature_authentication
+│       │   ├── data
+│       │   │   └── ....kt
+│       │   ├── domain
+│       │   │   └── ....kt
+│       │   └── presentation
+│       │       └── ....kt
+│       ├── feature_login
+│       │   ├── data
+│       │   │   └── ...kt
+│       │   ├── domain
+│       │   │   └── repository
+│       │   │       └── ....kt
+│       │   └── presentation
+│       │       └── ...kt
+│       ├── feature_splash
+│       │   ├── data
+│       │   │   └── ...kt
+│       │   ├── domain
+│       │   │   └── ....kt
+│       │   └── presentation
+│       │       └── ...kt
+│       └── feature_verification
+│           ├── data
+│           │   └── ....kt
+│           ├── domain
+│           │   └── ..kt
+│           └── presentation
+│               └── .....kt
+├── navigation
+│   ├── AppNavHost.kt
+│   ├── NavDestinations.kt
+│   └── NavigationFooter.kt
+├── scripts
+│   ├── firebaseScripts
+│   ├── meetingToVoice
+│   └── util
+├── ui.theme
+│   ├── Color.kt
+│   ├── Theme.kt
+│   └── Type.kt
+├── OpenPartyApp.kt
+└── MainActivity.kt
+
+
+-------------
+
+{{MAIN_CODE_BLOCK}}
+
+-------------
+
+Firestore Database Schema
+
+Discussions Collection (discussions)
+
+Each document in this collection represents a discussion.
+
+- Document ID (discussionId): Unique identifier for the discussion.
+
+- Fields:
+  - title (String): The title of the discussion.
+  - contentText (String): The text content of the discussion.
+  - timestamp (Timestamp): Creation time of the discussion.
+  - upvoteCount (Number): Total number of upvotes.
+  - downvoteCount (Number): Total number of downvotes.
+  - commentCount (Number): Total number of comments.
+
+Example Document Structure:
+json
+{
+  "title": "Community Discussion on Education",
+  "contentText": "This is the text of the discussion article...",
+  "timestamp": "2023-10-01T15:00:00Z",
+  "upvoteCount": 50,
+  "downvoteCount": 5,
+  "commentCount": 10
+}
+
+
+Discussion Votes Collection (discussion_votes)
+
+This collection stores individual upvote and downvote actions by users on discussions.
+
+- Document ID: Combination of discussionId and userId (e.g., discussionId_userId) or auto-generated.
+
+- Fields:
+  - discussionId (String): Reference to the discussion.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "discussionId": "discussionABC",
+  "userId": "user789",
+  "type": "upvote",
+  "timestamp": "2023-10-02T12:30:00Z"
+}
+
+
+Articles Collection (articles)
+
+Each document in this collection represents a newsfeed article.
+
+- Document ID (articleId): Unique identifier for the article.
+
+- Fields:
+  - title (String): The title of the article.
+  - thumbnailUrl (String): URL of the article's thumbnail image.
+  - contentText (String): The text content of the article.
+  - audioUrl (String): URL of the associated audio file.
+  - timestamp (Timestamp): Creation time of the article.
+  - upvoteCount (Number): Total number of upvotes.
+  - downvoteCount (Number): Total number of downvotes.
+  - commentCount (Number): Total number of comments.
+
+Example Document Structure:
+json
+{
+  "title": "Local Government Addresses Social Housing",
+  "thumbnailUrl": "https://example.com/thumbnail.jpg",
+  "contentText": "Detailed article content goes here...",
+  "audioUrl": "https://example.com/audio.mp3",
+  "timestamp": "2023-10-01T12:00:00Z",
+  "upvoteCount": 150,
+  "downvoteCount": 10,
+  "commentCount": 25
+}
+
+
+Article Votes Collection (article_votes)
+
+This collection stores individual upvote and downvote actions by users on articles.
+
+- Document ID: Combination of articleId and userId (e.g., articleId_userId) or auto-generated.
+
+- Fields:
+  - articleId (String): Reference to the article.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "articleId": "article123",
+  "userId": "user456",
+  "type": "upvote",
+  "timestamp": "2023-10-01T12:30:00Z"
+}
+
+
+Comments Collection (comments)
+
+This collection stores all comments and replies associated with both articles and discussions.
+
+- Document ID (commentId): Unique identifier for the comment or reply.
+
+- Fields:
+  - articleId (String, nullable): Reference to the associated article if it's a comment on an article. Null if it's on a discussion.
+  - discussionId (String, nullable): Reference to the associated discussion if it's a comment on a discussion. Null if it's on an article.
+  - parentCommentId (String, nullable): ID of the parent comment if it's a reply; null if it's a top-level comment.
+  - userId (String): Reference to the user who made the comment.
+  - screenName (String): The screenName of the commenter.
+  - contentText (String): The text content of the comment.
+  - timestamp (Timestamp): Time when the comment was made.
+  - upvoteCount (Number): Total number of upvotes for the comment.
+  - downvoteCount (Number): Total number of downvotes for the comment.
+  - repliesCount (Number): Total number of replies to this comment.
+
+Example Document Structure:
+json
+{
+  "articleId": "article123",
+  "discussionId": null,
+  "parentCommentId": null,
+  "userId": "user789",
+  "screenName": "JaneDoe",
+  "contentText": "This is a top-level comment.",
+  "timestamp": "2023-10-01T13:00:00Z",
+  "upvoteCount": 20,
+  "downvoteCount": 2,
+  "repliesCount": 3
+}
+
+Another Example (for a discussion):
+json
+{
+  "articleId": null,
+  "discussionId": "discussionABC",
+  "parentCommentId": null,
+  "userId": "user789",
+  "screenName": "Whimsical Moonlit Forest",
+  "contentText": "This is a discussion comment.",
+  "timestamp": "2023-10-02T13:00:00Z",
+  "upvoteCount": 10,
+  "downvoteCount": 1,
+  "repliesCount": 2
+}
+
+
+Comment Votes Collection (comment_votes)
+
+This collection stores individual upvote and downvote actions by users on comments.
+
+- Document ID: Combination of commentId and userId (e.g., commentId_userId) or auto-generated.
+
+- Fields:
+  - commentId (String): Reference to the comment.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "commentId": "comment456",
+  "userId": "user789",
+  "type": "downvote",
+  "timestamp": "2023-10-01T13:15:00Z"
+}
+
+
+Users Collection (users)
+
+The users collection stores user information along with their account types and any additional fields relevant to their roles.
+
+- Document ID (userId): Unique identifier for the user.
+
+- Fields:
+  - governmentName (String): The real name of the user.
+  - screenName (String): The name displayed to other users. For representatives, this is the same as their governmentName. For constituents, this is an anonymous system-generated name.
+  - accountType (String): The type of user account. Possible values: "Admin", "Constituent", "Representative".
+  - title (String, nullable): Applicable only for Representative accounts (e.g., "Councillor", "Member of Parliament").
+  - fullyVerified (Boolean): Indicates if the user has been verified by a software developer.
+  - locationVerified (Boolean): Indicates if the user's location has been verified.
+  - location (String, nullable): The verified location of the user, if locationVerified is true.
+  - otherUserInfo (Object):
+    - email (String): The user's email.
+    - profilePictureUrl (String, nullable): The user's profile picture URL.
+    - phoneNumber (String, nullable): The user's phone number, if provided.
+
+Example Document Structures:
+
+Admin Account:
+json
+{
+  "governmentName": "John Admin",
+  "screenName": "John Admin",
+  "accountType": "Admin",
+  "title": null,
+  "fullyVerified": true,
+  "locationVerified": false,
+  "location": null,
+  "otherUserInfo": {
+    "email": "admin@example.com",
+    "profilePictureUrl": "https://example.com/admin_profile.jpg",
+    "phoneNumber": "+15555550123"
+  }
+}
+
+
+Constituent Account:
+json
+{
+  "governmentName": "John Doe",
+  "screenName": "Whimsical Moonlit Forest",
+  "accountType": "Constituent",
+  "title": null,
+  "fullyVerified": false,
+  "locationVerified": true,
+  "location": "West Lothian",
+  "otherUserInfo": {
+    "email": "johndoe@example.com",
+    "profilePictureUrl": "https://example.com/john_profile.jpg",
+    "phoneNumber": "+15555550124"
+  }
+}
+
+
+Representative Account:
+json
+{
+  "governmentName": "Jane Smith",
+  "screenName": "Jane Smith",
+  "accountType": "Representative",
+  "title": "Councillor",
+  "fullyVerified": true,
+  "locationVerified": true,
+  "location": "West Lothian",
+  "otherUserInfo": {
+    "email": "janesmith@example.com",
+    "profilePictureUrl": "https://example.com/jane_profile.jpg",
+    "phoneNumber": "+15555550125"
+  }
+}
+
+-------------
+
+- I want to track analytics using firebase. I'll describe the key metrics to track below
+- I want to have all metrics to be split by consituent and Representative accounts 
+    - i.e. users can have account type "Consistuent" or "Representative". I want each metric to be split by this account type 
+
+Metrics to track:
+- Number of daily active users 
+- Number of new users 
+- User retention
+- Number of times a user opens a discussions preview article 
+- Number of times a user opens a newsfeed preview article 
+- Number of times a user posts a discussion article
+- Number of times a user leaves a comment on a newsfeed article 
+- Number of times a user leaves a comment on a discussions article 
+
+Number of daily active users:
+- Just track the number of daily active users 
+- Also tell me how many times a day they used the app 
+
+Number of times a user opens a discussions preview article 
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user opens an item on the discussions preview screen
+
+Number of times a user opens a newsfeed preview article 
+- I want this to be split by consituent and Representative accounts `
+- Track every time a user opens an item on the newsfeed preview screen
+
+Number of times a user posts a discussion article:
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user adds a discussion through Add Post screen 
+
+Number of times a user leaves a comment on a newsfeed article :
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user leaves a comment on a newsfeed article through the add comment screen
+- This has to track specifically newsfeed article comment, not just comments of any kind
+
+Number of times a user leaves a comment on a discussions article :
+- I want this to be split by consituent and Representative accounts 
+- Track every time a user leaves a comment on a discussions article through the add comment screen
+- This has to track specifically discussions article comment, not just comments of any kind
+
+-------------
+
+IMPORTANT - At the top of your reponse, include this text - "
+Add in:
+functionality to secure api calls with tokens
+token refreshes
+Implement network interceptors with tools like Retrofit, using Firebase's access tokens for authentication headers (`Authorization: Bearer <token>`).
+Protected routes
+Handle errors
+Display Firebase-generated error messages for invalid login attempts or network issues in a user-friendly manner.
+Provide generic error messages to avoid exposing sensitive details (e.g., "Invalid credentials" instead of "User does not exist").
+"
+
+Assume that all code uses firebase, dagger hilt dependency injection, and jetpack compose. 
+
+MainActivity: 
+- Very simple, just contains the AppNavigation(navcontroller)
+
+navigation: 
+- Kept in a navigation folder at base package level 
+- The navigation is handled by the AppNavigation class
+- It's input parameters are the navController and the splash view model
+- From the splash view model, it collects the state flow of AuthState 
+    - AuthState contains the userId, isLoggedIn, isEmailVerified, isLocationVerified, isScreenNameGenerated
+- The navhost has start destination set to splash
+- it then uses a NavDestinations file which holds enums to define these routes: 
+    - SPLASH, LOADING, LOGIN, REGISTER, EMAIL_VERIFICATION, LOCATION_VERIFICATION, SCREEN_NAME_GENERATOR, COUNCIL_MEETING_PREVIEW, COUNCIL_MEETING_ARTICLE, DISCUSSION_PREVIEW, DISCUSSION_ARTICLE, ADD_COMMENT, ADD_DISCUSSION
+
+feature_splash
+- Contains the splash screen which is shown on startup 
+- Only contains a splash screen and a splash view model 
+- Splash Screen:
+    - The splash screen collects the auth state from the splash view model, 
+    - The auth state contains whether the authentication state variables: isLoggedIn, isEmailVerified, isLocationVerified, isScreenNameGenerated
+    - Has a launched effect, then a 2000 delay, then a when statement
+    - The goes through auth states in order from authState and navigates based on auth state in this order: 
+        - isLoggedIn.not() -> login screen
+        - isEmailVerified.not() -> email verification screen
+        - isLocationVerified.not() -> location verification screen
+        - isScreenNameGenerated.not -> screen name generation screen
+        - else ->  discussions preview screen 
+    - At the bottom it has a Box() which says "Welcome to Open Party" 
+- Splash view model: 
+    - Takes in the authRepository in the constructor
+    - Has a stateflow variable authState, that is tied to authRepository.observeAuthState()
+        - The authRepository.observeAuthState() returns an AuthState object which contains userId, isLoggedIn, isEmailVerified,  isLocationVerified, isScreenNameGenerated
+            i.e. all the state parameters needed to determine the user's authentication level 
+        - There is a .stateIn method to convert it from Flow to StateFlow
+
+feature_auth:
+- This feature holds all the logic for authenticating the user such as isLoggedIn, isEmailVerified, isLocationVerified etc
+- AuthRepository:
+    - Contains these methods: signIn, signOut, sendEmailVerification, isEmailVerified, observeAuthState
+- AuthRepositoryImpl:
+    - Takes in FireBaseAuth, SecureStorage and userRepository in the constructor
+    - signIn method
+        - Uses fireBaseAuth to sign in with email and password, 
+        - Gets user object from firebaseAuth
+        - gets token from user object and stores token in SecureStorage
+        - It does this for session management 
+    - signOut method:
+        - signs out using firebaseAuth and clears token using secureStorage
+    - sendEmailVerification method:
+        - uses firebaseAuth to send email verification
+    - isEmailVerified:
+        - uses firebaseAuth to get the current user, then checks currentUser.isEmailVerified
+    - observeAuthState method:
+        - This method is automatically called when the splash screen starts up 
+        - It then registers an AuthStateListener adn starts monitoring changes to the authentication state 
+        - So if the user somehow logged out during firebase, this method would be called 
+        - The observeAuthState method starts by looking for a user that's currently logged in
+        - If it can't find one, it sets the AuthState parameters to null or false and emits an event
+        - If it finds one, it does this: 
+            - Calls userRepository.getUser(user.uuid) to fetch the current user object from firebase
+            - It now has two user objects: the one from FireBaseAuth called firebaseAuthUser, and the one from the database called firebaseDatabaseUser
+            - For the AuthState object it sets these fields:
+                - isLoggedIn from the firebaseAuthUser
+                - isEmailVerified from the firebaseAuthUser
+                - isLocationVerified from the firebaseDatabaseUser
+                - isScreenNameGenerator from the firebaseDatabaseUser
+                - userId from the firebaseAuthUser
+            - It then emits an event with the AuthState
+- The auth feature has these use cases: 
+    - SignInUseCase, SendEmailVerificationUseCase, CheckEmailVerifiedUseCase, CheckLocationVerifiedUseCase 
+- Key features:
+    - Uses firebase authentication to handle token generation and management 
+    - Stores Firebase authentication tokens using EncryptedSharedPreferences for local security (when the user signs in)
+    - Firebase automatically refreshes these tokens when needed
+    - Firebase handles passwords, logins and email verifications 
+    - Uses firebase tokens for secure API calls 
+    - Lets the user have build in session persistence so they can maintain login states across app launches 
+    -  Centralised authentication handling 
+
+feature_user:
+- Contains all logic relating to the user object stored in the database
+- UserRepository:
+    - has these methods: getUser, updateUser
+- UserRepositoryImpl:  
+    - getUser fetches the user from the firebase database using a userId and returns a User object 
+    - updateUser takes in a userId, and a Map<String, Any> called updates. The updates map is used to update the firebase database object
+- In the data folder, the user object reflects the firebase object so has these fields: 
+    - governmentName (String), screenName (String), accountType (String), title (String, nullable), fullyVerified (Boolean), locationVerified (Boolean), location (String, nullable), otherUserInfo (Object)
+        - Where OtherUserInfo has these fields: email (String), profilePictureUrl (String, nullable), phoneNumber (String, nullable)
+        - The account type is an enum, can be any of these - ADMIN, CONSTITUENT, REPRESENTATIVE
+- In the domain folder, the user object has these fields: 
+    - screenName (String), accountType (String), title (String, nullable), fullyVerified (Boolean), locationVerified (Boolean)
+
+  - governmentName (String): The real name of the user.
+  - screenName (String): The name displayed to other users. For representatives, this is the same as their governmentName. For constituents, this is an anonymous system-generated name.
+  - accountType (String): The type of user account. Possible values: "Admin", "Constituent", "Representative".
+  - title (String, nullable): Applicable only for Representative accounts (e.g., "Councillor", "Member of Parliament").
+  - fullyVerified (Boolean): Indicates if the user has been verified by a software developer.
+  - locationVerified (Boolean): Indicates if the user's location has been verified.
+  - location (String, nullable): The verified location of the user, if locationVerified is true.
+  - otherUserInfo (Object):
+    - email (String): The user's email.
+    - profilePictureUrl (String, nullable): The user's profile picture URL.
+    - phoneNumber (String, nullable): The user's phone number, if provided.
+
+-------------
+
+This is my android kotlin jetpack compose, dagger hilt project. 
+
+I've given you the description for how my code should work and a lot of my code
+
+Give me a brief explanation at the top of the response about what you did. 
+
+Whenever you give me code, give me the entire file, don't abbreviate 
+
+don't leave comments in the code 
+
+IMPORTANT - Only give me files where you have made changes. If you haven't changed a file, don't give it to me
+
+IMPORTANT - For any answer you give me, use the most robust and scaleable architecture possible. 
+
+IMPORTANT - Whenever you add, delete or modify the name of a method, find all the places where that method is called and make sure that file it's called from is updated properly
+
+IMPORTANT - Whenever you call a method from a file, make sure that method exists in the underlying file and is instantiated somewhere. Don't called a method that isn't instantiated. 
+
+IMPORTANT - When you make a code change, do not change any existing functionality that has not been specifically requested. Make sure that all the changes you make keep the existing functionality intact and comply with the functionality descriptions above 
+
+-------------
+
+read back to me my user feature files and authenitcation feature files 

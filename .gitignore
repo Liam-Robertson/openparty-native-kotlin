@@ -1,0 +1,44 @@
+# Ignore Gradle files
+.gradle/
+build/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore local properties
+local.properties
+
+# Ignore logs and temp files
+*.log
+*.tmp
+
+keystore.properties
+
+app/release/*
+app/src/debug/*
+
+------------
+
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/createChunkMetadataFiles/outputIssueMetadataFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/createChunkMetadataFiles/outputReportSummaryFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/createChunkMetadataFiles/processedMetadataFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/groupRawTextByIssue/outputSectionChunks/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/groupRawTextByIssue/processedRawTextSections/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/groupRawTextByIssue/processedProcessedRawTextSections/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/metadataSecondPass/outputReportSummaryFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/breakMeetingTextToSections/metadataSecondPass/processedMetadataFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/createNewsReports/createReportBlueprintFiles/processedSectionChunkFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/createNewsReports/createReportBlueprintFiles/outputChunkMetadataFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/createNewsReports/writeFinalReport/processedChunkMetadataFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/createNewsReports/writeFinalReport/writeFinalReport/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/finalOutput/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/textTranscriptions/outputTextTranscriptions/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/textTranscriptions/processedTextTranscriptions/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/transcribeMeetingAudioToText/inputAudioFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/transcribeMeetingAudioToText/processedAudioFiles/
+app/src/main/java/com/openparty/app/scripts/meetingToVoice/transcribeMeetingAudioToText/tempChunks/
+

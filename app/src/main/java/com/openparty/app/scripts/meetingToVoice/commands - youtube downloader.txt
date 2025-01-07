@@ -1,0 +1,10 @@
+youtube downloader - yt-dlp
+
+yt-dlp -x --audio-format mp3 https://www.youtube.com/watch?v=OaMkCM1Dp-A
+yt-dlp -o "2024-09-20 - Housing Services PDSP" https://www.youtube.com/watch?v=OaMkCM1Dp-A -x --audio-format mp3 -P "C:\Users\liamj\programming\OpenParty\app\src\main\java\com\openparty\app\scripts\meetingToVoice\transcribeMeetingAudioToText\inputAudioFiles"
+yt-dlp -o "2024-09-24 - West Lothian Council" https://www.youtube.com/watch?v=JDn7gXRLC0s-A -x --audio-format mp3 -P "C:\Users\liamj\programming\OpenParty\app\src\main\java\com\openparty\app\scripts\meetingToVoice\transcribeMeetingAudioToText\inputAudioFiles"
+
+To do:
+I do think you'll end up breaking this into chunks, labelling the chunks by meaning, doing a second pass on all the labels to make them more meaningful, then running it through a python script to actually split  the chunks according to their meaning
+
+Option 2 is just to run it through in chunks, let it label every chunk and give you the entire output,

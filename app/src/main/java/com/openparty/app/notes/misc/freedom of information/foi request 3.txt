@@ -1,0 +1,88 @@
+// This foi request is just to get the base of the tree structure, it's not intended to be comprehensive
+// You can think of the information i need in levels:
+//     - Level 1 - A list of all the services that the council provides. Also includes all the sub services in detailed granularity
+//                 - Also includes the cost of all high level services and the total spend of the council
+//     - Level 2 - A list of the rules for each service and sub service
+//                 - This includes what sub services are discretionary and which are statutory
+//                 - If they are statutory, what are the laws governing them
+//                 - For any law given, give the source of the law (i.e. document and page number)
+//     - Level 3 - A comprehensive breakdown of spending
+//                 - A list of the spending for each sub service
+//                 - A breakdown of all the transactions in each sub service, including who they went to and why
+//
+// It's unlikely you can get all of this in a single foi request so you're going to have to do this in parts
+// I'm going to start with a refined search of level 1
+// I'm intentionally making this a narrow search because I want them to do a good job
+// I want them to give me all the sub services possible that the council runs, I don't want them to miss anything
+// Level 1 is the base of the tree structure, it's the most important part. I need them to do a good job
+// To ensure that happens, I'm narrowing my search and not asking for too much
+// Once I have level 1, I can ask for level 2 and level 3
+// Level 2 and level 3 foi requests can be done in parallel to make this faster
+// However level 1 needs to be done first since it's the basis for the level 2 and level 3 requests
+
+-----------
+
+Under the Freedom of Information (Scotland) Act 2002, I am writing to request access to records detailing West Lothian Council’s services and financial transactions for the financial year 2023/2024.
+
+1)
+Please supply a list of all the high-level services that the council provided in the financial year 2023/2024.
+For example, services like education, social services, housing, etc.
+Also, provide the total spend on each service.
+
+Furthermore, give the total amount spent by the council in the financial year 2023/2024.
+The cost for all services given above should equal the total amount spent by the council in this period.
+If this is not the case, explain any discrepancies between the total spend on services and the total amount spent by the council. Give a breakdown of these discrepancies.  
+For each service (or discrepency), provide a description of what the service does and why it exists.  
+
+2)
+For each high-level service given above, break it down into its sub-services.
+For example, if the high-level service was "Social Services", then the sub-service might be "Adult Social Care".
+For each of these sub-services, give the total amount spent. The total amount spent on each sub-service should add up to the total amount spent on the high-level service.
+For example, if the "Social Care" service had seven sub-services, then the cost for each of those seven sub services should add up to the total amount stated under "Social Care". 
+If this is not the case, explain any discrepancies. Give a breakdown of these discrepancies.
+For each sub-service (or discrepency), provide a description of what the sub-service does and why it exists.  
+
+3)
+Continue to break down each sub-service into further sub-services.
+For example, if the high-level service was "Social Services", then the sub-service might be "Adult Social Care". Then the level below that might be "Home Care Assistance".
+For the purposes of this request, I'll refer to these services and sub-services as level 1 services, level 2 services, level 3 services, etc. according to their sub-level.
+In the above example, "Social Services" is a level 1 service, "Adult Social Care" is a level 2 service, "Home Care Assistance" is a level 3 service. 
+Break down each service into as many sub-services as possible – until it cannot be broken down any further. This is required in as much granularity as possible.
+When this is finsihed, the report should contain a complete list of all services and functions operated or funded by the council. 
+
+For each sub-service, provide a description of what the sub-service does and why it exists.  
+
+The amount spent on each service is only required for level 1 services and level 2 services. It is not required for all sub-services.
+
+------------------
+
+
+Please supply a list of the all the services that the council provided in the financial year 2023/2024. 
+
+Also provide the total amount spent by the council in the financial year 2023/2024. 
+The cost for all services given above should equal the total amount spent by the council in this period.
+If this is not the case, explain any discrepancies between the total spend on services and the total amount spent by the council. Give a breakdown of these discrepencies. 
+
+Then break down each service into its constituent sub services. 
+For example, if the service was "Children's Services", then a function might be "Foster Care and Adoption Services".
+If the service was "Adult Social Care", then a function might be "Services for Individuals with Disabilities".
+
+For each function, give the total amount spent. The cost for all functions given above should equal the total amount spent for that service.
+For example, if the service was "Children's Services" it might have the following functions: 
+    - Adoption Services
+    - Early Help and Family Support
+    - Youth Offending Services
+In this case, the cost of each of those function should add up to the total cost spent on Children's Services.
+If the cost for all functions does not add up to the amount spent on the services then explain any discrepencies. 
+
+Continue to break each service down into as many sub services as possible until they cannot be broken down further. Give the number of sub services in as much granularity as possible. 
+
+For each sub service, give this information: 
+- Whether that service is statutory or discretionary
+- What the government mandated rules are for that service (and the document/page number they can be found in)
+
+
+
+Also provide the total amount spent by the council in the year 2024.
+The cost for all services given above should equal the total amount spent by the council in 2024.
+If this is not the case, explain any discrepancies between the total spend on services and the total amount spent by the council.

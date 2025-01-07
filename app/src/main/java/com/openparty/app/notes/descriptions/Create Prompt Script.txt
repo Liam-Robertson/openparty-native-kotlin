@@ -1,0 +1,217 @@
+- I have the above text file, located here - ../../notes/prompts/main prompt.txt
+- Make all paths relative to where the script is located, not where the script is called from 
+    - This probably means using absolute paths
+- If you can't find an input directory then throw an error, don't create directories (the same for files)
+- The only file you should be creating is the output file. If the output file already exists, then overwrite it
+
+- I want to write a script that takes in the above text from ../../notes/prompts/main prompt.txt, then adds code (in plain text format) where {{MAIN_CODE_BLOCK}} currently is
+    - i.e. the script should find the code from input files, convert it to text, and replace {{MAIN_CODE_BLOCK}} with the code text 
+- The input code is located here ../../ (i.e. just go back two directories to find it)
+    - for example ../../feature_newsfeed or ../../feature_discussiosn
+- Here is the package structure so you better understand:
+
+com.openparty.app
+├── di
+│   ├── AppModule.kt
+│   ├── CommentsModule.kt
+│   ├── LocationVerificationModule.kt
+│   └── UserModule.kt
+├── feature_comments
+│   ├── data
+│   │   ├── CommentsRemoteDataSource.kt
+│   │   └── CommentsRepositoryImpl.kt
+│   ├── domain
+│   │   ├── model
+│   │   │   ├── CommentData.kt
+│   │   │   └── CommentNode.kt
+│   │   └── repository
+│   │       └── CommentsRepository.kt
+│   └── presentation
+│       ├── AddCommentScreen.kt
+│       ├── AddCommentViewModel.kt
+│       ├── CommentCard.kt
+│       ├── CommentsCardList.kt
+│       ├── CommentsSection.kt
+│       └── ReplyFooter.kt
+├── feature_discussions
+│   ├── data
+│   │   ├── CommentsRemoteDataSource.kt
+│   │   ├── DiscussionsFirestorePagingSource.kt
+│   │   ├── DiscussionsPagingSourceFactory.kt
+│   │   ├── DiscussionsRemoteDataSource.kt
+│   │   ├── DiscussionsRepositoryImpl.kt
+│   │   └── DiscussionVotesRemoteDataSource.kt
+│   ├── domain
+│   │   ├── model
+│   │   │   ├── DiscussionArticleData.kt
+│   │   │   └── DiscussionPreviewData.kt
+│   │   └── repository
+│   │       └── DiscussionsRepository.kt
+│   └── presentation
+│       ├── article
+│       │   ├── DiscussionArticleScreen.kt
+│       │   └── DiscussionArticleViewModel.kt
+│       └── preview
+│           ├── AddDiscussionButton.kt
+│           ├── AddDiscussionScreen.kt
+│           ├── AddDiscussionViewModel.kt
+│           ├── DiscussionsPreviewScreen.kt
+│           ├── DiscussionsPreviewViewModel.kt
+│           └── PreviewTextContent.kt
+│
+├── feature_login
+│   ├── data
+│   │   └── LoginRepositoryImpl.kt
+│   ├── domain
+│   │   └── repository
+│   │       └── LoginRepository.kt
+│   └── presentation
+│       ├── EmailVerificationScreen.kt
+│       ├── EmailVerificationViewModel.kt
+│       ├── LoginScreen.kt
+│       ├── LoginViewModel.kt
+│       ├── RegisterScreen.kt
+│       ├── RegisterViewModel.kt
+│       ├── ScreenNameGeneratorScreen.kt
+│       ├── ScreenNameGeneratorUiState.kt
+│       └── ScreenNameGeneratorViewModel.kt
+├── feature_newsfeed
+│   ├── data
+│   │   ├── remote
+│   │   │   └── NewsfeedApi.kt
+│   │   ├── NewsfeedArticlesRemoteDataSource.kt
+│   │   ├── NewsfeedCommentsRemoteDataSource.kt
+│   │   ├── NewsfeedFirestorePagingSource.kt
+│   │   ├── NewsfeedPagingSourceFactory.kt
+│   │   ├── NewsfeedRepositoryImpl.kt
+│   │   └── NewsfeedVotesRemoteDataSource.kt
+│   ├── domain
+│   │   ├── model
+│   │   │   ├── NewsfeedArticleData.kt
+│   │   │   └── NewsfeedPreviewData.kt
+│   │   └── repository
+│   │       └── NewsfeedRepository.kt
+│   ├── media
+│   │   ├── MediaPlaybackService
+│   │   └── PlayerListener
+│   └── presentation
+│   │   ├── article
+│   │   │   ├── NewsfeedArticleScreen.kt
+│   │   │   └── NewsfeedArticleViewModel.kt
+│   │   └── preview
+│   │       ├── NewsfeedPreviewScreen.kt
+│   │       └── NewsfeedPreviewViewModel.kt
+├── feature_start
+│   ├── data
+│   ├── domain
+│   └── presentation
+│           ├── StartScreen.kt
+│           └── StartViewModel.kt
+├── feature_user
+│   ├── data
+│   │   └── UserRepositoryImpl
+│   ├── domain
+│   │   └── repository
+│   │       └── UserRepository.kt
+│   └── presentation
+│       └── UserDataViewModel
+├── feature_verification
+│   ├── domain
+│   │   └── LocationVerifier
+│   └── presentation
+│       ├── LocationVerifierScreen
+│       └── LocationVerifierUiState
+├── navigation
+│   ├── AppNavHost.kt
+│   ├── NavDestinations.kt
+│   └── NavigationFooter.kt
+├── scripts
+│   ├── firebaseScripts
+│   ├── meetingToVoice
+│   └── util
+├── shared
+│   └── presentation
+│       ├── article
+│       │   ├── ArticleFooter.kt
+│       │   ├── ArticleText.kt
+│       │   └── ArticleTitle.kt
+│       ├── post
+│       │   └── PostFooter.kt
+│       ├── preview
+│       │   ├── BasePreviewCard.kt
+│       │   ├── BasePreviewCardData.kt
+│       │   └── PreviewCardList.kt
+│       └── util
+│           ├── LoadingScreen.kt
+│           ├── NotAuthorisedPopup.kt
+│           └── TimestampFormatter.kt
+├── ui.theme
+│   ├── Color.kt
+│   ├── Theme.kt
+│   └── Type.kt
+├── OpenPartyApp.kt
+└── MainActivity.kt
+
+- The script you're writing will be stord in scripts/util/
+- As you can see from the package structure above, the code is split into features (e.g. feature_discussions, feature_comments etc)
+- I want the code to take in text from an input file here: ./inputFeatures.json which will look like this: 
+{
+  "features": ["DI", "COMMENTS", "DISCUSSIONS", "LOGIN", "NEWSFEED", "START", "USER", "VERIFICATION", "NAVIGATION", "SHARED"]
+}
+- The "features" key shows all the input keys the the script should use 
+    - For example, "COMMENTS" means that the script should take feature_comments as an input
+    - For example, "DISCUSSIONS" means that the script should take feature_discussions as an input
+- Here is a mapping between all the enums and all the folders they represent: 
+
+DI -> di
+COMMENTS -> feature_comments
+DISCUSSIONS -> feature_discussions
+LOGIN -> feature_login
+NEWSFEED -> feature_newsfeed
+START -> feature_start
+USER -> feature_user
+VERIFICATION -> feature_verification
+NAVIGATION -> navigation
+SHARED -> shared
+
+- All of  these folders are located two directories back from where the script is located i.e. ../../
+- Again, if any folders can't be found, they shouldn't be created - just throw an error
+- The script should go to ./inputFeatures.json, parse the json for the "features" key, find all the enums under that key, find the folder relating to that enum, get all the code inside that folder, then convert that code to plain text, then append that plain text to a variable. It should do that for every feature specific in ./inputFeatures.json, then it should go to ../../notes/prompts/main prompt.txt and replace {{MAIN_CODE_BLOCK}} with the text inside that variable
+
+- Ill give you an example to make it more clear
+- Let's say ./inputFeatures.json looked like this: 
+
+{
+  "features": ["DI", "COMMENTS", "VERIFICATION", "SHARED"]
+}
+
+- The script should parse the "features" key, get all the values inside it, then iterate through those values
+- Then the script should go to ../../di, search all the sub folders inside that directory and find all the files inside ../../di
+- For each file that it finds, it should take the contents of that file, convert it to plan text .txt, then append it to a variable 
+    - Each file should be separated by this: 
+""
+
+----
+
+""
+- i.e. the contents of each file should be separate by a new line, then ----, then another new line
+- After searching all the subfolders in ../../di, the variable should now contain the contents of all sub files in that location in plain text format
+- This should be appended to a variable outside the loop 
+- Then the script should move onto the next iteration of the loop which, in the above example is "COMMENTS"
+- This means that the script would go to ../../feature_comments, find all the files in all the sub directories, convert the contents to plain text and append it to the variable 
+- It would do this also for "VERIFICATION" and "SHARED" (i.e. ../../feature_verification and ../../shared)
+- Once it has done this for all of the values in the json, it would  then go to ../../notes/prompts/main prompt.txt, find where it says {{MAIN_CODE_BLOCK}}, and replace {{MAIN_CODE_BLOCK}} with the contents of the variable 
+- Once this has finished, the result should be that {{MAIN_CODE_BLOCK}} is replaced with the text contents of all the files in all of the sub folders for these features - ["DI", "COMMENTS", "VERIFICATION", "SHARED"]
+- Then the script should write the final text content to a file called ./outputPrompt.txt
+    - If this file already exists then just overwrite it
+
+- This is the main functionality of the script, but I also want to add a small feature 
+- Some of the folder has a "data" folder
+    - For example ../../feature_verification has a data folder called ../../feature_verification/data
+    - However shared doesn't have a data folder i.e. this path doesn't exist ../../shared/data
+- The data folder isnt' very useful to me so I want the ability to exclude the data folder if I need to 
+- This would mean that the script takes an input parameter which is a flag. If the flag is set to Y, then the data folders are excluded from the directory search 
+- For example, if the flag was set to Y, then  ../../feature_verification/data would not be searched since this is a data folder 
+- The data folder will always be in this format ../../feature/data where feature is the value from the json 
+- Also not all features have a data folder so it should not error if the data folder can't be found, it should just log it
+- The flag should look like this: --excludeData y

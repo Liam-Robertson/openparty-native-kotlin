@@ -1,0 +1,246 @@
+Firestore Database Schema
+
+Discussions Collection (discussions)
+
+Each document in this collection represents a discussion.
+
+- Document ID (discussionId): Unique identifier for the discussion.
+
+- Fields:
+  - title (String): The title of the discussion.
+  - contentText (String): The text content of the discussion.
+  - timestamp (Timestamp): Creation time of the discussion.
+  - upvoteCount (Number): Total number of upvotes.
+  - downvoteCount (Number): Total number of downvotes.
+  - commentCount (Number): Total number of comments.
+
+Example Document Structure:
+json
+{
+  "title": "Community Discussion on Education",
+  "contentText": "This is the text of the discussion article...",
+  "timestamp": "2023-10-01T15:00:00Z",
+  "upvoteCount": 50,
+  "downvoteCount": 5,
+  "commentCount": 10
+}
+
+
+Discussion Votes Collection (discussion_votes)
+
+This collection stores individual upvote and downvote actions by users on discussions.
+
+- Document ID: Combination of discussionId and userId (e.g., discussionId_userId) or auto-generated.
+
+- Fields:
+  - discussionId (String): Reference to the discussion.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "discussionId": "discussionABC",
+  "userId": "user789",
+  "type": "upvote",
+  "timestamp": "2023-10-02T12:30:00Z"
+}
+
+
+Articles Collection (articles)
+
+Each document in this collection represents a newsfeed article.
+
+- Document ID (articleId): Unique identifier for the article.
+
+- Fields:
+  - title (String): The title of the article.
+  - thumbnailUrl (String): URL of the article's thumbnail image.
+  - contentText (String): The text content of the article.
+  - audioUrl (String): URL of the associated audio file.
+  - timestamp (Timestamp): Creation time of the article.
+  - upvoteCount (Number): Total number of upvotes.
+  - downvoteCount (Number): Total number of downvotes.
+  - commentCount (Number): Total number of comments.
+
+Example Document Structure:
+json
+{
+  "title": "Local Government Addresses Social Housing",
+  "thumbnailUrl": "https://example.com/thumbnail.jpg",
+  "contentText": "Detailed article content goes here...",
+  "audioUrl": "https://example.com/audio.mp3",
+  "timestamp": "2023-10-01T12:00:00Z",
+  "upvoteCount": 150,
+  "downvoteCount": 10,
+  "commentCount": 25
+}
+
+
+Article Votes Collection (article_votes)
+
+This collection stores individual upvote and downvote actions by users on articles.
+
+- Document ID: Combination of articleId and userId (e.g., articleId_userId) or auto-generated.
+
+- Fields:
+  - articleId (String): Reference to the article.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "articleId": "article123",
+  "userId": "user456",
+  "type": "upvote",
+  "timestamp": "2023-10-01T12:30:00Z"
+}
+
+
+Comments Collection (comments)
+
+This collection stores all comments and replies associated with both articles and discussions.
+
+- Document ID (commentId): Unique identifier for the comment or reply.
+
+- Fields:
+  - articleId (String, nullable): Reference to the associated article if it's a comment on an article. Null if it's on a discussion.
+  - discussionId (String, nullable): Reference to the associated discussion if it's a comment on a discussion. Null if it's on an article.
+  - parentCommentId (String, nullable): ID of the parent comment if it's a reply; null if it's a top-level comment.
+  - userId (String): Reference to the user who made the comment.
+  - screenName (String): The screenName of the commenter.
+  - contentText (String): The text content of the comment.
+  - timestamp (Timestamp): Time when the comment was made.
+  - upvoteCount (Number): Total number of upvotes for the comment.
+  - downvoteCount (Number): Total number of downvotes for the comment.
+  - repliesCount (Number): Total number of replies to this comment.
+
+Example Document Structure:
+json
+{
+  "articleId": "article123",
+  "discussionId": null,
+  "parentCommentId": null,
+  "userId": "user789",
+  "screenName": "JaneDoe",
+  "contentText": "This is a top-level comment.",
+  "timestamp": "2023-10-01T13:00:00Z",
+  "upvoteCount": 20,
+  "downvoteCount": 2,
+  "repliesCount": 3
+}
+
+Another Example (for a discussion):
+json
+{
+  "articleId": null,
+  "discussionId": "discussionABC",
+  "parentCommentId": null,
+  "userId": "user789",
+  "screenName": "Whimsical Moonlit Forest",
+  "contentText": "This is a discussion comment.",
+  "timestamp": "2023-10-02T13:00:00Z",
+  "upvoteCount": 10,
+  "downvoteCount": 1,
+  "repliesCount": 2
+}
+
+
+Comment Votes Collection (comment_votes)
+
+This collection stores individual upvote and downvote actions by users on comments.
+
+- Document ID: Combination of commentId and userId (e.g., commentId_userId) or auto-generated.
+
+- Fields:
+  - commentId (String): Reference to the comment.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+json
+{
+  "commentId": "comment456",
+  "userId": "user789",
+  "type": "downvote",
+  "timestamp": "2023-10-01T13:15:00Z"
+}
+
+
+Users Collection (users)
+
+The users collection stores user information along with their account types and any additional fields relevant to their roles.
+
+- Document ID (userId): Unique identifier for the user.
+
+- Fields:
+  - governmentName (String): The real name of the user.
+  - screenName (String): The name displayed to other users. For representatives, this is the same as their governmentName. For constituents, this is an anonymous system-generated name.
+  - accountType (String): The type of user account. Possible values: "Admin", "Constituent", "Representative".
+  - title (String, nullable): Applicable only for Representative accounts (e.g., "Councillor", "Member of Parliament").
+  - fullyVerified (Boolean): Indicates if the user has been verified by a software developer.
+  - locationVerified (Boolean): Indicates if the user's location has been verified.
+  - location (String, nullable): The verified location of the user, if locationVerified is true.
+  - otherUserInfo (Object):
+    - email (String): The user's email.
+    - profilePictureUrl (String, nullable): The user's profile picture URL.
+    - phoneNumber (String, nullable): The user's phone number, if provided.
+
+Example Document Structures:
+
+Admin Account:
+json
+{
+  "governmentName": "John Admin",
+  "screenName": "John Admin",
+  "accountType": "Admin",
+  "title": null,
+  "fullyVerified": true,
+  "locationVerified": false,
+  "location": null,
+  "otherUserInfo": {
+    "email": "admin@example.com",
+    "profilePictureUrl": "https://example.com/admin_profile.jpg",
+    "phoneNumber": "+15555550123"
+  }
+}
+
+
+Constituent Account:
+json
+{
+  "governmentName": "John Doe",
+  "screenName": "Whimsical Moonlit Forest",
+  "accountType": "Constituent",
+  "title": null,
+  "fullyVerified": false,
+  "locationVerified": true,
+  "location": "West Lothian",
+  "otherUserInfo": {
+    "email": "johndoe@example.com",
+    "profilePictureUrl": "https://example.com/john_profile.jpg",
+    "phoneNumber": "+15555550124"
+  }
+}
+
+
+Representative Account:
+json
+{
+  "governmentName": "Jane Smith",
+  "screenName": "Jane Smith",
+  "accountType": "Representative",
+  "title": "Councillor",
+  "fullyVerified": true,
+  "locationVerified": true,
+  "location": "West Lothian",
+  "otherUserInfo": {
+    "email": "janesmith@example.com",
+    "profilePictureUrl": "https://example.com/jane_profile.jpg",
+    "phoneNumber": "+15555550125"
+  }
+}

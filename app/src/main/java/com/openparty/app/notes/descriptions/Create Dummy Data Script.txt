@@ -1,0 +1,343 @@
+- I want to create a python script to generate some json
+- I want to generate seven json files which are located here: 
+    - ../resources/articles.json
+    - ../resources/article_votes.json
+    - ../resources/comments.json
+    - ../resources/comment_votes.json
+- I will give you details on how to create each individually
+- If these files don't exist, then create them
+- if they already exist, append the new data to the existing json
+- You can assume the json is in this format: 
+
+[
+  {
+    {Content}
+  },
+  {
+    {Content}
+  }
+]
+
+- So to append the json you would want it to look like this: 
+
+[
+  {
+    {Content}
+  },
+  {
+    {Content}
+  },
+  {
+    {Appended Content}
+  }
+]
+
+- i.e. you want the appended content inside the square brackets 
+- Any file paths should be relative to where the script is located, not where it's called from 
+- The script will take an input file from here: ./input/inputArticles.txt
+- This file will have text lines like this: 
+
+2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages
+2024-09-24_Antisocial Behaviour Management and Legislative Reforms Required
+2024-09-24_Challenges and Criticisms on Winter Fuel Payments and Pensioner Support
+2024-09-24_Community Asset Transfer Challenges in West Lothian
+2024-09-24_Efforts and Challenges in Expanding GP and Healthcare Facilities
+2024-09-24_Impact of Austerity and Financial Constraints on Local Council Services
+2024-09-24_Plans for Road and Transport Infrastructure Development in West Lothian
+
+- Every line of text represents a title of an article that I'm going to use 
+- Once a given title is processed by the script successfully, it should be moved here - ./processed
+- The script should iterate through each of these titles one by one, generating data for each one at a time
+- The titles are in this format: {date}_{header}
+    - So to get the header, you would have to split by underscores
+- The python script should start by creating ../resources/articles.json
+- An example json of articles.json would look like this: 
+[
+  {
+    "articleId": "dDz40UKIlLowXH9hbcWE",
+    "title": "West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.jpg",
+    "contentPath": "./articleText/West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.txt",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.mp3",
+    "timestamp": "2024-09-20T00:00:00Z",
+    "upvoteCount": 8,
+    "downvoteCount": 4,
+    "commentCount": 4
+  },
+  {
+    {more articles...}
+  }
+]
+...   
+
+- So in order to make articles.json, the python script would have to generate all these fields 
+- The python should generate one segment of json for every title in here - ./input/inputArticles.txt
+- So if there are three titles in ./input/inputArticles.txt, then the json would look like this: 
+
+[
+  {
+    {article1}
+  },
+  {
+    {article2}
+  },
+  {
+    {article3}
+  }
+]
+
+- The python script would generate the articleId field by simply generating a random string id 
+- The title field would come from ./input/inputArticles.txt. 
+    - The titles are in this format: {date}_{header}
+    - Therefore the title should be split by underscore to get {header}, then {header} should be put in the "title" field of the json
+- thumbnailUrl should be in this format: "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/{{date}_{header}}.jpg",
+    - So to get this, you can just take the title from inputArticles.txt and append it to this file path - gs://open-party-ad47a.firebasestorage.app/articleThumbnail/
+- The content path field field is the header appended to this file path - ./articleText/
+    - So it's ./articleText/{header}.txt
+- The audio url is the full title appended to this path - gs://open-party-ad47a.firebasestorage.app/articleAudio/
+    - so gs://open-party-ad47a.firebasestorage.app/articleAudio/{{date}_{header}}.mp3
+- The timestamp should be randomly generated within the last year. It should be in this format - "2024-09-20T00:00:00Z",
+- upvoteCount, downVoteCount, commentCount will all initially default to 0 
+    - These will later be changed to their true values after the script generates the rest of the json
+
+- Now that articles.json has been generated, article_votes.json should be generated for that title 
+- article_votes.json example: 
+[
+  {
+    "voteId": "5mh3HBvBmEQ3CUOAOMT0_user1",
+    "articleId": "5mh3HBvBmEQ3CUOAOMT0",
+    "userId": "user1",
+    "type": "upvote",
+    "timestamp": "2023-11-01T10:00:00Z"
+  },
+  {articleVote2},
+  {articleVote3}
+]
+
+- So again, (as for all the json files), if it already exists, then append your new json content to the end of the current json 
+- The voteId field should be a randomly generated string id
+- The articleId should be the articleId from articles.json 
+    - For example, if you had this title - 2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages and you created this json for it in article.json: 
+    {
+    "articleId": "dDz40UKIlLowXH9hbcWE",
+    "title": "West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages",
+    "thumbnailUrl": "gs://open-party-ad47a.firebasestorage.app/articleThumbnail/2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.jpg",
+    "contentPath": "./articleText/West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.txt",
+    "audioUrl": "gs://open-party-ad47a.firebasestorage.app/articleAudio/2024-09-20_West Lothian Faces a Multi-faceted Housing Emergency with a Focus on Homelessness and Resource Shortages.mp3",
+    "timestamp": "2024-09-20T00:00:00Z",
+    "upvoteCount": 8,
+    "downvoteCount": 4,
+    "commentCount": 4
+  }
+    - In this case the article id for that title is dDz40UKIlLowXH9hbcWE
+    - So that means that in article_votes, any article votes generated for that title should have the article id dDz40UKIlLowXH9hbcWE
+- The userId comes from this file - ../resources/users.json
+    - The users.json file looks something like this: 
+        [
+    {
+        "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+        "governmentName": "Benjamin Garcia",
+        "screenName": "Gentle Wanderer Echo",
+        "accountType": "Admin",
+        "title": null,
+        "verified": true,
+        "locationVerified": true,
+        "location": "West Lothian",
+        "otherUserInfo": {
+        "email": "benjamingarcia@gmail.com",
+        "profilePictureUrl": "https://example.com/BenjaminGarcia.jpg",
+        "phoneNumber": "+15555555079"
+        }
+    },
+    {
+        "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+        "governmentName": "Emma Smith",
+        "screenName": "Velvet Wanderer Forest",
+        "accountType": "Admin",
+        "title": null,
+        "verified": true,
+        "locationVerified": true,
+        "location": "West Lothian",
+        "otherUserInfo": {
+        "email": "emmasmith@gmail.com",
+        "profilePictureUrl": "https://example.com/EmmaSmith.jpg",
+        "phoneNumber": "+15555557679"
+        }
+    },
+    {more users},
+    ...
+        ]
+    - when you create an article vote, you should randomly choose a user from ../resources/users.json
+    - For example, for articleVote1, you might randomly choose to assoicate it with the second user "Emma Smith" in which case the userId would be 2916746f-aea2-415e-870d-e3766eb920cc
+    - For every article vote you generate, pick a random user, find that random user's userId, and put that in the userId field for the article vote 
+- The "type" field of the article vote can only be either "upvote" or "downvote". Randomly choose whether the type is going to be upvote or downvote. There should be an 80% change of it being an upvote, and a 20% chance of it being a downvote 
+- The timestamp should be randomly generated but be in the last year and be in this format - "2023-11-01T10:00:00Z"
+- For each title in ./input/inputArticles.txt you should randomly generate a number of article votes. The number of article votes you generate should be between 5 and 50 
+- Once you've finished generating article votes, you should go back to articles.json, find the article you are working on (i.e. the one with the correct articleId) and update the articleVotes field to be the same as the number of article votes you generated
+
+- Now that you have finished generating article_votes.json, the script needs to generate ../resources/comments.json
+- comments.json might look like this: 
+    [
+      {
+        "commentId": "4h23k4j35h23jk",
+        "articleId": "article123",
+        "discussionId": null,
+        "parentCommentId": null,
+        "userId": "user789",
+        "screenName": "JaneDoe",
+        "contentText": "This is a top-level comment.",
+        "timestamp": "2023-10-01T13:00:00Z",
+        "upvoteCount": 20,
+        "downvoteCount": 2,
+        "repliesCount": 3
+      },
+      {
+        "commentId": "890refg79",
+        "articleId": null,
+        "discussionId": "discussionABC",
+        "parentCommentId": null,
+        "userId": "user789",
+        "screenName": "Whimsical Moonlit Forest",
+        "contentText": "This is a discussion comment.",
+        "timestamp": "2023-10-02T13:00:00Z",
+        "upvoteCount": 10,
+        "downvoteCount": 1,
+        "repliesCount": 2
+      },
+    {comment3}
+    ]
+
+- The commentId should be a randomly generated string id
+- Comments can be generated on either discussions or articles, both are stored in this json
+- However right now, we are generating comments for articles, not discussions, we'll generate discussion comments later
+- For this reason, the articleId should be the id of the article you're currently working on and the discussionId should be null
+- The parentCommentId field changes depending on whether your comment is a reply to another comment or not: 
+    - If your comment is a reply to another comment, then parentCommentId is the id of the comment you're replying to 
+    - If your comment is not a reply then parentCommentId is null
+- userId comes from users.json
+    - For every comment you generate, go into users.json, select a user randomly, take their userId
+    - Then put that userId in the userId field for your comment
+    - Also take the screenName from that same user in user.json and put it in the screenName field on your comment
+- Content text comes from here ./input/commentText.txt. It would look like this: 
+Great to see this issue being addressed! It's been a problem for years.
+Can we have more details on the proposed solution?
+I live nearby, and this has been a huge issue for my family.
+This is a step in the right direction, but more needs to be done.
+Why has it taken so long to tackle this?
+I disagree with this approach. We need to explore other options.
+    - i.e. it looks like a series of comments each on a new line 
+    - Randomly choose a comment from commentText.txt and put it in the contentText field of your generated comment
+- The timestamp should be randomly generated but it should be in the last year and be in this format - "2023-11-01T11:00:00Z"
+- upvote count should initially default to zero. We'll change this later when we create comment_votes.json
+- downvote count should initially default to zero. We'll change this later when we create comment_votes.json
+- replies count should initially default to zero whenever you create a comment 
+- For each article header, randomly generate between 5 and 30 comments.
+- Whenever you make a comment, make sure there's a 50% chance that it's a reply to another comment
+    - If you create a reply to another comment, increment the repliesCount field on the parent comment by 1 
+
+
+- Now you have generated comments, I need to generate comment_votes.json which is here ../resources/comment_votes.json
+- It will look something like this: 
+    [
+    {
+        "voteId": "gf798fgsd7",
+        "commentId": "comment1",
+        "userId": "user5",
+        "type": "upvote",
+        "timestamp": "2023-11-01T11:20:00Z"
+    },
+    {commentVote2},
+    {commentVote3},
+    ...
+    ]
+- The voteId field should be a randomly generated string id
+- The commentId should be the id of the comment the vote is associated with 
+    - Whenever you create a comment_vote, go into comments.json, choose a comment at random, and take the commentId from that
+    - The put that commentId in the commentId field for your commentVote
+- The userId field comes from users.json
+    - Whenever you create a comment vote, go into users.json, select a user at random, take the userId from that user and put it in the userId field for your comment vote
+- The type field can only be "upvote" or "downvote". Choose randomly whether it's an upvote or downvote. There should be a 80% chance of it being an upvote, and a 20% chance of it being a downvote
+- The timestamp field should be randomly generated but it should be in the last year and be in this format - "2023-11-01T11:25:00Z"
+- For every comment, randomly generate between 0 and 20 votes 
+
+- The script should run the above logic for every title in ./input/inputArticles.txt.
+- So all of the above logic was for generating Article data, but I also need to generate very similar data for my discussions
+- Once it has finished generating all data for titles in ./input/inputArticles.txt, it should go into ./input/inputDiscussions.txt.
+  - If the script can find any of these input folder paths it should throw an error (it should also throw an error if it can't find the processed file)
+  - This file will have content like this: 
+      How to Apply for Council Housing
+      Affordable Housing Schemes in West Lothian
+      Applying for Planning Permission
+      Paying Your Council Tax Online
+      How to Apply for a Council Tax Discount
+      School Admissions in West Lothian
+      Free School Meals Eligibility
+  - Where each line represents a title for a discussion (separated by a new line)  
+- The script should now take each one of these lines and iterate through them running the following logic:
+  - The logic will be to generate json for these files: 
+    - ../resources/discussions.json
+    - ../resources/discussions_votes.json
+    - ../resources/comments.json
+    - ../resources/comment_votes.json
+  - discussions.json and discussions_votes.json are very similar to how articles.json and articles_votes.json work
+
+The script should start by generating discussions.json
+Here is a json examples:
+
+discussions.json
+[
+  {
+    "discussionId": "pxCMiEhPFidnNeRkHZf5",
+    "title": "How to Apply for Council Housing",
+    "contentPath": "./discussionText/How to Apply for Council Housing.json",
+    "timestamp": "2024-06-19T03:01:01Z",
+    "upvoteCount": 19,
+    "downvoteCount": 3,
+    "commentCount": 30
+  },
+  {discussions 2}
+]
+
+- The discussionId field should be a randomly generated string id
+- The title field would come from ./input/inputDiscussions.txt. 
+- The content path field field is the header appended to this file path - ./discussionText/
+    - So it's ./discussionText/content/{discussion title}.txt
+    - The json in the content path will look like this: 
+      {
+        "title": "Affordable Housing Schemes in West Lothian",
+        "content": "I’ve been looking into affordable housing options in West Lothian, but it’s all so..."
+      }
+- The timestamp should be randomly generated within the last year. It should be in this format - "2024-09-20T00:00:00Z",
+- upvoteCount, downVoteCount, commentCount will all initially default to 0 
+    - These will later be changed to their true values after the script generates the rest of the json
+
+After this generating the discussion.json for a given title input, generate the discussion votes: 
+
+discussions_votes.json
+[
+  {
+    "voteId": "fg789dfds",
+    "discussionId": "dDz40UKIlLowXH9hbcWE",
+    "userId": "user789",
+    "type": "upvote",
+    "timestamp": "2023-10-02T12:30:00Z"
+  }
+]
+
+- The voteId field should be a randomly generated string id
+- The discussionId field should be the discussionId of the parent discussion that this vote is associated with 
+  - For example, if this vote was an upvote on the discussion with the discussion id - "dDz40UKIlLowXH9hbcWE", then it would be discussion id is "dDz40UKIlLowXH9hbcWE"
+- User id - For every article vote you generate, pick a random user, find that random user's userId, and put that in the userId field for the article vote 
+- The "type" field of the article vote can only be either "upvote" or "downvote". Randomly choose whether the type is going to be upvote or downvote. There should be an 80% change of it being an upvote, and a 20% chance of it being a downvote 
+- The timestamp should be randomly generated but be in the last year and be in this format - "2023-11-01T10:00:00Z"
+- For each title in ./input/inputDiscussions.txt you should randomly generate a number of article votes. The number of article votes you generate should be between 5 and 50 
+- Once you've finished generating discussion votes, you should go back to discussions.json, find the article you are working on (i.e. the one with the correct discussionId) and update the discussionVotes field to be the same as the number of discussion votes you generated
+
+- After this, the script then needs to generate comments and comments votes for each discussion title (i.e. comments.json and comments_votes.json)
+- I've already described in detail how to do this above for articles, so I'm not going to describe it in detail again 
+- Generating comments and comments_votes for  discussions is almost identical to generating it for articles
+- The only difference is that, when you're generating for articles, the article id is populated and the discussion id is null
+- When you're generating for discussions, the discussion id is populated and the article id is null 
+- Append all the generated comments and comment votes to comments.json and comment_votes.json 
+- For each discussion title, randomly generate between 5 and 30 comments.
+- For every comment, randomly generate between 0 and 20 votes 

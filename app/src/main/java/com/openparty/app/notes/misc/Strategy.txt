@@ -1,0 +1,70 @@
+Initial goal:
+- Get 10 people who absolutely love open party
+
+Plan
+- Make a spreadsheet of users, track every users level of happiness
+    - Try to get users to the "love" level of happiness, be very honest about who is there and who is not
+- Do individually nice things to each user to get them to the "love" stage
+- Track daily active users
+- Grow 10% each week
+- Start with council housing meetings?
+    - The council housing meetings seem to be decided by relatively few people. It's possible you could make real impact there
+
+Simple manifesto:
+- What actions could you take to reach your  two year goal in the next six months
+- Do nice things individually to each user
+- Be a super user
+- Untargeted launch to find first users
+- Use metrics to see who likes it most
+    - Focus on delighting the users who already use it most
+- Track daily active usage
+- Ignore feedback from non ideal customers
+- Grow at 10% every week g./
+  - Be a super user - you should be the number one user on the platform
+- Delight your users
+    - Go out of your way to make them happy
+    - Think of ways to make them happy12e34
+    - Insanely great customer service
+- Track daily active users - look at it every day
+- Don't take feedback from your friends, they'll lie to you
+    - Getting feedback from the right customers matters, it can't just be anyone
+    - You need to find the people in the community who actually have this problem
+    - For you, that will likely be the people in the community who are already doing community work and are involved
+- Get 10 users who really love your product, not just like - love
+    - It's better to have 10 people who really love your product than 100 users who like it
+    - Find 10 users who truly love what you're building, then build for them
+    - Find 10 people and make it your mission to make them ridiculously happy
+    - That's your only job - make those people ridiculously happy
+    - Care for them, ask them their needs, build for them, listen to them
+    - Make those 10 people unbelievably happy
+- Track users for daily usage. You're optimising for daily usage per user
+- Focus - don't build too many features
+- Simplicity
+    - having a simple service makes it easier to use
+    - having too many features causes clutter
+- Magic moment
+    - Figure out what your magic moment is and get each user to that when  you install for them
+    - Is it just commenting on a post? Is it finding a post they really like
+    - Maybe this will be based around communities and
+
+
+To think about:
+- Optimise specifically for councillor usage?
+    - I think it's possible that the thing this app hinges on most is councillor engagement
+    - If you can get massive councillor engagement then it becomes very useful
+    - If you can't, then it just becomes something that is mildly interesting
+    - Then again you could argue that the thing that will get councillors on board is having constituents on board
+    - That might be true, I'm not sure
+    - I'm not sure if you should maximise for councillor engagement or user engagement
+    - I suspect in the short term you should optimise for councillor engagement
+    - In the long term you should figure out if councillor engagement is based on user engagement
+    - If that's the case, then you would need to just have the most users
+
+UX Testing
+- People are probably not going to understand your UX
+- You should watch them use it to see if they can figure it out
+
+Measure your time:
+- Measure how you actually spend your time while working and categorise it
+- I suspect the optimal split is probably talking to your users 50% of the time and coding 50% and nothing else
+- You should measure this to see if this is what the split actually is

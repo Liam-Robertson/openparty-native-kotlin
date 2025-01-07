@@ -1,0 +1,54 @@
+features:
+  - CORE
+  - NAVIGATION
+  - SPLASH
+  - DISCUSSIONS
+
+_comment1:
+  - CORE
+  - DATABASE_OBJECTS
+  - DI
+  - NAVIGATION
+  - STARTUP
+  - ENGAGEMENT
+  - NEWSFEED
+  - SHARED
+_comment2:
+  - COMMENTS_SECTION
+  - NEWSFEED_ENGAGEMENT
+  - COUNCIL_MEETINGS
+  - DISCUSSIONS
+  - CACHING
+  - USER
+  - WRITE_PROTECTION
+  - AUTHENTICATION
+  - LOGIN
+  - SPLASH
+  - VERIFICATION
+
+# com.openparty.app
+#     ├── core
+#     │   └── data
+#     ├── di
+#     ├── features
+#     │   ├── feature_newsfeed_engagement
+#     │   │   ├── feature_comments_section
+#     │   │   └── feature_newsfeed_engagement
+#     │   ├── feature_council_meetings
+#     │   │   ├── feature_caching
+#     │   │   ├── feature_discussions
+#     │   │   └── feature_council_meetings
+#     │   ├── shared
+#     │   │   ├── feature_write_protection
+#     │   │   ├── feature_user
+#     │   │   └── presentation
+#     │   └── startup
+#     │       ├── feature_login
+#     │       ├── feature_authentication
+#     │       ├── feature_splash
+#     │       └── feature_verification
+#     ├── navigation
+#     ├── scripts
+#     ├── ui.theme
+#     ├── OpenPartyApp.kt
+#     └── MainActivity.kt

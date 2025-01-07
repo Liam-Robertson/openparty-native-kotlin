@@ -1,0 +1,9 @@
+Account Types: 
+- I also need different types of user accounts. These will be the types of accounts: 
+    - Admin, Constituent, Representative
+- An admin account is an account for a software developer
+- A constituent account is a standard account type 
+- A representative account is a higher privileged account than consituent but lower than admin 
+- A representative account will have a title associated with it such as "Councillor" or "Member of Parliament"
+    - I need to be able to fetch this account type from the database
+- Representative accounts will have special permissions in future but I haven't written most of them yet 

@@ -1,0 +1,164 @@
+Database objects:
+
+Firestore Database Schema
+
+1. Articles Collection (articles)
+
+Each document in this collection represents a newsfeed article.
+
+- Document ID (articleId): Unique identifier for the article.
+
+- Fields:
+  - title (String): The title of the article.
+  - thumbnailUrl (String): URL of the article's thumbnail image.
+  - contentText (String): The text content of the article.
+  - audioUrl (String): URL of the associated audio file.
+  - timestamp (Timestamp): Creation time of the article.
+  - upvoteCount (Number): Total number of upvotes.
+  - downvoteCount (Number): Total number of downvotes.
+  - commentCount (Number): Total number of comments.
+
+Example Document Structure:
+
+json
+{
+  "title": "Local Government Addresses Social Housing",
+  "thumbnailUrl": "https://example.com/thumbnail.jpg",
+  "contentText": "Detailed article content goes here...",
+  "audioUrl": "https://example.com/audio.mp3",
+  "timestamp": "2023-10-01T12:00:00Z",
+  "upvoteCount": 150,
+  "downvoteCount": 10,
+  "commentCount": 25
+}
+
+
+2. Article Votes Collection (article_votes)
+
+This collection stores individual upvote and downvote actions by users on articles.
+
+- Document ID: Combination of articleId and userId (e.g., articleId_userId) or auto-generated.
+
+- Fields:
+  - articleId (String): Reference to the article.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+
+json
+{
+  "articleId": "article123",
+  "userId": "user456",
+  "type": "upvote",
+  "timestamp": "2023-10-01T12:30:00Z"
+}
+
+
+3. Comments Collection (comments)
+
+This collection stores all comments and replies associated with articles.
+
+- Document ID (commentId): Unique identifier for the comment or reply.
+
+- Fields:
+  - articleId (String): Reference to the associated article.
+  - parentCommentId (String, nullable): ID of the parent comment if it's a reply; null if it's a top-level comment.
+  - userId (String): Reference to the user who made the comment.
+  - username (String): Username of the commenter.
+  - contentText (String): The text content of the comment.
+  - timestamp (Timestamp): Time when the comment was made.
+  - upvoteCount (Number): Total number of upvotes for the comment.
+  - downvoteCount (Number): Total number of downvotes for the comment.
+  - repliesCount (Number): Total number of replies to this comment.
+
+Example Document Structure:
+
+json
+{
+  "articleId": "article123",
+  "parentCommentId": null,
+  "userId": "user789",
+  "username": "JaneDoe",
+  "contentText": "This is a top-level comment.",
+  "timestamp": "2023-10-01T13:00:00Z",
+  "upvoteCount": 20,
+  "downvoteCount": 2,
+  "repliesCount": 3
+}
+
+
+4. Comment Votes Collection (comment_votes)
+
+This collection stores individual upvote and downvote actions by users on comments.
+
+- Document ID: Combination of commentId and userId (e.g., commentId_userId) or auto-generated.
+
+- Fields:
+  - commentId (String): Reference to the comment.
+  - userId (String): Reference to the user who voted.
+  - type (String): Either "upvote" or "downvote".
+  - timestamp (Timestamp): Time when the vote was made.
+
+Example Document Structure:
+
+json
+{
+  "commentId": "comment456",
+  "userId": "user789",
+  "type": "downvote",
+  "timestamp": "2023-10-01T13:15:00Z"
+}
+
+
+5. Users Collection (users)
+
+The users collection will store user information along with their account types and any additional fields relevant to their roles.
+
+Document ID (userId): Unique identifier for the user.
+
+Fields:
+
+username (String): The user's display name.
+accountType (String): The type of user account. Possible values: "Admin", "Constituent", "Representative".
+title (String, nullable): Applicable only for Representative accounts (e.g., "Councillor", "Member of Parliament").
+otherUserInfo (Object): Additional user information as needed.
+Example Document Structures:
+
+Admin Account:
+json
+Copy code
+{
+  "username": "AdminUser",
+  "accountType": "Admin",
+  "otherUserInfo": {
+    "email": "admin@example.com",
+    "profilePictureUrl": "https://example.com/admin_profile.jpg"
+  }
+}
+
+Constituent Account:
+json
+Copy code
+{
+  "username": "JohnDoe",
+  "accountType": "Constituent",
+  "otherUserInfo": {
+    "email": "johndoe@example.com",
+    "profilePictureUrl": "https://example.com/john_profile.jpg"
+  }
+}
+Representative Account:
+
+json
+Copy code
+{
+  "username": "JaneSmith",
+  "accountType": "Representative",
+  "title": "Councillor",
+  "otherUserInfo": {
+    "email": "janesmith@example.com",
+    "profilePictureUrl": "https://example.com/jane_profile.jpg"
+  }
+}

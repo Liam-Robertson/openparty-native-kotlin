@@ -1,0 +1,1255 @@
+[
+  {
+    "voteId": "HsSOE9WJyUCcubxIKlj5",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "downvote",
+    "timestamp": "2024-10-01T00:48:01Z"
+  },
+  {
+    "voteId": "7Bn2I73LqmoFSDKn6cGO",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "downvote",
+    "timestamp": "2024-12-25T02:48:08Z"
+  },
+  {
+    "voteId": "luvzC5moBEOzNIgIZsXf",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-03-01T22:13:25Z"
+  },
+  {
+    "voteId": "0getzUaLUQXwYgAFjKlJ",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-01-17T21:49:14Z"
+  },
+  {
+    "voteId": "Rqiz5XyntucSqcLtaYLO",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-12-09T06:56:05Z"
+  },
+  {
+    "voteId": "HhhipKAxbphfRuofEtE0",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "downvote",
+    "timestamp": "2024-11-18T03:50:20Z"
+  },
+  {
+    "voteId": "cSXr8PrMokHinlw9XPbF",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-03-15T13:53:52Z"
+  },
+  {
+    "voteId": "ayN0fqAzSs4uXHeg9bdX",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-03-16T23:00:59Z"
+  },
+  {
+    "voteId": "1Snkc4rWuaAZDpHLdIhB",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-09-29T18:07:52Z"
+  },
+  {
+    "voteId": "vdvpgVdaJSmnEQgMZae2",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-09-22T18:08:28Z"
+  },
+  {
+    "voteId": "m5SoLNQNlzUd7d0jDmkd",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-05-06T07:45:10Z"
+  },
+  {
+    "voteId": "AU7mtsBYt4LqmLHg7cAf",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "downvote",
+    "timestamp": "2024-01-15T00:48:10Z"
+  },
+  {
+    "voteId": "mwQGph7xCEUaBJIJQ4Sv",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-06-01T15:48:42Z"
+  },
+  {
+    "voteId": "5tZA2QT4K0jfkmonON9g",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-10-16T06:00:29Z"
+  },
+  {
+    "voteId": "rB4KieQmAn8OKBKu6n8Z",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-05-04T19:19:03Z"
+  },
+  {
+    "voteId": "ngKqGhnoB5aLfRVx8UPZ",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-01-19T13:13:25Z"
+  },
+  {
+    "voteId": "kY2R4RUIMZ8PlAIv55Kg",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-09-29T04:55:02Z"
+  },
+  {
+    "voteId": "XhwrrbyyVLxj80LWVkaQ",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-09-11T23:54:21Z"
+  },
+  {
+    "voteId": "HEAmGgPWTUtr9FRYhxXe",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-02-08T02:59:57Z"
+  },
+  {
+    "voteId": "nWZFIAvJjSoXQNUrozrY",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-06-11T09:53:29Z"
+  },
+  {
+    "voteId": "74OVrKzQRIdN6GMV0tAy",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-03-07T22:30:22Z"
+  },
+  {
+    "voteId": "5XV0q3hxVygRwwFqpJB0",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-07-24T21:17:13Z"
+  },
+  {
+    "voteId": "RUDe7pOf4hXwgbtbdYti",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-03-15T17:48:31Z"
+  },
+  {
+    "voteId": "sGQ2aEFm1faTDW2Tt1X3",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-09-07T06:09:19Z"
+  },
+  {
+    "voteId": "yUflAffLK2nhuC5x1OBd",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-01-22T04:04:49Z"
+  },
+  {
+    "voteId": "cXDBpUOcs5lkUofOducB",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-07-22T21:10:57Z"
+  },
+  {
+    "voteId": "aIUd3QXkYLKw6hypzUbi",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-05-30T06:46:07Z"
+  },
+  {
+    "voteId": "9UZIUZfxdOJ2eGBp3pud",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-07-15T18:00:57Z"
+  },
+  {
+    "voteId": "jpyCo5vuvS6FeEopKPFy",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "downvote",
+    "timestamp": "2024-07-25T13:21:43Z"
+  },
+  {
+    "voteId": "dQltjgJJjRrDkI8qUxo0",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-01-14T19:44:04Z"
+  },
+  {
+    "voteId": "DhaGQWYchicpUQEAlrrC",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-04-02T18:01:24Z"
+  },
+  {
+    "voteId": "doAVtKpac24ZCbrKawxV",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-07-02T15:52:35Z"
+  },
+  {
+    "voteId": "dIUUvfYV47uSTQ2KQDyz",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-03-07T11:09:07Z"
+  },
+  {
+    "voteId": "0KoThq9Vay20IKJc5YDC",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-03-04T23:52:47Z"
+  },
+  {
+    "voteId": "O7DqrWHpIqBc5AOktd6T",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-05-01T12:42:35Z"
+  },
+  {
+    "voteId": "gBJzPBTKqbTWXfFghmmR",
+    "councilMeetingId": "2dHXjbriFLSB1IuTPToY",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "downvote",
+    "timestamp": "2024-02-28T17:46:59Z"
+  },
+  {
+    "voteId": "nEA1TOZvVRuaUvz2AvqX",
+    "councilMeetingId": "NDrQEWylELcD5JoxqoWh",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "downvote",
+    "timestamp": "2024-06-08T06:34:25Z"
+  },
+  {
+    "voteId": "8NwgVNOSULbwNQB7cz5P",
+    "councilMeetingId": "NDrQEWylELcD5JoxqoWh",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "downvote",
+    "timestamp": "2024-11-06T08:10:25Z"
+  },
+  {
+    "voteId": "f9tt5mUn6bVE0Q4EmbHg",
+    "councilMeetingId": "NDrQEWylELcD5JoxqoWh",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "downvote",
+    "timestamp": "2024-07-18T01:36:01Z"
+  },
+  {
+    "voteId": "VoqyYYwxWakXIWmneYD8",
+    "councilMeetingId": "NDrQEWylELcD5JoxqoWh",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-03-12T00:00:26Z"
+  },
+  {
+    "voteId": "TlzNGJSwqpBy6socKI7D",
+    "councilMeetingId": "NDrQEWylELcD5JoxqoWh",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-04-30T09:04:23Z"
+  },
+  {
+    "voteId": "CzU9VYvHCR1gKpQonlKI",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-11-11T07:00:24Z"
+  },
+  {
+    "voteId": "jxi0XrJ8pdVJ2Z5LblWH",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "downvote",
+    "timestamp": "2024-02-16T23:47:03Z"
+  },
+  {
+    "voteId": "RHHwCwxu7ixccqYNoRQY",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-04-01T23:08:52Z"
+  },
+  {
+    "voteId": "DOPivG3j6G86iRTgax0i",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-12-06T20:39:03Z"
+  },
+  {
+    "voteId": "WC16tTogkdKRDFz8wCtK",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "downvote",
+    "timestamp": "2024-02-02T08:57:51Z"
+  },
+  {
+    "voteId": "bMlwphk3EvWupzAvVOOP",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-08-20T11:29:19Z"
+  },
+  {
+    "voteId": "W1tfElYl3JlnYVwxBSGo",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-09-01T20:05:42Z"
+  },
+  {
+    "voteId": "WjcjkFzP9DIJqTYQsibe",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-12-14T19:31:20Z"
+  },
+  {
+    "voteId": "7ohWiinVwsAMTlY2kmbX",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-03-06T06:23:54Z"
+  },
+  {
+    "voteId": "tDEfcBZFwREdOoRM6uHX",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-09-04T19:27:43Z"
+  },
+  {
+    "voteId": "164qwNiy5eHHE1MD58Ce",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-01-14T02:50:43Z"
+  },
+  {
+    "voteId": "pFxJv9Fj497F8hC3hJeT",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-11-21T17:41:23Z"
+  },
+  {
+    "voteId": "67134D9sTFPu0t6gJfjW",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-11-24T21:02:59Z"
+  },
+  {
+    "voteId": "9vNEwH4ds36sNuJ0e1aI",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-10-25T21:27:49Z"
+  },
+  {
+    "voteId": "fs9f4UL9CdWNSD15GO9C",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-10-09T12:48:55Z"
+  },
+  {
+    "voteId": "7iTrV4CFVBr4l7THB3ib",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-06-01T22:17:28Z"
+  },
+  {
+    "voteId": "lnZcL3z03B87F4iPkxma",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "downvote",
+    "timestamp": "2024-12-08T14:05:44Z"
+  },
+  {
+    "voteId": "GXyPfjXkWpTq32nIqpg6",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-02-12T16:40:47Z"
+  },
+  {
+    "voteId": "WAScI2zpsAzVk3WmHNP0",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-08-04T05:37:01Z"
+  },
+  {
+    "voteId": "GrnEc106ew08W6Hmg2lI",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-01-08T03:54:20Z"
+  },
+  {
+    "voteId": "xV6RMrOyQPo05WrlTBxx",
+    "councilMeetingId": "56nRaVGWIKOgAevRaXfC",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "downvote",
+    "timestamp": "2024-12-18T21:44:59Z"
+  },
+  {
+    "voteId": "WJksWKjeeuuRITCYqtEl",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-05-13T17:08:11Z"
+  },
+  {
+    "voteId": "RyxhKI0G6GiLAqpSKnlo",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-08-14T18:39:05Z"
+  },
+  {
+    "voteId": "UmZSoLeQDIrLkHDMdpba",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-04-08T03:47:10Z"
+  },
+  {
+    "voteId": "YQ3Yw0vb8RtRYaEnjnmk",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-12-09T03:18:04Z"
+  },
+  {
+    "voteId": "qh86qHkyyTk6NoDZw2UC",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "downvote",
+    "timestamp": "2024-02-21T09:25:31Z"
+  },
+  {
+    "voteId": "yjvaWzngIe3Q1FXMjHqZ",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-05-21T06:46:14Z"
+  },
+  {
+    "voteId": "YFNzp63T1aua4jsIZmM9",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-03-30T07:39:11Z"
+  },
+  {
+    "voteId": "h2g30CdMP61D0kWrWJb2",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "downvote",
+    "timestamp": "2024-07-08T12:45:18Z"
+  },
+  {
+    "voteId": "lEipk5YReV1yO6TH62eC",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-08-02T00:30:55Z"
+  },
+  {
+    "voteId": "L4PzJixzj4ciroHmL1RH",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-03-27T09:51:39Z"
+  },
+  {
+    "voteId": "P3GmrAOwdO6eDUKY5TSJ",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-06-13T10:49:30Z"
+  },
+  {
+    "voteId": "m580aW5RWtAc1X9ZiUAC",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-06-07T15:52:32Z"
+  },
+  {
+    "voteId": "dXOblWxVZgiDweP6YLVV",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-06-07T18:01:27Z"
+  },
+  {
+    "voteId": "4uPtTtH1rFluygTubhVG",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-01-03T16:39:00Z"
+  },
+  {
+    "voteId": "D5f5qXv2jiQLwKYtmNjO",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-05-11T04:51:32Z"
+  },
+  {
+    "voteId": "6cE4QENblLThuJf5E6nb",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "downvote",
+    "timestamp": "2024-04-13T09:08:44Z"
+  },
+  {
+    "voteId": "Fy1uVjizYnjb1b7cEngT",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-06-07T03:15:06Z"
+  },
+  {
+    "voteId": "qMVr7PPI1zuTZAXLDF6s",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-09-21T21:08:33Z"
+  },
+  {
+    "voteId": "ULjIk6IytcnoCz4QuPRw",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-12-11T03:45:33Z"
+  },
+  {
+    "voteId": "DTUrDylWIatsvE1gMvbR",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-04-14T07:10:48Z"
+  },
+  {
+    "voteId": "eQ4PmkqYm25UzSJaHsU0",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-01-29T12:51:48Z"
+  },
+  {
+    "voteId": "sQHuS6dYuZ5cCU25rDWs",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "downvote",
+    "timestamp": "2024-09-06T06:23:27Z"
+  },
+  {
+    "voteId": "Fg0C4D3BSIqv9YapT1hm",
+    "councilMeetingId": "lEyUwpawe08bd8KZ1eli",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-07-06T03:28:32Z"
+  },
+  {
+    "voteId": "F4zYKl5XLfeJsl57Ipac",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "downvote",
+    "timestamp": "2024-12-17T22:29:15Z"
+  },
+  {
+    "voteId": "L6r0J7Qu4kXlhLJHm6EA",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-07-05T09:51:16Z"
+  },
+  {
+    "voteId": "1viYmw6zYN2fOiJTvxa8",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-09-17T19:17:17Z"
+  },
+  {
+    "voteId": "mVjSft7RmBWYvlPVckjF",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-02-29T02:34:33Z"
+  },
+  {
+    "voteId": "3SiGyTBWgAoewDzymFPd",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-02-02T02:13:00Z"
+  },
+  {
+    "voteId": "rBObzv3I72z8yK8fqvso",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-06-29T03:14:46Z"
+  },
+  {
+    "voteId": "qoHoiSUEMxmNwpA7ZyhB",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "downvote",
+    "timestamp": "2024-08-10T06:37:31Z"
+  },
+  {
+    "voteId": "uBuNeJIhzfmotzlgKyjF",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-10-20T11:57:46Z"
+  },
+  {
+    "voteId": "l4XQg19zidC85ciOPdmL",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-01-08T00:19:33Z"
+  },
+  {
+    "voteId": "KZJ7W8G2fl0qEq1QUpKa",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-07-24T01:15:32Z"
+  },
+  {
+    "voteId": "HVH3mu1wUereiarXYKLL",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-12-28T19:57:23Z"
+  },
+  {
+    "voteId": "oKSaYdHivuPRa2ldhMov",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-05-14T13:53:25Z"
+  },
+  {
+    "voteId": "TD4YUSf7zaP49WfZtiNY",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-10-22T03:42:23Z"
+  },
+  {
+    "voteId": "eWTQ2eX5NBeHutD501Zh",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "downvote",
+    "timestamp": "2024-07-17T09:08:08Z"
+  },
+  {
+    "voteId": "B2SqYKwx3u6VSPETOW7o",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "downvote",
+    "timestamp": "2024-01-29T15:11:23Z"
+  },
+  {
+    "voteId": "hnpS9dqPlHrvpaWPlyqD",
+    "councilMeetingId": "ecrHujYF2iJPctpsO7e1",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "downvote",
+    "timestamp": "2024-12-24T03:13:39Z"
+  },
+  {
+    "voteId": "EdtFuErqrGYMqNKYjJ98",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-01-29T21:57:08Z"
+  },
+  {
+    "voteId": "en4aatrbHyVWNchZptFV",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-05-18T08:59:10Z"
+  },
+  {
+    "voteId": "Tx8PyLurqZyPkO4HcGOu",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-12-07T16:06:19Z"
+  },
+  {
+    "voteId": "zeafiz5fC0vK1wHXNpAh",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-08-25T08:27:12Z"
+  },
+  {
+    "voteId": "xfJR4O2aBN7JYIEoD23g",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "downvote",
+    "timestamp": "2024-10-13T03:04:28Z"
+  },
+  {
+    "voteId": "4Qh7xr7L7i02HmZG7dYn",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-07-04T14:06:58Z"
+  },
+  {
+    "voteId": "vXWeTEYBzdV30j4hdhS7",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-09-21T19:13:57Z"
+  },
+  {
+    "voteId": "2LqQkZL0AGzXSfIiq4wV",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-10-09T20:25:31Z"
+  },
+  {
+    "voteId": "bb51hqFa7U4Kffj3Q0Iy",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "downvote",
+    "timestamp": "2024-12-10T02:42:26Z"
+  },
+  {
+    "voteId": "0IMObPui3u7hW6i6HyNy",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-04-10T10:17:30Z"
+  },
+  {
+    "voteId": "UEFJE3lTGoiy4iCDjBTh",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-09-26T12:06:35Z"
+  },
+  {
+    "voteId": "RCe4cvVuMh20vbP1X5je",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-06-19T00:50:43Z"
+  },
+  {
+    "voteId": "k2zbiQLYK2v0UgRFAEPz",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "downvote",
+    "timestamp": "2024-01-11T23:04:24Z"
+  },
+  {
+    "voteId": "5Y9XlZ9KvmXE90yyAc5Y",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-07-06T22:59:08Z"
+  },
+  {
+    "voteId": "QemgeFRS9GKivTDgZSYa",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "downvote",
+    "timestamp": "2024-01-27T06:25:31Z"
+  },
+  {
+    "voteId": "Ar41MpINl7yqgBEO3W0l",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-09-15T14:09:54Z"
+  },
+  {
+    "voteId": "sKSN94TUEEAbx7HPga2Z",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-11-26T23:15:22Z"
+  },
+  {
+    "voteId": "YYcNNgluKeOZSLiasi2y",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-02-24T11:30:31Z"
+  },
+  {
+    "voteId": "NwyWGTREaecdvXOf3Cda",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-09-10T13:38:44Z"
+  },
+  {
+    "voteId": "5dgOUB1NCXnpnTgz53tF",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-02-01T07:30:30Z"
+  },
+  {
+    "voteId": "TA1ftY9k0kYnDd9Fxi7Y",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-10-18T14:19:02Z"
+  },
+  {
+    "voteId": "2It45Vfm0C5gzCZgA7S6",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-08-27T18:34:43Z"
+  },
+  {
+    "voteId": "5MbehUfugXVoQ6URliVW",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-09-26T19:14:07Z"
+  },
+  {
+    "voteId": "oGVISwJdAx0NKf5ThItY",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-10-20T09:38:47Z"
+  },
+  {
+    "voteId": "dqxJxsk3eoC7sbhLubEr",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "downvote",
+    "timestamp": "2024-04-06T19:40:10Z"
+  },
+  {
+    "voteId": "lTvujCF8Tav0G7Y9mnbW",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-07-05T14:47:29Z"
+  },
+  {
+    "voteId": "kiF3aVMa80DWhVsXMRim",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-09-04T04:31:06Z"
+  },
+  {
+    "voteId": "Or0QtDdxl3WF5TuhI2yR",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-03-31T05:56:43Z"
+  },
+  {
+    "voteId": "cwhH2TLZLBalww2eq0Ht",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-09-28T05:41:42Z"
+  },
+  {
+    "voteId": "jHfBhhHRRurUObKEFA56",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "downvote",
+    "timestamp": "2024-05-12T19:25:10Z"
+  },
+  {
+    "voteId": "80wVlLFCIIA3WqFK0HrT",
+    "councilMeetingId": "gbjQlkdw1I0g4LnEnTEv",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-05-29T19:29:15Z"
+  },
+  {
+    "voteId": "a0LnN54jOkxXMirDYiqX",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "downvote",
+    "timestamp": "2024-05-17T20:51:58Z"
+  },
+  {
+    "voteId": "I8t6rjymDj3glfrqRqgH",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-11-09T10:42:30Z"
+  },
+  {
+    "voteId": "6kxOYcxt1ilqRRBd54UV",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-07-02T00:24:54Z"
+  },
+  {
+    "voteId": "TtdScmKCVE4EygIC7npV",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-05-04T14:04:59Z"
+  },
+  {
+    "voteId": "RaTKC9Ja5AE1fkj66Jif",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-11-18T16:31:02Z"
+  },
+  {
+    "voteId": "hy0jfU8Mb8OZJl3crHLA",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-06-23T01:37:56Z"
+  },
+  {
+    "voteId": "h1wadlayKgiPgnxCEgPQ",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-11-09T18:37:29Z"
+  },
+  {
+    "voteId": "lnWZhEctZvwAteJvV8nr",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-06-08T00:31:24Z"
+  },
+  {
+    "voteId": "HjlXxzeoEAUFI8MbXJvE",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-04-09T13:45:08Z"
+  },
+  {
+    "voteId": "l0CQ76H85sTh7qqwC5lJ",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-10-16T14:10:21Z"
+  },
+  {
+    "voteId": "EDt2cYklmtC2BaBtMFrX",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-07-22T21:06:09Z"
+  },
+  {
+    "voteId": "plwun3R47kHIVPOzufcm",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "downvote",
+    "timestamp": "2024-04-11T05:45:44Z"
+  },
+  {
+    "voteId": "lLCkMfOPZ9RxuNnKw7xd",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-06-20T02:37:06Z"
+  },
+  {
+    "voteId": "ZPxF12ryVWrxlhTN9Vtn",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-06-18T10:18:21Z"
+  },
+  {
+    "voteId": "O8Nbh6lsL6NlREdTwKsi",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-10-06T08:07:06Z"
+  },
+  {
+    "voteId": "RIfl4eaWFFJf2UeA0io3",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-02-01T06:17:20Z"
+  },
+  {
+    "voteId": "qAr7YCHIqzsmnuegohbP",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-06-11T20:07:05Z"
+  },
+  {
+    "voteId": "jYP55NfJUB8oX2R4INDJ",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-08-05T13:29:03Z"
+  },
+  {
+    "voteId": "LlQP7NxrSEUqFSiXdVR3",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-10-28T03:31:27Z"
+  },
+  {
+    "voteId": "ygbeldIP0p6ap5vMnmmb",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "downvote",
+    "timestamp": "2024-09-19T07:17:58Z"
+  },
+  {
+    "voteId": "V90W2Qs4C7u8YqSZkAlF",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-10-14T17:33:58Z"
+  },
+  {
+    "voteId": "fnvwvAFvdhTUHApqf761",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-03-21T07:07:10Z"
+  },
+  {
+    "voteId": "BqeeL95YUd9N5lxqL8s2",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-05-11T22:56:16Z"
+  },
+  {
+    "voteId": "V26mX27FgYkNtagAzkb6",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "downvote",
+    "timestamp": "2024-10-27T14:44:52Z"
+  },
+  {
+    "voteId": "tQedWydOreZ9DZyFrhsz",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-08-28T06:18:46Z"
+  },
+  {
+    "voteId": "7UE2PhmZ7jO9xhdvlhmr",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-11-25T19:57:12Z"
+  },
+  {
+    "voteId": "AJt2DxZFy2hcXoDentam",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-01-25T06:26:49Z"
+  },
+  {
+    "voteId": "FlgeCdk9SQlk1Pinuhtf",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-11-30T15:28:53Z"
+  },
+  {
+    "voteId": "RxxlJSLwEG4WZ6ItvGrk",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "10384f77-531d-4fdc-b622-1715650f3b80",
+    "type": "upvote",
+    "timestamp": "2024-11-06T07:36:26Z"
+  },
+  {
+    "voteId": "dxSZZAo878vNYVdEIvTU",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "downvote",
+    "timestamp": "2024-07-23T21:14:06Z"
+  },
+  {
+    "voteId": "q7wo3GTysZdJPAK8mBJi",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-05-18T07:37:44Z"
+  },
+  {
+    "voteId": "zfv5PdlBs1h3qJdqs0uA",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-02-04T10:38:34Z"
+  },
+  {
+    "voteId": "BSCH5zSF7UXJcqFnaxvf",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-03-24T11:40:59Z"
+  },
+  {
+    "voteId": "7LuavWYLGQI3CnQE1Xk4",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-09-27T16:54:35Z"
+  },
+  {
+    "voteId": "25yFiC01Rgwia356Zyow",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "downvote",
+    "timestamp": "2024-10-19T19:37:43Z"
+  },
+  {
+    "voteId": "DcOKmGCO7QlmKp3G7lY7",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "downvote",
+    "timestamp": "2024-07-11T22:44:18Z"
+  },
+  {
+    "voteId": "FC5icNf6bofItzuIV5rP",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "ee57804e-d414-4ce6-ad4d-966602965243",
+    "type": "upvote",
+    "timestamp": "2024-06-14T20:53:05Z"
+  },
+  {
+    "voteId": "W9jlJWq5dM7EeDRh1pGj",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0635ff3a-f7ca-492d-bcfe-43d9c76eab3c",
+    "type": "upvote",
+    "timestamp": "2024-11-06T20:15:00Z"
+  },
+  {
+    "voteId": "3T1VRN8FrZzGcjpwqnxX",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-02-17T07:51:55Z"
+  },
+  {
+    "voteId": "iw5oeit5JQispbzaz52m",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-06-14T20:30:00Z"
+  },
+  {
+    "voteId": "V6MWX6uo1073DgfUD8yf",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "0b104f32-4d14-4064-a359-ff7d1bf352ab",
+    "type": "upvote",
+    "timestamp": "2024-06-02T18:35:36Z"
+  },
+  {
+    "voteId": "Ab01MUWo3uixfaWrRggW",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "3b1ae217-6c20-43af-99bb-ba6e3e37a75b",
+    "type": "upvote",
+    "timestamp": "2024-12-24T13:17:05Z"
+  },
+  {
+    "voteId": "N6cUR1Vb8fu0IlYQF1jJ",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "2916746f-aea2-415e-870d-e3766eb920cc",
+    "type": "upvote",
+    "timestamp": "2024-06-27T07:23:54Z"
+  },
+  {
+    "voteId": "QeCQFO5Bk1ZWlAwZkN60",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-06-20T00:51:50Z"
+  },
+  {
+    "voteId": "8JmJ5Rqt01ije7uYyWaU",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "5900ae73-5fb8-491a-b3bb-7f9237989dce",
+    "type": "upvote",
+    "timestamp": "2024-10-09T16:51:21Z"
+  },
+  {
+    "voteId": "tdYRXIeoiU6gdoAbf9oa",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "7f2ea8b6-9fc4-46c0-970d-0e752811cbc9",
+    "type": "upvote",
+    "timestamp": "2024-09-20T22:32:11Z"
+  },
+  {
+    "voteId": "RM7AD2mb3EoSLMmcMCNx",
+    "councilMeetingId": "MM6cJjd939qiXWwd2AOP",
+    "userId": "92497202-122e-4da0-ac81-d3ddbfa4b909",
+    "type": "upvote",
+    "timestamp": "2024-07-17T07:33:18Z"
+  }
+]

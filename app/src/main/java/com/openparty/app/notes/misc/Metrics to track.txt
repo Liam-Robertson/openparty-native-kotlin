@@ -1,0 +1,10 @@
+Metrics to track:
+- Number of daily active users
+- Number of new users
+- User retention
+- Number of times a user opens a discussions preview article
+- Number of times a user opens a newsfeed preview article
+- Number of times a user posts a discussion article
+- Number of times a user leaves a comment on a newsfeed article
+- Number of times a user leaves a comment on a discussions article
+- Council meeting audio duration

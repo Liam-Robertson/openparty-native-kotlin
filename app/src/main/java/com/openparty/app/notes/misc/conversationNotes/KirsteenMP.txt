@@ -1,0 +1,39 @@
+Summary:
+- She was pretty hesitant, raised a lot more concern than optimism
+- When shown the budget screen, she was very hesitant about it
+    - Her point was that, if you show people complicated data they wouldn't understand it
+    - They would then use that to prove points that aren't really valid
+    - i.e. they would use that data to spin whatever point they wanted to make
+- For the issues screen she had concerns
+    - Primary concern was that people would raise issues that are unrelated to the local council i.e. the NHS
+    - Secondary concern was that you can't actually solve issues just because they're raised
+    - For example, if you raise the issue of housing shortages, you can't just solve that
+    - Housing shortages are due to things like local councils not being able to get licenses or people not wanting it in their backyard
+    - Just because someone raises an issue doesn't mean it can be fixed
+- On a more positive note, she gave me some local organisations to contact
+- She seemed to be more optimistic about my ability to help local organisations rather than help people access the council
+
+My thoughts:
+- I'm not surprised about her concerns, most of them were things i had already thought of
+- She was very concerned and quite negative overall
+- I think that's roughly the reception you can expect from MPs, I wouldn't expect people to be happy about this
+- Generally I think you can expect people to think this is a bad idea and you would have to try very hard to convince them
+- The local communities thing is a good place to start though, that's a ripe group of people who are interested in the community
+    - If you are going to have a first set of users it's likely to be there
+- She also seemed quite positive about Tom Conn, sounds like a fierce guy who's passionate about his community
+- But yeah, overall she seemed very negative, I think that's roughly the same reaction you should expect from all councillors
+- Don't expect them to embrace this idea, expect to have to fight hard to convince them
+- Having said that, I don't think I need lots of councillors on my side initially, I think I just need one
+- If you had one councillor on your side, and a few people who were interested in the idea, that would be enough to get started.
+- Her note about local community volunteer groups was interesting but I can't write apps for them
+- It just sounds too boring, spending all my time to use AI to summarise websites of volunteer groups sounds mind numbing
+
+Groups to contact:
+- Linlithgow developement trust - solar project
+- linlithgow cdt
+- linlithgow - st john's group - runs lowport
+- linlithgow community council
+- one linlithgow
+- church group
+- umbrella group
+- a spire linlithgow

@@ -1,0 +1,49 @@
+Version 1:
+- Council meetings
+- Discussions
+- No one can read, until they have full authentication
+
+Version 2:
+- Engagement bars
+- Write protection
+- Can read if you have location but not full auth
+- Fix register screen to have full functionality
+
+
+
+
+
+
+
+
+
+---------------
+
+Version 1 requirements:
+- Audio
+- Text
+- Comment Section
+- Login
+
+Version 2:
+- Internal auth, external anonymity
+- Auto generate names
+- Location gating
+- Councillors accounts being externally authed
+- Verifying accounts - to be done manually by me
+- Read for everyone (who passed location gating), write for verified accounts
+- dummy data script
+
+Version 3:
+- Fix firebase database rules read/write
+- Tracking user usage
+- Link youtube video in text
+- Report bug page
+- Discussion board like reddit
+- Better error handling
+- Better logging
+- Make spotify bar - that shows you what you are currently listening to - goes around all screens
+
+Version 4:
+- Show newsfeed based on watch time
+    - i.e. show newsfeed based on something other than chronological

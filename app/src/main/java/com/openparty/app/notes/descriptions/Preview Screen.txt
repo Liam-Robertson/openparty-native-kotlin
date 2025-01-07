@@ -1,0 +1,18 @@
+Newsfeed Preview Screen:
+- The newsfeed screen shows all the latest issues that the local government has been dealing with
+- It is a list of newsfeed preview items, each represented in a card (which is full screen width)
+- The content inside the card should take up 95% of the card width and be horizontally centred 
+- Each newsfeed preview item has these features: 
+    - A title 
+    - A thumbnail
+    - A footer which contains these: 
+        - A thumbs up icon
+        - Next to that a number representing the number of thumbs up that newsfeed article has
+        - A thumbs down icon
+        - A commments icon
+        - A number representing the number of comments that newsfeed article has 
+- The thumbnail should be full width and be 70% of the height of the container (crop the thumbnail to achieve this if needed) 
+- The rest of the card content should be under the thumbnail and take up the remaining 30% of the card height 
+- The newsfeed screen should use infinite scroll
+    - i.e. the user should be able to scroll down to see more newsfeed preview items and the scroll extends forever (or until items run out)
+- when a user clicks on a newsfeed preview item, it takes the user to the newsfeed article screen

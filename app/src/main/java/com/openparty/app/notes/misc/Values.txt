@@ -1,0 +1,47 @@
+The mission is this:
+Decentralising Democracy
+
+The values are these:
+- Service to Society
+- Security
+- Ethics
+
+- Security has to be the number one value, if you don't have security, everything else here fails
+- Ethics is fairly obvious
+    - You're doing something which is an enormous ethical responsibility
+    - You can't take ethics lightly for this, it has to be unbelievably important
+    - If something will make money but is slightly dodgy from an ethical perspective, then don't do it
+
+
+Alternate value:
+- Governance by problem solving
+- Governance by problem solving is tricky to articulate
+    - Essentially what I mean is focussing on detailed problem solving, mechanism and architecture
+    - Grappling with the underlying details and mechanisms of how systems work
+    - The opposite of this is campaigning
+    - All the people who succeed based on being good at campaigning and charisma are the opposite of what I want
+
+Alternate value:
+- Truth
+    - Most social media networks have a really hard time monitoring the conversation or censoring people
+    - There will be a lot of conversation on this app and that means that will have to be directed somehow
+    - I think directing it based on partisanship would be a wildly bad idea or even directing it based on ethics
+    - I think the best direction is simple - truth
+    - Truth is actually fairly measurable, you could create some sort of algorithm for truth
+    - It also still allows for free speech and controversial ideas
+    - But you do need some direction for the conversation, if you let it run free it'd probably be chaos like Facebook
+    - The direction you should choose is truth
+    - It's important to note that being true is not the same thing as being popular or even being ethical
+    - I can think of lots of things that are unpopular to say and unethical to say but those should probably be allowed as long as they're true
+    - Truth is something you can measure that includes everyone and allows free speech while not having internal biases
+    - For example if you tried to moderate the conversation based on ethics what would happen is that it would just become biased towards your morals
+    - You really need it not to be biased, it needs to be something universal. That's why truth matters
+
+
+Alternative value:
+- Service
+- Caring about society
+    - I think you might need a value that actually represents why you're doing this
+    - You're not doing this because you care about security or ethics, you're doing this because you care about society and you want it to be better
+    - That should probably be your number one value
+    - You need something that represents why you're actually doing this. You want to attract people who care about the same thing
